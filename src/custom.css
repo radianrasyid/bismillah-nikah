@@ -1,0 +1,251 @@
+.register-page{
+    padding: 4rem 4rem;
+}
+
+.button-material.submit-btn{
+    background-color: #2E6A67;
+    box-shadow: none;
+    font-weight: 600;
+}
+
+.footnote{
+    font-size: 10px;
+}
+
+.login-page{
+    background-image: url("./Pages/assets/illustrations/Kaaba.png");
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login-paper{
+    padding: 2rem 2rem;
+}
+
+.carousel-indicators{
+    z-index: -9999999;
+}
+
+.full-page-user{
+    background-color: #2E6A67;
+}
+
+.login-card{
+    margin: auto;
+    background-color: white;
+    border-radius: 8px;
+    width: fit-content;
+    padding: 1rem 2rem;
+    box-shadow: 0px 0px 40px #757575;
+}
+
+.register-paper{
+    border-radius: 8px;
+    padding: 2rem 2rem;
+    background-color: #447B66;
+    height: 100vh;
+    position: relative;
+}
+
+.column-register{
+    width: 50%;
+    height: 100%;
+    background-size: contain;
+}
+
+.column-register.left{
+    /* background-image: url("./Pages/assets/illustrations/Islamic\ Hajj\ Pilgrimage\ Illustration\ -\ Agnytemp.png"); */
+    float: left;
+    padding: 1rem 2rem;
+}
+
+.registrasi-image{
+    display: flex;
+    align-items: flex-end;
+}
+
+.register-words{
+    color: white
+}
+
+.button-material{
+    text-transform: none !important;
+}
+
+.column-register.right{
+    background-color: #96CCA8;
+    padding: 1rem 2rem;
+    float: right;
+    border-radius: 8px;
+}
+
+.input-label-text{
+    font-size: 12px;
+    margin-bottom: -0.0095rem;
+}
+
+.input-form{
+    border-radius: 8px;
+    border: none !important;
+}
+
+.no-border{
+    border: none !important;
+}
+
+.MuiInputBase-input.MuiOutlinedInput-input.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+    border: none;
+}
+
+.paper{
+    background-color: white;
+    padding: 1rem 2rem;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.centerize-label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-sub-title{
+    font-weight: 700;
+}
+
+.card-detailpasien {
+    box-shadow: 0 0 12px rgb(174, 174, 174);
+    border-radius: 8px;
+}
+
+.img-noround {
+    border-radius: 0% !important;
+}
+
+small {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.greenCard {
+    border: solid #46ff6b;
+    background-color: #9dffb1;
+    color: #006815;
+}
+
+.MuiDataGrid-columnHeaders {
+    /* background-color: #EFF8FF; */
+}
+
+.MuiDataGrid-row {
+    background-color: #ffffff;
+}
+
+.MuiDataGrid-row:hover {
+    background-color: #bababa;
+}
+
+.MuiDataGrid-row:active {
+    background-color: #ffffff;
+}
+
+.MuiDataGrid-virtualScroller:hover {
+    background-color: #ffffff;
+}
+
+.MuiDataGrid-footerContainer {
+    background-color: #ffffff;
+}
+
+.text-dark {
+    color: black
+}
+
+.card-dokterlist:hover {
+    transform: scale(1.1);
+    transition: .3s;
+}
+
+.card-dokterlist {
+    transform: scale(1);
+    transition: .3s;
+}
+
+small {
+    font-size: 12px;
+}
+
+.mt-02rem {
+    margin-top: -0.2rem;
+}
+
+.mt-03rem {
+    margin-top: -0.3rem;
+}
+
+.mt-05rem {
+    margin-top: -0.5rem;
+}
+
+.mt-1rem {
+    margin-top: -1rem;
+}
+
+.mt-15rem {
+    margin-top: -1.5rem;
+}
+
+.mt-20 {
+    margin-top: -2rem;
+}
+
+.mt-25 {
+    margin-top: -2.5rem;
+}
+
+.mt-30 {
+    margin-top: -3rem;
+}
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected{
+    background-color: #FFFFFF;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root{
+    background-color: #D7ECFD;
+}
+
+.css-1aquho2-MuiTabs-indicator{
+    background-color: #FFFFFF !important;
+}
+
+.user-edit-maincontainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.user-edit-childcontainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-photo{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: column;
+}
+
+.go-left{
+    display: flex;
+    justify-content: left;
+}

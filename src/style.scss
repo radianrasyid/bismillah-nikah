@@ -1,0 +1,2088 @@
+$blackColor: #343F62;
+$submitColor: #F4D160;
+
+.input-textfield{
+    input{
+        color: $blackColor  !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-style: normal;
+        font-weight: 500 !important;
+        border-radius: 8px !important;
+    }
+}
+
+.login-page{
+    body{
+        background-image: url("./Pages/assets/illustrations/Kaaba.png");
+    }
+}
+
+.submit-btn{
+    color: $submitColor;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Secular+One&display=swap');
+
+$backgroundColor: #F3F7FE;
+$primaryColor: #5ABCBF;
+$softPrimaryColor: #95dae1;
+$hoverPrimaryColor: #65d5e2;
+$secondaryColor: #9f46c8;
+$successColor: #58B0D0;
+$dangerColor: #EB6563;
+$hoverDangerColor: #FB7075;
+$softDangerColor: #ee807e;
+$warningColor: #EF8F3B;
+$softWarningColor: #f0a563;
+$hoverWarningColor: #FEA471;
+$infoColor: #4C9BF8;
+$hoverInfoColor: #659EE2;
+$blackColor: #343F62;
+$borderColor: #dddddd;
+$textLabel: #6a6262;
+$textFooter: #8b8b8b;
+
+.bg-primary {
+    background-color: $primaryColor  !important;
+}
+
+.bg-success {
+    background-color: $successColor  !important;
+}
+
+.bg-warning {
+    background-color: $warningColor  !important;
+}
+
+.bg-danger {
+    background-color: $dangerColor  !important;
+}
+
+.bg-info {
+    background-color: $infoColor  !important;
+}
+
+.bg-soft-primary {
+    background-color: $softPrimaryColor  !important;
+}
+
+.bg-soft-danger {
+    background-color: $softDangerColor  !important;
+}
+
+.bg-soft-warning {
+    background-color: $softWarningColor  !important;
+}
+
+.hms-badge-danger {
+    span {
+        background-color: $dangerColor  !important;
+    }
+}
+
+.text-primary {
+    color: $primaryColor  !important;
+}
+
+.text-info {
+    color: $infoColor  !important;
+}
+
+.text-success {
+    color: $successColor  !important;
+}
+
+.text-danger {
+    color: $dangerColor  !important;
+}
+
+.text-warning {
+    color: $warningColor  !important;
+}
+
+.text-muted {
+    color: #8B97B9 !important;
+}
+
+.font-1 {
+    font-size: 1px !important;
+}
+
+.font-2 {
+    font-size: 2px !important;
+}
+
+.font-3 {
+    font-size: 3px !important;
+}
+
+.font-4 {
+    font-size: 4px !important;
+}
+
+.font-5 {
+    font-size: 5px !important;
+}
+
+.font-6 {
+    font-size: 6px !important;
+}
+
+.font-7 {
+    font-size: 7px !important;
+}
+
+.font-8 {
+    font-size: 8px !important;
+}
+
+.font-9 {
+    font-size: 9px !important;
+}
+
+.font-10 {
+    font-size: 10px !important;
+}
+
+.font-11 {
+    font-size: 11px !important;
+}
+
+.font-12 {
+    font-size: 12px !important;
+}
+
+.font-13 {
+    font-size: 13px !important;
+}
+
+.font-14 {
+    font-size: 14px !important;
+}
+
+.font-15 {
+    font-size: 15px !important;
+}
+
+.font-16 {
+    font-size: 16px !important;
+}
+
+.font-17 {
+    font-size: 17px !important;
+}
+
+.font-18 {
+    font-size: 18px !important;
+}
+
+.font-19 {
+    font-size: 19px !important;
+}
+
+.font-20 {
+    font-size: 20px !important;
+}
+
+.font-21 {
+    font-size: 21px !important;
+}
+
+.font-22 {
+    font-size: 22px !important;
+}
+
+.font-23 {
+    font-size: 23px !important;
+}
+
+.hms-unselect-mui {
+    .MuiSelect-select {
+        color: #b9b9b9;
+    }
+}
+
+.hms-text-label {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    color: $blackColor;
+}
+
+.hms-signin {
+    background-image: url('./Pages/assets/images/cards.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .hms-signin-card {
+        background: #FFFFFF;
+        box-shadow: -8px 4px 8px rgba(190, 190, 190, 0.16), 8px 4px 8px rgba(190, 190, 190, 0.16);
+        width: 27%;
+        padding: 3rem 3rem;
+        border: unset;
+    }
+
+    .hms-signin-title {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 48px;
+        color: #000000;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .hms-signin-label {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 19px;
+        color: #141313;
+    }
+}
+
+.hms-dashboard {
+    .hms-dashboard-small-title {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 23px;
+        color: #141313;
+    }
+
+    .hms-dashboard-time {
+        p {
+            font-family: 'Outfit', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 12px;
+            color: #343F62;
+        }
+
+        svg {
+            margin-right: 5px;
+        }
+    }
+
+    .hms-dashboard-obat {
+        h4 {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 20px;
+            color: #141313;
+        }
+
+        hr {
+            border-top: 3px solid #B5B5B5;
+        }
+    }
+
+    .card-dashboard {
+        box-shadow: -8px -4px 8px rgba(190, 190, 190, 0.16), 8px 4px 8px rgba(190, 190, 190, 0.16);
+        border-radius: 8px;
+        border: unset;
+        padding: 1rem 1rem;
+
+        .card-dashboard-detail {
+            border: 2px dashed #797979;
+            border-radius: 4px;
+            padding: 10px 10px;
+
+            .card-dashboard-detail-table {
+                height: 250px;
+                overflow: auto;
+                padding: 10px 10px;
+
+                &::-webkit-scrollbar {
+                    width: 7px;
+                }
+
+                /* Track */
+                &::-webkit-scrollbar-track {
+                    background: #2a2b3240;
+                    border-radius: 30px;
+                }
+
+                /* Handle */
+                &::-webkit-scrollbar-thumb {
+                    background: #A5ADCF;
+                    border-radius: 30px;
+                }
+
+                /* Handle on hover */
+                &::-webkit-scrollbar-thumb:hover {
+                    background: #949EC6;
+                }
+            }
+
+            .MuiTableHead-root {
+                .MuiTableCell-root {
+                    font-size: 13px !important;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 16px;
+                    color: #141313;
+                }
+            }
+
+            .MuiTableBody-root {
+                .MuiTableCell-root {
+                    font-size: 13px !important;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 16px;
+                    color: #141313;
+                }
+            }
+        }
+
+        .card-dashboard-dashed {
+            position: absolute;
+            top: 9px;
+            background: white;
+            margin-left: 28px;
+            padding: 6px;
+        }
+
+        .card-dashboard-data {
+            position: absolute;
+            top: 5px;
+            right: 45px;
+            background: white;
+            padding: 5px 7px;
+
+            button {
+                font-size: 11px !important;
+            }
+        }
+
+        .card-dashboard-desc {
+            p {
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 25px;
+                color: #141313;
+            }
+
+            h4 {
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 24px;
+                line-height: 25px;
+                color: #141313;
+            }
+        }
+
+        .card-dashboard-history-title {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            color: #141313;
+        }
+
+        .card-dashboard-history-left {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 19px;
+            color: #4A4A4A;
+        }
+
+        .card-dashboard-history-right {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 19px;
+            color: #141313;
+            text-align: right;
+        }
+    }
+}
+
+.hms-sidebar-btn {
+    text-decoration: none;
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    color: #ABACB0;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border: 0;
+
+    .hms-sidebar-btn-cover {
+        display: flex;
+        align-items: center;
+        font-family: 'Secular One', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        text-transform: capitalize;
+
+        .hms-sidebar-btn-cover-icon {
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &:hover {
+        background-color: $primaryColor;
+        border-radius: 10px;
+        color: white !important;
+
+        .hms-sidebar-btn-cover {
+            color: white !important;
+
+            svg {
+                fill: white !important;
+                color: white !important;
+            }
+        }
+
+        svg {
+            fill: white !important;
+            color: white !important;
+        }
+    }
+
+    &:focus {
+        border-radius: 10px;
+        color: white !important;
+        box-shadow: none !important;
+        background-color: $primaryColor;
+
+        svg {
+            fill: white !important;
+            color: white !important;
+        }
+    }
+}
+
+.hms-link-btn {
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    color: $primaryColor;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $hoverPrimaryColor;
+        box-shadow: unset !important;
+    }
+}
+
+.MuiFormControl-root {
+    .MuiOutlinedInput-root {
+        .MuiInputBase-input {
+            font-size: 12px;
+        }
+
+        .MuiOutlinedInput-notchedOutline {
+            top: 0;
+            border-radius: 7px;
+            border-color: $borderColor;
+
+            legend {
+                display: none;
+            }
+        }
+
+        &:hover {
+            .MuiOutlinedInput-notchedOutline {
+                border-color: $primaryColor;
+                border-width: 2px;
+            }
+
+            .MuiInputAdornment-root {
+                .MuiSvgIcon-root {
+                    fill: $primaryColor;
+                }
+            }
+        }
+
+        .MuiSelect-select {
+            padding: 13px 14px;
+        }
+    }
+
+    .Mui-focused {
+        .MuiOutlinedInput-notchedOutline {
+            border-color: $primaryColor;
+            border-width: 2px;
+        }
+
+        .MuiInputAdornment-root {
+            .MuiSvgIcon-root {
+                fill: $primaryColor;
+            }
+        }
+    }
+}
+
+.hms-fix-w {
+    margin-left: 0 !important;
+
+    .MuiFormControlLabel-label {
+        width: 80px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 20px;
+        color: #141313;
+    }
+}
+
+.hms-input-mini {
+    input {
+        padding: 10.5px 14px !important;
+    }
+}
+
+.hms-bottom-text-one {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    color: $blackColor;
+}
+
+.hms-bottom-text-two {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    color: $blackColor;
+}
+
+.hms-split-border {
+    border-top: 3px solid #B5B5B5;
+}
+
+.hms-total-transaction-field {
+    input {
+        font-size: 18px !important;
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        background-color: #f9f9f9;
+        border-radius: 7px;
+    }
+}
+
+.hms-profile-picture {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.hms-dropdown-menu {
+    ul {
+        li {
+            font-family: 'Outfit', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            padding-right: 30px;
+
+            svg {
+                width: 30px;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+.hms-form-password {
+    padding-right: 0 !important;
+}
+
+.hms-btn-login {
+    background: linear-gradient(180deg, rgba(55, 130, 245, 0.81) 0%, #1B4BB1 100%);
+    border: 1px solid #1B4BB1;
+    box-shadow: 8px 4px 8px rgba(135, 191, 252, 0.16);
+    border-radius: 12px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 30px;
+    color: #FFFFFF;
+    width: 75%;
+}
+
+.hms-table-title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #4A4A4A;
+}
+
+.hms-btn-datagrid-detail {
+    text-decoration: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 19px;
+    color: #3782F5;
+}
+
+.hms-pagination-datagrid-textfooter {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    color: $blackColor;
+}
+
+.hms-pagination-datagrid {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+        margin-bottom: 0;
+    }
+
+    nav {
+        ul {
+            button {
+                font-family: 'Outfit', sans-serif !important;
+                font-style: normal !important;
+                font-weight: bold !important;
+                font-size: 13px !important;
+
+                &:hover {
+                    background-color: $softPrimaryColor  !important;
+                    color: white !important;
+                }
+            }
+        }
+    }
+}
+
+.hms-btn-filtercustom-mui {
+    display: flex !important;
+    flex-direction: row-reverse;
+    justify-content: space-between !important;
+    font-family: 'Outfit' !important;
+    font-style: normal;
+    font-weight: 500 !important;
+    text-transform: capitalize !important;
+    color: $blackColor  !important;
+    // border: 2px solid #B5B5B5 !important;
+    border-radius: 0 !important;
+    background-color: rgba(25, 118, 210, 0.04) !important;
+    padding-left: 15px !important;
+    width: 150px;
+
+    svg {
+        fill: $successColor  !important;
+    }
+}
+
+.hms-btn-exportcustom-mui {
+    font-family: 'Outfit' !important;
+    font-style: normal;
+    font-weight: 500 !important;
+    text-transform: capitalize !important;
+    color: $blackColor  !important;
+    // border: 2px solid #B5B5B5 !important;
+    border-radius: 0 !important;
+    background-color: rgba(25, 118, 210, 0.04) !important;
+    width: 150px;
+
+    svg {
+        fill: $successColor  !important;
+    }
+}
+
+.hms-gridtoolbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.hms-form-quickcustom-mui {
+    padding-bottom: 0 !important;
+
+    .MuiInput-underline:before {
+        border-bottom: unset !important;
+    }
+
+    .MuiInput-underline:after {
+        border-bottom: unset !important;
+    }
+
+    .MuiInputBase-root {
+        border-radius: 7px !important;
+        border: 1px solid #DEE7F9;
+        border-radius: 8px;
+    }
+
+    button {
+        display: none;
+    }
+
+    svg {
+        fill: #4A4A4A !important;
+        padding-left: 4px;
+        width: 1.8em;
+    }
+
+    input {
+        font-family: 'Outfit', sans-serif !important;
+        font-style: normal !important;
+        font-weight: 500 !important;
+        color: $blackColor  !important;
+        font-size: 13px !important;
+        padding: 10px 0;
+    }
+
+    input {
+        padding: 12px 14px !important;
+        color: $blackColor  !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-style: normal;
+        font-weight: 500 !important;
+    }
+}
+
+.hms-gridtoolbar-showdata {
+    display: flex;
+    align-items: center;
+    width: 180px;
+
+    .MuiSelect-select {
+        padding: 6px 48px 6px 15px !important;
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+    }
+
+    p {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        color: #4A4A4A;
+        margin-bottom: 0;
+    }
+}
+
+.hms-btn-special-custom {
+    font-family: 'Poppins' !important;
+    font-style: normal;
+    font-weight: 500 !important;
+    text-transform: capitalize !important;
+    color: #141313 !important;
+    border: 2px solid #B5B5B5 !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+
+    svg {
+        fill: $successColor  !important;
+    }
+}
+
+.MuiAppBar-root {
+    z-index: 1050 !important;
+}
+
+.hms-modal-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.hms-modal-text-title {
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: #141313;
+}
+
+.hms-modal-hr {
+    border-top: 2px solid #b9d4ea;
+}
+
+.hms-form-upload {
+    font-size: 13px !important;
+    padding: 0.5rem 1rem !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+
+    &::file-selector-button {
+        padding: 0.63rem 1rem;
+    }
+
+    &:focus {
+        box-shadow: unset !important;
+        border: 1px solid #ced4da;
+    }
+}
+
+.hms-small-textfield {
+    input {
+        padding: 12px 14px !important;
+        color: $blackColor  !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-style: normal;
+        font-weight: 500 !important;
+    }
+
+    .MuiSelect-select {
+        padding: 9.5px 14px !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-style: normal;
+        font-weight: 500 !important;
+    }
+
+    textarea {
+        padding: 12px 14px !important;
+    }
+
+    fieldset {
+        border-radius: 7px !important;
+        border-color: #DEE7F9 !important;
+        // border-width: 1px !important;
+    }
+
+    .MuiInputAdornment-root {
+        p {
+            font-family: 'Outfit', sans-serif !important;
+            font-style: normal;
+            font-weight: 500 !important;
+            font-size: 12px;
+        }
+    }
+
+    .MuiAutocomplete-inputRoot {
+        padding: 0 !important;
+        padding-right: 39px !important;
+    }
+}
+
+.hms-small-textfield.MuiInputBase-readOnly {
+    background-color: $backgroundColor  !important;
+}
+
+.hms-small-textarea {
+    padding: 0 !important;
+
+    textarea {
+        padding: 7px 14px !important;
+    }
+
+    fieldset {
+        border-radius: 7px !important;
+        border-color: #DEE7F9 !important;
+    }
+}
+
+.hms-btn-search {
+    width: 100% !important;
+    padding: 8.35px 10px !important;
+    border-radius: 7px !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-style: normal;
+    font-weight: 600 !important;
+    color: $primaryColor  !important;
+    border: 1px solid $primaryColor  !important;
+
+    &:hover {
+        background-color: #f4feff !important;
+    }
+}
+
+.hms-text-brand-name {
+    font-family: "Secular One", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 19px;
+}
+
+.hms-sidebar-menu-list {
+    .active {
+        &::after {
+            content: " ";
+            width: 5px;
+            height: 50%;
+            background-color: $primaryColor;
+            border-radius: 10px 0 0 10px;
+            position: absolute;
+            right: 0;
+            transition: 0.5ms;
+        }
+
+        .hms-sidebar-btn-cover {
+            color: $primaryColor;
+
+            svg {
+                fill: $primaryColor;
+                color: $primaryColor  !important;
+            }
+        }
+    }
+
+    .hms-sidebar-btn {
+        &:focus {
+            .hms-sidebar-btn-cover {
+                color: white;
+
+                .hms-sidebar-btn-cover-icon {
+                    svg {
+                        color: white !important;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            .hms-sidebar-btn-cover-icon {
+                svg {
+                    color: white !important;
+                }
+            }
+        }
+    }
+
+    .MuiListItem-root {
+        padding: 7px 25px !important;
+    }
+}
+
+.hms-sidebar-menu-listmini {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    h1 {
+        img {
+            width: 30px;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h3 {
+        display: none;
+    }
+
+    .hms-sidebar-drawer-covermini {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column-reverse;
+
+        button {
+            margin-right: 0 !important;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .hms-sidebar-btn-cover-icon {
+        svg {
+            margin-right: 0 !important;
+        }
+    }
+
+    .active {
+        &::after {
+            content: " ";
+            width: 5px;
+            height: 50%;
+            background-color: $primaryColor;
+            border-radius: 10px 0 0 10px;
+            position: absolute;
+            right: -5px;
+            transition: 0.5ms;
+        }
+
+        .hms-sidebar-btn-cover {
+            color: $primaryColor;
+
+            svg {
+                fill: $primaryColor;
+            }
+        }
+    }
+
+    .hms-sidebar-btn {
+        text-align: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+
+        &:focus {
+            .hms-sidebar-btn-cover {
+                color: $primaryColor;
+            }
+        }
+    }
+
+    .MuiListItem-root {
+        padding: 7px 25px !important;
+    }
+}
+
+.hms-title-sidebar-menu {
+    padding: 0 30px;
+    font-family: 'Secular One', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 36px;
+    color: #ABACB0;
+}
+
+.hms-btn-menu-burger {
+    background-color: $softPrimaryColor  !important;
+
+    svg {
+        fill: white !important;
+    }
+
+    &:hover {
+        background-color: $primaryColor  !important;
+
+        svg {
+            fill: white !important;
+        }
+    }
+}
+
+.hms-drawer {
+    .MuiDrawer-paper {
+        width: 100px !important;
+        transform: translateX(0) !important;
+        visibility: unset !important;
+    }
+}
+
+.MuiDrawer-paper {
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 30px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #A4D8DF;
+        border-radius: 30px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: $softPrimaryColor;
+    }
+}
+
+.hms-title-before-card {
+    h4 {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        color: #343F62;
+        text-transform: uppercase;
+    }
+
+    .hms-paraf-before-card {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 11px;
+        color: #8B97B9;
+        text-transform: uppercase;
+        margin-left: 15px;
+        margin-bottom: 0;
+        line-height: 0;
+    }
+}
+
+.hms-card {
+    border-radius: 0;
+    border: unset;
+    padding: 10px 25px;
+
+    .hms-card-icon {
+        margin-right: 20px;
+        padding: 10px;
+        border-radius: 100%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hms-card-paraf {
+        p {
+            font-family: 'Secular One', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            color: #343F62;
+            text-transform: uppercase;
+        }
+    }
+
+    .hms-card-detail {
+        border: 2px dashed #797979;
+        border-radius: 4px;
+        padding: 10px 10px;
+
+        .hms-card-detail-table {
+            height: 250px;
+            overflow: auto;
+            padding: 10px 10px;
+
+            &::-webkit-scrollbar {
+                width: 7px;
+                height: 7px;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+                background: #2a2b3240;
+                border-radius: 30px;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: #A5ADCF;
+                border-radius: 30px;
+            }
+
+            /* Handle on hover */
+            &::-webkit-scrollbar-thumb:hover {
+                background: #949EC6;
+            }
+        }
+
+        .MuiTableHead-root {
+            .MuiTableCell-root {
+                font-size: 13px !important;
+                font-family: 'Outfit', sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 14px;
+                color: $blackColor;
+            }
+        }
+
+        .MuiTableBody-root {
+            .MuiTableCell-root {
+                font-size: 12px !important;
+                font-family: 'Outfit', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 14px;
+                color: $blackColor;
+            }
+        }
+    }
+
+    .hms-card-dashed {
+        position: absolute;
+        top: 9px;
+        background: white;
+        margin-left: 28px;
+        padding: 6px;
+    }
+
+    .hms-card-data {
+        position: absolute;
+        top: 5px;
+        right: 45px;
+        background: white;
+        padding: 5px 7px;
+
+        button {
+            font-size: 11px !important;
+        }
+    }
+
+    .hms-card-desc {
+        p {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 25px;
+            color: #141313;
+        }
+
+        h4 {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 25px;
+            color: #141313;
+        }
+    }
+
+    .hms-card-history-title {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 13px;
+        color: $blackColor;
+    }
+
+    .hms-card-history-left {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+    }
+
+    .hms-card-history-right {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        text-align: right;
+    }
+}
+
+.MuiFormControlLabel-label {
+    font-family: 'Outfit', sans-serif !important;
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+}
+
+.hms-btn {
+    font-family: 'Outfit', sans-serif !important;
+    font-style: normal;
+    font-weight: 500 !important;
+}
+
+.hms-btn-primary {
+    background-color: $hoverPrimaryColor  !important;
+    border-radius: 0 !important;
+}
+
+.hms-btn-danger {
+    background-color: $hoverDangerColor  !important;
+    border-radius: 0 !important;
+}
+
+.hms-btn-warning {
+    background-color: $hoverWarningColor  !important;
+    border-radius: 0 !important;
+}
+
+.hms-btn-info {
+    background-color: $hoverInfoColor  !important;
+    border-radius: 0 !important;
+}
+
+.hms-btn-muted {
+    background-color: $backgroundColor  !important;
+    border-radius: 0 !important;
+    color: $blackColor  !important;
+    box-shadow: unset !important;
+}
+
+.hms-btn-link {
+    background-color: unset !important;
+    border-radius: 0 !important;
+    color: $primaryColor  !important;
+    box-shadow: unset !important;
+}
+
+.hms-position-notif {
+    span {
+        top: -5px !important;
+        right: -5px !important;
+    }
+}
+
+.hms-table {
+    .MuiDataGrid-row:nth-of-type(odd) {
+        background-color: $backgroundColor;
+    }
+
+    .MuiTableHead-root {
+        .MuiTableCell-root {
+            font-family: 'Outfit', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 13px;
+            color: $blackColor;
+        }
+    }
+
+    .MuiTableBody-root {
+        .MuiTableRow-root:nth-of-type(odd) {
+            background-color: $backgroundColor;
+        }
+
+        .MuiTableCell-root {
+            font-family: 'Outfit', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            color: $blackColor;
+        }
+    }
+
+    .MuiTableContainer-root {
+        box-shadow: unset !important;
+    }
+}
+
+.MuiDataGrid-main {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.hms-datetime {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    color: $primaryColor;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+.MuiMenuItem-root {
+    font-family: 'Outfit', sans-serif !important;
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+}
+
+.hms-circle-apotek {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-color: $softPrimaryColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        font-size: 2.8rem;
+        color: white;
+    }
+}
+
+.hms-paraf-apotek {
+    h4 {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        color: $blackColor;
+        text-transform: uppercase;
+    }
+
+    p {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        color: $blackColor;
+        margin-bottom: 2px;
+    }
+}
+
+.hms-copy-resep {
+    h3 {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: $blackColor;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .hms-copy-resep-left {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        color: $blackColor;
+        margin-bottom: 2px;
+        width: 120px;
+    }
+
+    .hms-copy-resep-right {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        color: $blackColor;
+        margin-bottom: 2px;
+    }
+}
+
+.hms-modal-transation {
+    h3 {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: $blackColor;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    h6 {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 11px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .hms-modal-transation-left {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        color: $blackColor;
+        margin-bottom: 2px;
+        width: 180px;
+    }
+
+    .hms-modal-transation-right {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        color: $blackColor;
+        margin-bottom: 2px;
+    }
+}
+
+.hms-modal-paraf-default {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+.MuiAutocomplete-popper {
+    .MuiAutocomplete-listbox {
+        li {
+            font-family: 'Outfit', sans-serif !important;
+            font-style: normal !important;
+            font-weight: 500 !important;
+            font-size: 13px !important;
+        }
+    }
+}
+
+.MuiBox-root {
+    padding: 0 !important;
+}
+
+.hms-tabs {
+    .MuiButtonBase-root {
+        font-family: 'Outfit', sans-serif !important;
+        font-style: normal !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+        background-color: white;
+        text-transform: capitalize;
+    }
+
+    .MuiDataGrid-cell {
+        .MuiButtonBase-root {
+            text-transform: uppercase !important;
+            font-size: 11px !important;
+        }
+    }
+
+    .Mui-selected {
+        color: $primaryColor  !important;
+    }
+
+    .MuiTabs-indicator {
+        background-color: $primaryColor  !important;
+    }
+}
+
+.hms-card-table-title {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: #343F62;
+    text-transform: uppercase;
+}
+
+.hms-card-tab-title {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #343F62;
+    text-transform: uppercase;
+}
+
+.hms-card-tab-desc {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    color: #343F62;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.hms-card-tab-desc-top {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: #343F62;
+    margin-bottom: 10px;
+    width: 150px;
+}
+
+.hms-card-tab-desc-detail {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    color: $primaryColor;
+}
+
+.hms-card-tab-desc-note {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    color: #343F62;
+    text-transform: capitalize;
+    margin-bottom: 0;
+}
+
+.hms-tab {
+    .hms-list-border {
+        li {
+            width: 100%;
+            position: relative;
+
+            p {
+                font-family: 'Outfit', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 13px;
+                color: #343F62;
+                text-transform: capitalize;
+                background-color: white;
+                padding: 0 10px;
+                position: relative;
+            }
+
+            &::before {
+                content: " ";
+                width: 90%;
+                border-top: 2px solid $borderColor;
+                position: absolute;
+                bottom: 7px;
+            }
+        }
+    }
+
+    .hms-list-noborder {
+        li {
+            width: 100%;
+            position: relative;
+
+            p {
+                font-family: 'Outfit', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 13px;
+                color: #343F62;
+                text-transform: capitalize;
+            }
+        }
+    }
+}
+
+.hms-list-detail-data {
+    display: flex;
+    align-items: center;
+
+    p {
+        width: 200px;
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        color: #343F62;
+        text-transform: capitalize;
+    }
+
+    span {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        color: $primaryColor;
+        text-transform: capitalize;
+    }
+}
+
+.hms-before-chart-text {
+    h6 {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        color: #343F62;
+        text-transform: capitalize;
+        text-align: center;
+    }
+
+    p {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 11px;
+        color: #343F62;
+        text-transform: capitalize;
+        text-align: center;
+    }
+}
+
+.hms-detail-chart {
+    width: 100%;
+    height: 195px;
+    display: flex;
+    align-items: center;
+
+    .apexcharts-datalabels-group {
+        display: flex;
+        flex-direction: column-reverse;
+
+        text {
+            font-family: 'Poppins', sans-serif !important;
+            font-style: normal;
+            color: #343F62;
+            text-transform: capitalize;
+        }
+
+        .apexcharts-datalabel-label {
+            fill: #ced4da !important;
+            font-weight: 500;
+        }
+
+        .apexcharts-datalabel-value {
+            fill: $primaryColor  !important;
+            font-weight: 600;
+        }
+    }
+
+    .apexcharts-radialbar-area {
+        filter: unset;
+    }
+}
+
+.hms-detail-after-chart-text {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    color: #343F62;
+    text-transform: capitalize;
+}
+
+.swal2-confirm {
+    font-family: 'Outfit', sans-serif !important;
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    background-color: $hoverPrimaryColor  !important;
+    text-transform: uppercase;
+    border-radius: unset !important;
+    box-shadow: 0px 2px 4px -1px #00000033, 0px 4px 5px 0px #00000024, 0px 1px 10px 0px #0000001f !important;
+    padding: 10px 30px !important;
+}
+
+.swal2-title {
+    font-family: 'Outfit', sans-serif !important;
+    font-style: normal;
+    font-weight: 600 !important;
+    font-size: 25px !important;
+    color: $blackColor  !important;
+}
+
+.swal2-html-container {
+    font-family: 'Outfit', sans-serif !important;
+    font-style: normal;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    color: $blackColor  !important;
+}
+
+.hms-swal2-popup-small {
+    width: 20em !important;
+}
+
+.hms-reason-text {
+    font-family: 'Outfit', sans-serif !important;
+    font-style: normal;
+    font-weight: 400 !important;
+    font-size: 13px !important;
+}
+
+.hms-operator-transaction {
+    p {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        color: #343F62;
+        text-transform: capitalize;
+    }
+
+    span {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        color: #8b8b8b;
+        text-transform: capitalize;
+    }
+}
+
+.MuiCalendarPicker-root {
+    margin-top: -8px !important;
+
+    .MuiPickersDay-today {
+        background-color: #e7fdff !important;
+        border: unset !important;
+    }
+
+    .Mui-selected {
+        background-color: $primaryColor  !important;
+    }
+
+    .PrivatePickersSlideTransition-root {
+        min-height: 200px !important;
+    }
+
+    .MuiPickersDay-root {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+    }
+
+    .PrivatePickersFadeTransitionGroup-root {
+        div {
+            font-family: 'Outfit', sans-serif;
+            font-style: normal;
+            font-size: 13px !important;
+        }
+    }
+
+    .PrivatePickersYear-root {
+        button {
+            font-family: 'Outfit', sans-serif;
+            font-style: normal;
+            font-size: 13px !important;
+        }
+    }
+}
+
+.hms-prove-transaction {
+    p {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        color: #343F62;
+        text-transform: capitalize;
+        margin-bottom: 5px;
+    }
+
+    span {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        color: $primaryColor;
+        text-transform: capitalize;
+        margin-bottom: 5px;
+    }
+
+    h5 {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        color: $primaryColor;
+        text-transform: capitalize;
+        margin-bottom: 5px;
+    }
+
+    h6 {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        color: $primaryColor;
+        text-transform: capitalize;
+        margin-bottom: 5px;
+    }
+}
+
+.hms-small-change-icon-btn {
+    position: relative;
+
+    button {
+        position: absolute;
+        right: 0;
+        top: -5px;
+    }
+}
+
+.hms-see-more-position {
+    position: relative;
+    width: 100px;
+
+    button {
+        position: absolute;
+        right: 0;
+        top: -9px;
+    }
+}
+
+.hms-assign-report-text {
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.hms-assigned {
+    text-align: center;
+
+    .hms-assigned-knowing {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        text-transform: capitalize;
+        margin-bottom: 8px;
+    }
+
+    .hms-assigned-position {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 13px;
+        text-transform: capitalize;
+        margin-bottom: 0;
+    }
+
+    .hms-assigned-brand {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 13px;
+        text-transform: capitalize;
+        margin-bottom: 5px;
+    }
+
+    .hms-assigned-sign {
+        margin: 0 auto;
+        padding: 5px;
+        width: 80%;
+        border-bottom: 3px solid $blackColor;
+        margin-bottom: 10px;
+        margin-top: 10px;
+
+        .hms-assigned-sign-img {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .hms-assigned-name {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        text-transform: capitalize;
+        margin-bottom: 0;
+    }
+
+    .hms-assigned-nip {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+}
+
+.hms-desc-supplier {
+    p {
+        font-family: 'Outfit', sans-serif;
+        font-style: normal;
+    }
+
+    .hms-desc-supplier-profile {
+        .hms-desc-supplier-profile-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            background-color: $backgroundColor;
+            border: 2px solid $backgroundColor;
+            padding: 5px;
+            margin-bottom: 15px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 100%;
+            }
+        }
+
+        p {
+            font-family: 'Outfit', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.hms-narahubung {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: $backgroundColor;
+    border: 2px solid $backgroundColor;
+    padding: 5px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+}
+
+.w-left-text {
+    width: 180px !important;
+}
+
+.hms-footer {
+    margin-top: 20px;
+
+    p {
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        text-align: center;
+        margin-bottom: 0;
+    }
+}
+
+.hms-icon-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .MuiIconButton-root {
+        svg {
+            fill: white;
+            color: white;
+        }
+
+        &:hover {
+            background-color: white;
+
+            svg {
+                fill: $primaryColor;
+                color: $primaryColor;
+            }
+        }
+    }
+}
