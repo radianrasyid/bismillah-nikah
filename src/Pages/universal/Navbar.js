@@ -176,7 +176,7 @@ export default function Navbar({props}) {
                      </nav>
                   </div>
                   <div className="header-btn">
-                     <a href="/login" className="button-primary">Pesan Sekarang</a>
+                     <a href="/login" className="button-primary login">Login</a>
                   </div>
                </div>
             </div>

@@ -36,10 +36,10 @@ export default function Login() {
 
   return (
     <div className='login-page'>
+        <img src={logo} className="logo-hrbs" style={{ width: "10rem", height: "10rem", borderRadius: "50%" }} />
         <div className='login-paper'>
             <div className='login-card'>
                 <div className='text-center mb-2'>
-                    <img src={logo} style={{ width: "3rem", height: "3rem" }} />
                 </div>
                 <div className='text-center'>
                     <h4>Login</h4>

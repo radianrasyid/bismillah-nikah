@@ -58,7 +58,7 @@ export default function Homepage() {
                   <div className="container">
                      <div className="banner-content text-center">
                         <h2 className="banner-title">HRB SINERGI</h2>
-                        <p>Agen haji dan umorh terpercaya</p>
+                        <p>Agen haji dan umroh terpercaya</p>
                         <a href="#" className="button-primary">CONTINUE READING</a>
                      </div>
                   </div>

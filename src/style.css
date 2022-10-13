@@ -9218,6 +9218,11 @@ input[type=submit]:focus {
   background-color: #2C75BA;
 }
 
+.button-primary.login{
+  padding: 0.9rem 0.9rem !important;
+  box-shadow: 0 0 1px #2e2e2e;
+}
+
 .button-primary,
 .button-round {
   background-color: rgba(65, 125, 122, 1);
