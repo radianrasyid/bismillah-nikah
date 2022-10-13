@@ -34,7 +34,7 @@ function App() {
   React.useEffect(() => {
     Aos.init();
     Aos.refresh();
-  })
+  }, [])
   return (
     <Routes>
       <Route path="/" element={<Navbar props={<Homepage/>}/>}/>
