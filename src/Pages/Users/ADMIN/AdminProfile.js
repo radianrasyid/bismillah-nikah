@@ -122,7 +122,7 @@ export default function AdminProfile() {
             <script src="https://cdn.jsdelivr.net/npm/react-apexcharts"></script>
           <div className="row mb-3">
             {/* <!-- Item --> */}
-            <div className="col-xl-3 col-sm-6">
+            <div className="col-xl-3 col-sm-3">
                 <Card className='card-admin-dashboard br-8' sx={{ padding: "0.1rem 0.1rem !important"}}>
                     <CardContent sx={{ paddingBottom: "0 !important"}}>
                         <Row>
@@ -151,7 +151,7 @@ export default function AdminProfile() {
                 </Card>
             </div>
             {/* <!-- Item --> */}
-            <div className="col-xl-3 col-sm-6">
+            <div className="col-xl-3 col-sm-3">
                 <Card className='card-admin-dashboard br-8' sx={{ padding: "0.1rem 0.1rem !important"}}>
                     <CardContent sx={{ paddingBottom: "0 !important"}}>
                         <Row>
@@ -180,7 +180,7 @@ export default function AdminProfile() {
                 </Card>
             </div>
             {/* <!-- Item --> */}
-            <div className="col-xl-3 col-sm-6">
+            <div className="col-xl-3 col-sm-3">
                 <Card className='card-admin-dashboard br-8' sx={{ padding: "0.1rem 0.1rem !important"}}>
                     <CardContent sx={{ paddingBottom: "0 !important"}}>
                         <Row>
@@ -208,7 +208,7 @@ export default function AdminProfile() {
                     </CardContent>
                 </Card>
             </div>
-            <div className="col-xl-3 col-sm-6">
+            <div className="col-xl-3 col-sm-3">
                 <Card className='card-admin-dashboard br-8' sx={{ padding: "0.1rem 0.1rem !important"}}>
                     <CardContent sx={{ paddingBottom: "0 !important"}}>
                         <Row>
@@ -238,7 +238,7 @@ export default function AdminProfile() {
             </div>
         </div>
         <div className="row">
-            <div className="col-lg-6">
+            <div className="col-lg-6 col-sm-6">
                 <div className="dashboard-box table-opp-color-box">
                     <Row>
                         <Col>
@@ -292,7 +292,7 @@ export default function AdminProfile() {
                     </div>
                 </div>
             </div> 
-            <div className="col-lg-6">
+            <div className="col-lg-6 col-sm-6">
                 <div className="dashboard-box table-opp-color-box">
                     <Row>
                         <Col>
