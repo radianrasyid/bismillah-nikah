@@ -5,6 +5,7 @@ import { Button, FormControl, OutlinedInput } from "@mui/material";
 import StyledSubmitButton from '../components/buttonSubmit';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import logo from "../assets/images/logo-hrbs.jpg";
 import axios from 'axios';
 
 export default function Login() {
@@ -37,6 +38,9 @@ export default function Login() {
     <div className='login-page'>
         <div className='login-paper'>
             <div className='login-card'>
+                <div className='text-center mb-2'>
+                    <img src={logo} style={{ width: "3rem", height: "3rem" }} />
+                </div>
                 <div className='text-center'>
                     <h4>Login</h4>
                 </div>

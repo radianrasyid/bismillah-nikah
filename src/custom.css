@@ -1,3 +1,5 @@
+import
+
 .register-page{
     padding: 4rem 4rem;
 }
@@ -152,6 +154,10 @@ small {
 
 .MuiDataGrid-columnHeaders {
     background-color: #EFF8FF;
+}
+
+.list-custom{
+    list-style-image: url("./Pages/assetsUser/images/check1.svg");
 }
 
 .MuiDataGrid-row {

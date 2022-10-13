@@ -2,6 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet';
 import travelogo from "../assets/images/travele-logo.png"
 import travelogo1 from "../assets/images/travele-logo1.png"
+import logo from "../assets/images/logo-hrbs.jpg"
 import img1 from "../assets/images/img1.jpg"
 import img5 from "../assets/images/img5.jpg"
 import "../../style.css";
@@ -33,8 +34,8 @@ export default function Navbar({props}) {
                   <div className="site-identity">
                      <h1 className="site-title">
                         <a href="index.html">
-                           <img className="white-logo" src={travelogo} alt="logo"/>
-                           <img className="black-logo" src={travelogo1} alt="logo"/>
+                           <img className="white-logo" src={logo} alt="logo"/>
+                           <img className="black-logo" src={logo} alt="logo"/>
                         </a>
                      </h1>
                   </div>
@@ -175,107 +176,20 @@ export default function Navbar({props}) {
                      </nav>
                   </div>
                   <div className="header-btn">
-                     <a href="/login" className="button-primary">BOOK NOW</a>
+                     <a href="/login" className="button-primary">Pesan Sekarang</a>
                   </div>
                </div>
             </div>
             <div className="mobile-menu-container"></div>
          </header>
+
+         {/* MAIN START */}
          <main id="content" className="site-main">
             {props}
          </main>
+         {/* MAIN END */}
+
          <footer id="colophon" className="site-footer footer-primary">
-            <div className="top-footer">
-               <div className="container">
-                  <div className="row">
-                     <div className="col-lg-3 col-md-6">
-                        <aside className="widget widget_text">
-                           <h3 className="widget-title">
-                              About Travel
-                           </h3>
-                           <div className="textwidget widget-text">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-                           </div>
-                           <div className="award-img">
-                              <a href="#"><img src="assets/images/logo6.png" alt=""/></a>
-                              <a href="#"><img src="assets/images/logo2.png" alt=""/></a>
-                           </div>
-                        </aside>
-                     </div>
-                     <div className="col-lg-3 col-md-6">
-                        <aside className="widget widget_text">
-                           <h3 className="widget-title">CONTACT INFORMATION</h3>
-                           <div className="textwidget widget-text">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                              <ul>
-                                 <li>
-                                    <a href="#">
-                                       <i className="fas fa-phone-alt"></i>
-                                       +01 (977) 2599 12
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="#">
-                                       <i className="fas fa-envelope"></i>
-                                       company@domain.com
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <i className="fas fa-map-marker-alt"></i>
-                                    3146  Koontz, California
-                                 </li>
-                              </ul>
-                           </div>
-                        </aside>
-                     </div>
-                     <div className="col-lg-3 col-md-6">
-                        <aside className="widget widget_recent_post">
-                           <h3 className="widget-title">Latest Post</h3>
-                           <ul>
-                              <li>
-                                 <h5>
-                                    <a href="#">Life is a beautiful journey not a destination</a>
-                                 </h5>
-                                 <div className="entry-meta">
-                                    <span className="post-on">
-                                       <a href="#">August 17, 2021</a>
-                                    </span>
-                                    <span className="comments-link">
-                                       <a href="#">No Comments</a>
-                                    </span>
-                                 </div>
-                              </li>
-                              <li>
-                                 <h5>
-                                    <a href="#">Take only memories, leave only footprints</a>
-                                 </h5>
-                                 <div className="entry-meta">
-                                    <span className="post-on">
-                                       <a href="#">August 17, 2021</a>
-                                    </span>
-                                    <span className="comments-link">
-                                       <a href="#">No Comments</a>
-                                    </span>
-                                 </div>
-                              </li>
-                           </ul>
-                        </aside>
-                     </div>
-                     <div className="col-lg-3 col-md-6">
-                        <aside className="widget widget_newslatter">
-                           <h3 className="widget-title">SUBSCRIBE US</h3>
-                           <div className="widget-text">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                           </div>
-                           <form className="newslatter-form">
-                              <input type="email" name="s" placeholder="Your Email.."/>
-                              <input type="submit" name="s" value="SUBSCRIBE NOW"/>
-                           </form>
-                        </aside>
-                     </div>
-                  </div>
-               </div>
-            </div>
             <div className="buttom-footer">
                <div className="container">
                   <div className="row align-items-center">
@@ -296,11 +210,11 @@ export default function Navbar({props}) {
                      </div>
                      <div className="col-md-2 text-center">
                         <div className="footer-logo">
-                           <a href="#"><img src={travelogo} alt=""/></a>
+                           <a href="#"><img src={logo} style={{ width: "5rem", height: "5rem", borderRadius: "50%" }} alt=""/></a>
                         </div>
                      </div>
-                     <div className="col-md-5">
-                        <div className="copy-right text-right">Copyright © 2021 Travele. All rights reserveds</div>
+                     <div className="col-md-5" style={{ display: "flex", justifyContent: "right" }}>
+                        <div className="copy-right ms-auto">Copyright © 2021 Travele. All rights reserveds</div>
                      </div>
                   </div>
                </div>
