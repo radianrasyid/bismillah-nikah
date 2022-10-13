@@ -1,6 +1,7 @@
 {
   "name": "umrohwebsite",
   "version": "0.1.0",
+  "homepage": "hrbsinergi.com",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
@@ -10,9 +11,12 @@
     "@mui/material": "^5.10.8",
     "@mui/styled-engine-sc": "^5.10.6",
     "@mui/x-data-grid": "^5.17.6",
+    "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "aos": "^3.0.0-beta.6",
+    "apexcharts": "^3.35.5",
     "axios": "^1.1.0",
     "bootstrap": "^5.2.2",
     "react": "^18.2.0",
@@ -21,8 +25,11 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.4.0",
+    "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.1",
     "sass": "^1.55.0",
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"

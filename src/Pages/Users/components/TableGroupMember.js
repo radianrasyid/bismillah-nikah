@@ -162,68 +162,68 @@ function CustomToolbar(props) {
         })
     }
 
-    return (
-        <GridToolbarContainer className='hms-gridtoolbar-container'>
-            {/* <div className='hms-gridtoolbar-showdata'>
-                <p className='me-2'>Show</p>
-                <FormControl fullWidth className=''>
-                    <Select
-                        IconComponent={UnfoldMoreIcon}
-                        value={props.tablePage}
-                        onChange={(e) => handleClick(e)}
-                        className="hms-small-textfield"
-                    >
-                        <MenuItem value={'10'}>10</MenuItem>
-                        <MenuItem value={'25'}>25</MenuItem>
-                        <MenuItem value={'50'}>50</MenuItem>
-                        <MenuItem value={'75'}>75</MenuItem>
-                        <MenuItem value={'100'}>100</MenuItem>
-                    </Select>
-                </FormControl>
-                <p className='ms-2'>data</p>
-            </div> */}
-            <div className='d-flex'>
-                <GridToolbarQuickFilter className='hms-form-quickcustom-mui me-2' />
-                <GridToolbarFilterButton className='hms-btn-filtercustom-mui me-2' />
-                <Dialog
-                    open={open}
-                    TransitionComponent={Transition}
-                    keepMounted
-                    fullWidth
-                    maxWidth={"md"}
-                    onClose={handleCloseAdd}
-                    aria-describedby="alert-dialog-slide-description"
-                >
-                    <DialogTitle>{"Form Tambah Jenis Produk"}</DialogTitle>
-                    <DialogContent>
-                    <DialogContentText id="alert-dialog-slide-description">
-                        <div>
-                            <Row>
-                                <Col>
-                                    <p className='hms-text-label mb-2'>Nama Jenis Produk</p>
-                                </Col>
-                                <Col>
-                                    <FormControl className='mb-3' variant='outlined' fullWidth>
-                                        <OutlinedInput
-                                        type="text"
-                                        className='hms-small-textfield'
-                                        placeholder='Antibiotik'
-                                        onChange={(e) => setType(e.target.value)}
-                                        />
-                                    </FormControl>
-                                </Col>
-                            </Row>
-                        </div>
-                    </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                    <Button onClick={handleCloseAdd}>Disagree</Button>
-                    <Button onClick={onSubmit}>Agree</Button>
-                    </DialogActions>
-                </Dialog>
-            </div>
-        </GridToolbarContainer>
-    );
+    // return (
+    //     <GridToolbarContainer className='hms-gridtoolbar-container'>
+    //         {/* <div className='hms-gridtoolbar-showdata'>
+    //             <p className='me-2'>Show</p>
+    //             <FormControl fullWidth className=''>
+    //                 <Select
+    //                     IconComponent={UnfoldMoreIcon}
+    //                     value={props.tablePage}
+    //                     onChange={(e) => handleClick(e)}
+    //                     className="hms-small-textfield"
+    //                 >
+    //                     <MenuItem value={'10'}>10</MenuItem>
+    //                     <MenuItem value={'25'}>25</MenuItem>
+    //                     <MenuItem value={'50'}>50</MenuItem>
+    //                     <MenuItem value={'75'}>75</MenuItem>
+    //                     <MenuItem value={'100'}>100</MenuItem>
+    //                 </Select>
+    //             </FormControl>
+    //             <p className='ms-2'>data</p>
+    //         </div> */}
+    //         <div className='d-flex'>
+    //             <GridToolbarQuickFilter className='hms-form-quickcustom-mui me-2' />
+    //             <GridToolbarFilterButton className='hms-btn-filtercustom-mui me-2' />
+    //             <Dialog
+    //                 open={open}
+    //                 TransitionComponent={Transition}
+    //                 keepMounted
+    //                 fullWidth
+    //                 maxWidth={"md"}
+    //                 onClose={handleCloseAdd}
+    //                 aria-describedby="alert-dialog-slide-description"
+    //             >
+    //                 <DialogTitle>{"Form Tambah Jenis Produk"}</DialogTitle>
+    //                 <DialogContent>
+    //                 <DialogContentText id="alert-dialog-slide-description">
+    //                     <div>
+    //                         <Row>
+    //                             <Col>
+    //                                 <p className='hms-text-label mb-2'>Nama Jenis Produk</p>
+    //                             </Col>
+    //                             <Col>
+    //                                 <FormControl className='mb-3' variant='outlined' fullWidth>
+    //                                     <OutlinedInput
+    //                                     type="text"
+    //                                     className='hms-small-textfield'
+    //                                     placeholder='Antibiotik'
+    //                                     onChange={(e) => setType(e.target.value)}
+    //                                     />
+    //                                 </FormControl>
+    //                             </Col>
+    //                         </Row>
+    //                     </div>
+    //                 </DialogContentText>
+    //                 </DialogContent>
+    //                 <DialogActions>
+    //                 <Button onClick={handleCloseAdd}>Disagree</Button>
+    //                 <Button onClick={onSubmit}>Agree</Button>
+    //                 </DialogActions>
+    //             </Dialog>
+    //         </div>
+    //     </GridToolbarContainer>
+    // );
 }
 
 function CustomPagination(props) {

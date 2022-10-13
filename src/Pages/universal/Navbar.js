@@ -43,11 +43,6 @@ export default function Navbar({props}) {
                         <ul>
                            <li className="menu-item-has-children">
                               <a href="index.html">Home</a>
-                              <ul>
-                                 <li>
-                                    <a href="index-v2.html">Home 2</a>
-                                 </li>
-                              </ul>
                            </li>
                            <li className="menu-item-has-children">
                               <a href="#">Tour</a>
@@ -75,7 +70,7 @@ export default function Navbar({props}) {
                                  </li>
                               </ul>
                            </li>
-                           <li className="menu-item-has-children">
+                           {/* <li className="menu-item-has-children">
                               <a href="#">Pages</a>
                               <ul>
                                  <li>
@@ -124,35 +119,9 @@ export default function Navbar({props}) {
                                     <a href="wishlist-page.html">Wishlist</a>
                                  </li>
                               </ul>
-                           </li>
+                           </li> */}
                            <li className="menu-item-has-children">
-                              <a href="single-page.html">Shop</a>
-                              <ul>
-                                 <li>
-                                    <a href="product-right.html">Shop Archive</a>
-                                 </li>
-                                 <li>
-                                    <a href="product-detail.html">Shop Single</a>
-                                 </li>
-                                 <li>
-                                    <a href="product-cart.html">Shop Cart</a>
-                                 </li>
-                                 <li>
-                                    <a href="product-checkout.html">Shop Checkout</a>
-                                 </li>
-                              </ul>
-                           </li>
-                           <li className="menu-item-has-children">
-                              <a href="#">Blog</a>
-                              <ul>
-                                 <li><a href="blog-archive.html">Blog List</a></li>
-                                 <li><a href="blog-archive-left.html">Blog Left Sidebar</a></li>
-                                 <li><a href="blog-archive-both.html">Blog Both Sidebar</a></li>
-                                 <li><a href="blog-single.html">Blog Single</a></li>
-                              </ul>
-                           </li>
-                           <li className="menu-item-has-children">
-                              <a href="#">Dashboard</a>
+                              <a href="#">User</a>
                               <ul>
                                  <li>
                                     <a href="admin/dashboard.html">Dashboard</a>

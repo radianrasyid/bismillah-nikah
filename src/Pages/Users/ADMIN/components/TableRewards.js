@@ -183,8 +183,9 @@ function CustomToolbar(props) {
     //             <p className='ms-2'>data</p>
     //         </div> */}
     //         <div className='d-flex'>
-    //             {/* <GridToolbarQuickFilter className='hms-form-quickcustom-mui me-2' />
-    //             <GridToolbarFilterButton className='hms-btn-filtercustom-mui me-2' /> */}
+    //             <GridToolbarQuickFilter className='hms-form-quickcustom-mui me-2' />
+    //             <GridToolbarExport className='hms-btn-exportcustom-mui me-2' />
+    //             <GridToolbarFilterButton className='hms-btn-filtercustom-mui me-2' />
     //             <Dialog
     //                 open={open}
     //                 TransitionComponent={Transition}
@@ -272,7 +273,7 @@ function CustomPagination(props) {
     );
 }
 
-export default function TableReferred() {
+export default function TableRewards() {
 
     const [data, setData] = React.useState([]);
     const [tablePage, setTablePage] = React.useState(10);
@@ -343,8 +344,12 @@ export default function TableReferred() {
     }
     
     const columns = [
-        { field: 'id', headerName: 'ID', hide: false },
-        { field: 'type', headerName: 'Nama', flex: 2 },
+        { field: 'id', headerName: 'ID', hide: true },
+        { field: 'no', headerName: 'No', flex: 1 },
+        { field: 'fullName', headerName: 'Nama', flex: 2 },
+        { field: 'program', headerName: 'Program', flex: 2 },
+        { field: 'claimed', headerName: 'Claimed', flex: 1 },
+        // { field: 'jumlah', headerName: 'Status', flex: 2 },
         {
             headerName: "Status", renderCell: (params) => {
                 let link = `/${params.id}`
@@ -484,7 +489,7 @@ export default function TableReferred() {
                     </>
                 )
             }, flex: 2
-        }
+        },
         // { 
         //     field: 'namaProduk', 
         //     headerName: 'Nama Produk', 
@@ -520,14 +525,9 @@ export default function TableReferred() {
         return {
             id: '3ggy2338h1byv3vj1oja' + numb,
             no: numb,
-            codeItem: 'XX0' + numb,
-            namaProduk: 'Resep A',
-            expiredDate: '23/08/2022',
-            hargaBeli: 'Rp 3.000,00',
-            hargaJual: 'Rp. 4.500,00',
-            jumlah: 1150,
-            satuan: 'BTL',
-            type: 'Medication',
+            fullName: "John Doe",
+            program: "Haji Plus",
+            claimed: numb % 2 === 0 ? "true" : "false"
         }
     });
     

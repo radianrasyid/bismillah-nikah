@@ -1,72 +1,5 @@
 @charset "UTF-8";
-/*
-	[Master Stylesheet]
-	Theme Name: Travele
-	Theme URI: https://themeforest.net/user/keonthemes
-	Description: Travele is an expressive, virtuous, user friendly and powerful HTML 5 Template suitable for any travel or tour agency, hotel, flight websites. Easy to use & customize, code & design quality, responsive theme, creative sliders, flexibility, many of premade pages, multiple portfolio options, responsive blog options and quick support – these are the outstanding features and quality to make you stand out from the crowd. This template boasts clean features, modern and unique design which make your website more beautiful. This template was built in Bootstrap 4, HTML5 and CSS3.
-	Author: Keon Themes
-	Author URI: https://themeforest.net/user/keonthemes
-	Version: 1.0.0
-	Primary use: travel
-*/
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-1. Normalize
-2. Typography
-3. Table
-4. Forms
-5. Buttons
-6. Pagination
-7. Clearing
-8. Main Header
-9. Home front section
-	* Home page two
-	* Home slider section
-	* Home travel search section
-	* Home destination section
-	* Home package section 
-	* Home callback section 
-	* Home activity section  
-	* Home Travel choice section
-	* Home gallery section 
-	* Home clinet section  
-	* Home subscribe form section    
-	* Home blog section
-	* Home testimonial section  
-	* Home contact section  
-10. main Footer
-11. pages
-	* About Pages
-	* Destination Pages
-	* Package Tour Pages
-	* Package Offer Pages
-	* Package Detail Pages
-	* Service Pages
-	* Gallery Pages
-	* Search Pages
-	* 404 Pages
-	* Comming Soon Pages
-	* Blog Archive Pages
-	* Blog Single Pages
-	* Contact Pages
-	* FAQ Pages
-	* Shop Pages
-		*Product Right
-		*Product Detail
-		*Product Cart 
-		*Product Checkout
-	* Tour Cart Page
-	* Booking Page
-	* Comfirmation Page
-12. compatibility
-    * Widget Siderbar
-
----------------------------------------------------------------- */
-/*--------------------------------------------------------------
->>> Normalize
-----------------------------------------------------------------*/
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 html {
   line-height: 1.15;
@@ -75,8 +8,8 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif !important;
-  background-color: #fffad2 !important;
+  font-family: 'Inter', sans-serif !important;
+  background-color: rgba(249, 249, 249, 1) !important;
 }
 
 main {
@@ -99,7 +32,7 @@ hr {
 }
 
 pre {
-  font-family: monospace, monospace;
+  font-family: 'Inter';
   font-size: 1em;
 }
 
@@ -116,7 +49,7 @@ abbr[title] {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  font-family: 'Inter';
   font-size: 1em;
 }
 
@@ -256,7 +189,7 @@ body {
   font-size: 15px;
   color: #383838;
   background-color: #ffffff;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1.6;
@@ -290,7 +223,7 @@ blockquote, pre {
   -o-box-shadow: none;
   box-shadow: none;
   color: #1a1a1a;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: italic;
   margin: 0 0 15px 0;
   padding: 25px 22px;
@@ -313,7 +246,7 @@ blockquote:before {
   background-color: #fff;
   color: #333333;
   content: "\f10d";
-  font-family: "Font Awesome 5 Free";
+  font-family: "Inter";
   font-weight: 900;
   font-size: 20px;
   float: left;
@@ -392,9 +325,9 @@ img {
 /*--------------------------------------------------------------
 # Heading
 --------------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p, small {
   color: #101F46;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -931,7 +864,7 @@ form label {
 .form-group label .custom-checkbox:before {
   background-color: #F56960;
   content: "\f00c";
-  font-family: "Font Awesome 5 Free";
+  font-family: "Inter";
   height: 100%;
   width: 100%;
   position: absolute;
@@ -978,7 +911,7 @@ form label {
   border-radius: 100%;
   content: "\f00c";
   color: #ffffff;
-  font-family: "Font Awesome 5 Free";
+  font-family: "Inter";
   font-size: 8px;
   font-weight: 900;
   width: 100%;
@@ -1589,7 +1522,7 @@ input[type=submit]:focus {
   padding: 0;
 }
 .main-navigation ul > li.menu-item-has-children > a:after {
-  content: "\f0d7";
+  /* content: "\f0d7"; */
 }
 .main-navigation ul > li:last-child {
   border-bottom: none;
@@ -1694,7 +1627,7 @@ input[type=submit]:focus {
   display: inline-block;
   float: right;
   font-size: 14px;
-  font-family: "Font Awesome 5 Free";
+  font-family: "Inter";
   font-weight: 900;
   font-weight: 900;
   margin-left: 8PX;
@@ -2272,7 +2205,7 @@ input[type=submit]:focus {
   -ms-border-radius: 100%;
   border-radius: 100%;
   display: block;
-  font-family: "Font Awesome 5 Free";
+  font-family: "Inter";
   font-weight: 900;
   height: 40px;
   width: 40px;
@@ -2704,7 +2637,7 @@ input[type=submit]:focus {
 }
 .desti-item .meta-cat a {
   display: inline-block;
-  font-family: "Raleway", Sans-serif;
+  font-family: "Inter", Sans-serif;
   font-weight: 700;
   line-height: 1.2;
   text-transform: uppercase;
@@ -2769,9 +2702,8 @@ input[type=submit]:focus {
 }
 .rating-start:before {
   color: #ccd6df;
-  content: "\f005\f005\f005\f005\f005";
   display: block;
-  font-family: "Font Awesome 5 free";
+  font-family: "Inter";
   font-weight: 900;
 }
 .rating-start span {
@@ -2785,7 +2717,7 @@ input[type=submit]:focus {
   color: #F56960;
   content: "\f005\f005\f005\f005\f005";
   display: inline-block;
-  font-family: "Font Awesome 5 free";
+  font-family: "Inter";
   font-weight: 900;
 }
 
@@ -2815,7 +2747,7 @@ input[type=submit]:focus {
   box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.05);
   margin-bottom: 24px;
   position: relative;
-  background-color: #FFE9A0;
+  background-color: rgba(65, 125, 122, 0.08);
   border-radius: 8px;
 }
 .package-wrap .package-content {
@@ -2873,7 +2805,7 @@ input[type=submit]:focus {
   margin-left: 5px;
 }
 .package-wrap .package-price {
-  background-color: #F56960;
+  background-color: rgba(65, 125, 122, 1);
   position: absolute;
   top: 20px;
   right: 0;
@@ -2883,13 +2815,13 @@ input[type=submit]:focus {
 .package-wrap .package-price h6 {
   color: #ffffff;
   font-size: 13px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   line-height: 1.1;
   margin-bottom: 0;
   padding: 8px 16px;
 }
 .package-wrap .package-price h6 span {
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 22px;
   font-weight: 700;
   line-height: 1.2;
@@ -2913,7 +2845,7 @@ input[type=submit]:focus {
 }
 
 .package-meta {
-  background-color: #b77f31;
+  background-color: rgba(65, 125, 122, 1);
   margin-bottom: 25px;
   margin-left: 30px;
   margin-right: 30px;
@@ -3204,7 +3136,7 @@ input[type=submit]:focus {
 }
 .support-area h3 {
   color: #F56960;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 30px;
   font-weight: 900;
   line-height: 1.1;
@@ -3582,9 +3514,11 @@ input[type=submit]:focus {
   padding-top: 30px;
 }
 .special-item .special-content {
-  background-color: #ffffff;
+  background-color: rgba(226, 235, 234, 1);
+  opacity: 0.9;
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.08);
   margin-top: -145px;
+  border-radius: 8px;
   padding: 30px;
   position: relative;
   margin-left: 15px;
@@ -3629,7 +3563,7 @@ input[type=submit]:focus {
 .special-item .badge-dis strong {
   color: #ffffff;
   display: block;
-  font-family: "Raleway", Sans-serif;
+  font-family: "Inter", Sans-serif;
   font-size: 23px;
   font-weight: 700;
   line-height: 1.2;
@@ -3645,7 +3579,7 @@ input[type=submit]:focus {
 }
 .special-content .meta-cat a {
   color: #0791BE;
-  font-family: "Raleway", Sans-serif;
+  font-family: "Inter", Sans-serif;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -3655,7 +3589,7 @@ input[type=submit]:focus {
 .special-content .package-price {
   color: #F56960;
   font-size: 18px;
-  font-family: "Raleway", Sans-serif;
+  font-family: "Inter", Sans-serif;
   font-weight: 700;
   line-height: 1.3;
 }
@@ -3693,6 +3627,7 @@ input[type=submit]:focus {
 .special-overlay-item .special-img .badge-dis {
   background-color: #0791BE;
   color: #ffffff;
+  border-radius: 8px;
   font-weight: 700;
   padding: 2px 45px;
   position: absolute;
@@ -4212,7 +4147,7 @@ Due to the split circle of progress-left and progress right, we must use the ani
 }
 .testimonial-item .testimonial-content cite {
   color: #0791BE;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 1.3;
@@ -5056,7 +4991,7 @@ procduct details css
 }
 .itinerary-timeline-wrap .day-count span {
   display: block;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 1;
@@ -5134,7 +5069,7 @@ procduct details css
 }
 .summary-review .review-score span {
   background-color: #fff;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   border-radius: 50%;
   width: 90px;
   display: block;
@@ -5184,14 +5119,14 @@ procduct details css
 }
 
 .sidebar .package-price {
-  background-color: #F56960;
+  background-color: rgba(65, 125, 122, 1);
   padding: 20px;
   text-align: center;
   margin-bottom: 50px;
 }
 .sidebar .package-price .price {
   color: #ffffff;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 .sidebar .package-price .price span {
   font-size: 30px;
@@ -5285,7 +5220,7 @@ procduct details css
 .sidebar .travel-package-content ul li a {
   color: #ffffff;
   line-height: 1.3;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 18px;
   font-weight: 700;
 }
@@ -5396,7 +5331,7 @@ procduct details css
   line-height: 1.1;
 }
 .inner-banner-wrap .entry-meta a:before {
-  font-family: "Font Awesome 5 Free";
+  font-family: "Inter";
   margin-right: 10px;
   font-weight: 900;
   -webkit-transition: all 0.3s;
@@ -5427,7 +5362,7 @@ procduct details css
   content: "\f02c";
   color: #1a1a1a;
   display: inline-block;
-  font-family: "Font Awesome 5 Free";
+  font-family: "Inter";
   margin-right: 5px;
   font-weight: 900;
 }
@@ -5540,7 +5475,7 @@ procduct details css
 }
 .post-navigation .nav-prev a:before,
 .post-navigation .nav-next a:before {
-  font-family: "Font Awesome 5 Free";
+  font-family: "Inter";
   font-weight: 900;
   font-size: 14px;
   display: block;
@@ -5794,7 +5729,7 @@ procduct details css
 }
 .service-header .service-count {
   color: rgba(7, 145, 190, 0.4);
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 65px;
   font-weight: 900;
   line-height: 0.9;
@@ -6088,7 +6023,7 @@ procduct details css
 }
 .comming-soon-section .time-counter .counter-time [class*=counter-] {
   font-size: 80px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 900;
   line-height: 1.1;
 }
@@ -6209,7 +6144,7 @@ procduct details css
 .no-content-wrap span {
   color: rgba(255, 255, 255, 0.32);
   font-size: 300px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 900;
   line-height: 1;
 }
@@ -6323,7 +6258,7 @@ procduct details css
 }
 .accordion .card button {
   color: #383838;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 15px;
   display: block;
   width: 100%;
@@ -6342,7 +6277,7 @@ procduct details css
   content: "\f106";
   display: block;
   font-weight: 900;
-  font-family: "Font Awesome 5 Free";
+  font-family: "Inter";
   float: right;
   position: absolute;
   top: 50%;
@@ -6651,7 +6586,7 @@ procduct details css
 }
 .career-detail-section .job-description li {
   color: #ffffff;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   list-style: none;
   display: inline-block;
   padding: 0 8px;
@@ -6925,7 +6860,7 @@ procduct details css
 .product-item .product-content .product-price {
   font-size: 23px;
   font-weight: 700;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   padding: 0 20px;
   color: #0791BE;
 }
@@ -6999,7 +6934,7 @@ procduct details css
   color: #ddd;
   content: "\f005\f005\f005\f005\f005";
   display: block;
-  font-family: "Font Awesome 5 free";
+  font-family: "Inter";
 }
 .procduct-rate span {
   float: left;
@@ -7014,7 +6949,7 @@ procduct details css
   color: #FEBF00;
   content: "\f005\f005\f005\f005\f005";
   display: block;
-  font-family: "Font Awesome 5 free";
+  font-family: "Inter";
   font-weight: 900;
   position: absolute;
   top: 0;
@@ -7106,14 +7041,14 @@ procduct details css
 }
 .product-summary .product-meta strong {
   color: #151515;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 700;
   text-transform: capitalize;
   margin-right: 5px;
 }
 .product-summary .product-meta a {
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   color: #383838;
 }
@@ -7301,7 +7236,7 @@ product checkout css
 .cart-list-inner .table thead tr th {
   background-color: #f5f5f5;
   border: none;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 15px;
 }
@@ -7515,7 +7450,7 @@ product checkout css
 .step-link-wrap .step-item {
   font-size: 18px;
   font-weight: 700;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   width: 33.33%;
   position: relative;
 }
@@ -7656,7 +7591,7 @@ product checkout css
   font-weight: 400;
 }
 .widget-support-wrap .support-content .phone {
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 30px;
   display: block;
   margin-bottom: 10px;
@@ -7823,7 +7758,7 @@ product checkout css
 .ui-datepicker .ui-datepicker-prev span:before,
 .ui-datepicker .ui-datepicker-next span:before {
   font-size: 13px;
-  font-family: "Font Awesome 5 Free";
+  font-family: "Inter";
   font-weight: 900;
 }
 .ui-datepicker .ui-datepicker-prev.ui-state-hover,
@@ -7952,7 +7887,7 @@ product checkout css
   border-radius: 0px;
   content: "\f00d";
   font-weight: 900;
-  font-family: "Font Awesome 5 Free";
+  font-family: "Inter";
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
@@ -8411,7 +8346,7 @@ product checkout css
   color: inherit;
 }
 .widget.widget_recent_post li h5 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   line-height: 1.3;
   margin-bottom: 10px;
@@ -8748,7 +8683,7 @@ product checkout css
 }
 .widget.widget_category_product_thumb li .product-content .count {
   color: #F56960;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 14px;
 }
@@ -8765,7 +8700,6 @@ product checkout css
   display: table;
   font-size: 15px;
   text-align: center;
-  text-transform: uppercase;
   font-weight: 700;
   line-height: 1.2em;
   margin-left: auto;
@@ -8810,7 +8744,7 @@ hr {
 }
 
 pre {
-  font-family: monospace, monospace;
+  font-family: 'Inter';
   font-size: 1em;
 }
 
@@ -8827,7 +8761,7 @@ abbr[title] {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  font-family: 'Inter';
   font-size: 1em;
 }
 
@@ -8967,7 +8901,7 @@ body {
   font-size: 15px;
   color: #383838;
   background-color: #ffffff;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1.6;
@@ -9001,7 +8935,7 @@ blockquote, pre {
   -o-box-shadow: none;
   box-shadow: none;
   color: #1a1a1a;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: italic;
   margin: 0 0 15px 0;
   padding: 25px 22px;
@@ -9024,7 +8958,7 @@ blockquote:before {
   background-color: #fff;
   color: #333333;
   content: "\f10d";
-  font-family: "Font Awesome 5 Free";
+  font-family: "Inter";
   font-weight: 900;
   font-size: 20px;
   float: left;
@@ -9105,7 +9039,7 @@ img {
 --------------------------------------------------------------*/
 h1, h2, h3, h4, h5, h6 {
   color: #101F46;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -9287,7 +9221,7 @@ input[type=submit]:focus {
 
 .button-primary,
 .button-round {
-  background-color: #0791BE;
+  background-color: rgba(65, 125, 122, 1);
   color: #ffffff;
   display: inline-block;
   position: relative;
@@ -9301,7 +9235,7 @@ input[type=submit]:focus {
 .button-round:hover,
 .button-round:focus,
 .button-round:active {
-  background-color: #2C75BA;
+  background-color: rgb(86 167 163);
   color: #ffffff;
 }
 
@@ -9344,7 +9278,6 @@ input[type=submit]:focus {
 .button-text {
   color: #101F46;
   font-size: 14px;
-  text-transform: uppercase;
   position: relative;
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -9353,8 +9286,7 @@ input[type=submit]:focus {
   transition: all 0.4s;
 }
 .button-text:after {
-  content: "\f101";
-  font-family: "Font Awesome 5 Free";
+  font-family: "Inter";
   font-weight: 900;
   margin-left: 6px;
   -webkit-transition: all 0.4s;
@@ -9618,7 +9550,7 @@ form label {
   background-color: #0791BE;
   content: "\f00c";
   color: #ffffff;
-  font-family: "Font Awesome 5 Free";
+  font-family: "Inter";
   font-size: 8px;
   font-weight: 900;
   width: 100%;
@@ -10220,11 +10152,9 @@ input:checked ~ .custom-input-field:before {
 }
 .dashboard-box h4 {
   font-weight: 700;
-  text-transform: uppercase;
 }
 .dashboard-box thead tr th {
-  font-family: "Raleway", sans-serif;
-  text-transform: uppercase;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   border-width: 1px;
 }
@@ -10246,7 +10176,7 @@ input:checked ~ .custom-input-field:before {
 }
 .dashboard-box .list-name,
 .dashboard-box .list-enq-name {
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   display: block;
   font-weight: 700;
   color: #263238;
@@ -10272,7 +10202,6 @@ input:checked ~ .custom-input-field:before {
 ------------------------------------- */
 .dashboard-box h4 {
   font-weight: 700;
-  text-transform: uppercase;
 }
 .dashboard-box p {
   font-size: 15px;
@@ -10517,7 +10446,7 @@ Tour packages added css
   package css
   ------------------------------------- */
 .db-package-wrap .package-name {
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 13px;
   color: #333333;
@@ -10565,13 +10494,13 @@ Tour packages added css
 .package-wrap .package-price h6 {
   color: #ffffff;
   font-size: 13px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   line-height: 1.1;
   margin-bottom: 0;
   padding: 8px 16px;
 }
 .package-wrap .package-price h6 span {
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 22px;
   font-weight: 700;
   line-height: 1.2;
@@ -10726,9 +10655,8 @@ login form css
 }
 .rating-start:before {
   color: #ddd;
-  content: "\f005\f005\f005\f005\f005";
   display: block;
-  font-family: "Font Awesome 5 free";
+  font-family: "Inter";
 }
 .rating-start span {
   display: block;
@@ -10741,7 +10669,7 @@ login form css
   color: #FEBF00;
   content: "\f005\f005\f005\f005\f005";
   display: block;
-  font-family: "Font Awesome 5 free";
+  font-family: "Inter";
   font-weight: 900;
 }
 

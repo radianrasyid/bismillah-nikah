@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "rewardName": "Paket Umroh",
+        "eligibleMember": 20,
+        "claimed": 2,
+        "image": "../illustrations/hajj.jpg",
+        "description": "Harus berhasil mengajak 10 orang untuk menggunakan kode referral"
+    },
+    {
+        "id": 2,
+        "rewardName": "Paket Haji",
+        "eligibleMember": 10,
+        "claimed": 2,
+        "image": "../illustrations/hajj.jpg",
+        "description": "Harus berhasil mengajak 10 orang untuk menggunakan kode referral"
+    },
+    {
+        "id": 3,
+        "rewardName": "Paket Haji Plus",
+        "eligibleMember": 5,
+        "claimed": 2,
+        "image": "../illustrations/hajj.jpg",
+        "description": "Harus berhasil mengajak 10 orang untuk menggunakan kode referral"
+    },
+    {
+        "id": 4,
+        "rewardName": "Paket Haji Plus",
+        "eligibleMember": 5,
+        "claimed": 2,
+        "image": "../illustrations/hajj.jpg",
+        "description": "Harus berhasil mengajak 10 orang untuk menggunakan kode referral"
+    }
+]

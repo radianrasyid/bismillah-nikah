@@ -2638,7 +2638,7 @@ input[type=submit]:focus {
   border-color: #FF6D34;
 }
 .trip-search-section select {
-  background-image: url(assets/images/arrow-white.png);
+  background-image: url("../../assetsUser/images/arrow.png");
   background-repeat: no-repeat;
   background-position: center right 15px;
   -webkit-appearance: none;

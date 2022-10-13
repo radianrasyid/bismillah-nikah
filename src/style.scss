@@ -1,10 +1,11 @@
 $blackColor: #343F62;
 $submitColor: #F4D160;
+$primaryColor: #5ABCBF;
 
 .input-textfield{
     input{
         color: $blackColor  !important;
-        font-family: 'Outfit', sans-serif !important;
+        font-family: 'Inter', sans-serif !important;
         font-style: normal;
         font-weight: 500 !important;
         border-radius: 8px !important;
@@ -21,7 +22,7 @@ $submitColor: #F4D160;
     color: $submitColor;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Secular+One&display=swap');
 
 $backgroundColor: #F3F7FE;
 $primaryColor: #5ABCBF;
@@ -203,7 +204,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-text-label {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -261,7 +262,7 @@ $textFooter: #8b8b8b;
 
     .hms-dashboard-time {
         p {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 600;
             font-size: 12px;
@@ -483,7 +484,7 @@ $textFooter: #8b8b8b;
 
 .hms-link-btn {
     text-decoration: none;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
@@ -566,7 +567,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-bottom-text-one {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -574,7 +575,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-bottom-text-two {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -588,7 +589,7 @@ $textFooter: #8b8b8b;
 .hms-total-transaction-field {
     input {
         font-size: 18px !important;
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         background-color: #f9f9f9;
@@ -606,7 +607,7 @@ $textFooter: #8b8b8b;
 .hms-dropdown-menu {
     ul {
         li {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 500;
             font-size: 13px;
@@ -658,7 +659,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-pagination-datagrid-textfooter {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -678,7 +679,7 @@ $textFooter: #8b8b8b;
     nav {
         ul {
             button {
-                font-family: 'Outfit', sans-serif !important;
+                font-family: 'Inter', sans-serif !important;
                 font-style: normal !important;
                 font-weight: bold !important;
                 font-size: 13px !important;
@@ -696,7 +697,7 @@ $textFooter: #8b8b8b;
     display: flex !important;
     flex-direction: row-reverse;
     justify-content: space-between !important;
-    font-family: 'Outfit' !important;
+    font-family: 'Inter' !important;
     font-style: normal;
     font-weight: 500 !important;
     text-transform: capitalize !important;
@@ -713,7 +714,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-btn-exportcustom-mui {
-    font-family: 'Outfit' !important;
+    font-family: 'Inter' !important;
     font-style: normal;
     font-weight: 500 !important;
     text-transform: capitalize !important;
@@ -762,8 +763,29 @@ $textFooter: #8b8b8b;
         width: 1.8em;
     }
 
+    .active {
+        &::after {
+            content: " ";
+            width: 5px;
+            height: 50%;
+            background-color: $primaryColor;
+            border-radius: 10px 0 0 10px;
+            position: absolute;
+            right: -5px;
+            transition: 0.5ms;
+        }
+
+        .hms-sidebar-btn-cover {
+            color: $primaryColor;
+
+            svg {
+                fill: $primaryColor;
+            }
+        }
+    }
+
     input {
-        font-family: 'Outfit', sans-serif !important;
+        font-family: 'Inter', sans-serif !important;
         font-style: normal !important;
         font-weight: 500 !important;
         color: $blackColor  !important;
@@ -774,7 +796,7 @@ $textFooter: #8b8b8b;
     input {
         padding: 12px 14px !important;
         color: $blackColor  !important;
-        font-family: 'Outfit', sans-serif !important;
+        font-family: 'Inter', sans-serif !important;
         font-style: normal;
         font-weight: 500 !important;
     }
@@ -787,14 +809,14 @@ $textFooter: #8b8b8b;
 
     .MuiSelect-select {
         padding: 6px 48px 6px 15px !important;
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 13px;
     }
 
     p {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 13px;
@@ -831,7 +853,7 @@ $textFooter: #8b8b8b;
 
 .hms-modal-text-title {
     text-align: center;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -845,7 +867,7 @@ $textFooter: #8b8b8b;
 .hms-form-upload {
     font-size: 13px !important;
     padding: 0.5rem 1rem !important;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-style: normal !important;
     font-weight: 400 !important;
     font-size: 12px !important;
@@ -864,14 +886,14 @@ $textFooter: #8b8b8b;
     input {
         padding: 12px 14px !important;
         color: $blackColor  !important;
-        font-family: 'Outfit', sans-serif !important;
+        font-family: 'Inter', sans-serif !important;
         font-style: normal;
         font-weight: 500 !important;
     }
 
     .MuiSelect-select {
         padding: 9.5px 14px !important;
-        font-family: 'Outfit', sans-serif !important;
+        font-family: 'Inter', sans-serif !important;
         font-style: normal;
         font-weight: 500 !important;
     }
@@ -888,7 +910,7 @@ $textFooter: #8b8b8b;
 
     .MuiInputAdornment-root {
         p {
-            font-family: 'Outfit', sans-serif !important;
+            font-family: 'Inter', sans-serif !important;
             font-style: normal;
             font-weight: 500 !important;
             font-size: 12px;
@@ -922,7 +944,7 @@ $textFooter: #8b8b8b;
     width: 100% !important;
     padding: 8.35px 10px !important;
     border-radius: 7px !important;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-style: normal;
     font-weight: 600 !important;
     color: $primaryColor  !important;
@@ -1134,7 +1156,7 @@ $textFooter: #8b8b8b;
 
 .hms-title-before-card {
     h4 {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
@@ -1143,7 +1165,7 @@ $textFooter: #8b8b8b;
     }
 
     .hms-paraf-before-card {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 11px;
@@ -1217,7 +1239,7 @@ $textFooter: #8b8b8b;
         .MuiTableHead-root {
             .MuiTableCell-root {
                 font-size: 13px !important;
-                font-family: 'Outfit', sans-serif;
+                font-family: 'Inter', sans-serif;
                 font-style: normal;
                 font-weight: 600;
                 line-height: 14px;
@@ -1228,7 +1250,7 @@ $textFooter: #8b8b8b;
         .MuiTableBody-root {
             .MuiTableCell-root {
                 font-size: 12px !important;
-                font-family: 'Outfit', sans-serif;
+                font-family: 'Inter', sans-serif;
                 font-style: normal;
                 font-weight: 400;
                 line-height: 14px;
@@ -1278,7 +1300,7 @@ $textFooter: #8b8b8b;
     }
 
     .hms-card-history-title {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 13px;
@@ -1286,14 +1308,14 @@ $textFooter: #8b8b8b;
     }
 
     .hms-card-history-left {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
     }
 
     .hms-card-history-right {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
@@ -1302,14 +1324,14 @@ $textFooter: #8b8b8b;
 }
 
 .MuiFormControlLabel-label {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-style: normal;
     font-weight: 500 !important;
     font-size: 13px !important;
 }
 
 .hms-btn {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-style: normal;
     font-weight: 500 !important;
 }
@@ -1362,7 +1384,7 @@ $textFooter: #8b8b8b;
 
     .MuiTableHead-root {
         .MuiTableCell-root {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 600;
             font-size: 13px;
@@ -1376,7 +1398,7 @@ $textFooter: #8b8b8b;
         }
 
         .MuiTableCell-root {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 12px;
@@ -1390,14 +1412,14 @@ $textFooter: #8b8b8b;
 }
 
 .MuiDataGrid-main {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
 }
 
 .hms-datetime {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
@@ -1408,7 +1430,7 @@ $textFooter: #8b8b8b;
 }
 
 .MuiMenuItem-root {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-style: normal;
     font-weight: 500 !important;
     font-size: 13px !important;
@@ -1431,7 +1453,7 @@ $textFooter: #8b8b8b;
 
 .hms-paraf-apotek {
     h4 {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 15px;
@@ -1440,7 +1462,7 @@ $textFooter: #8b8b8b;
     }
 
     p {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
@@ -1451,7 +1473,7 @@ $textFooter: #8b8b8b;
 
 .hms-copy-resep {
     h3 {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 18px;
@@ -1462,7 +1484,7 @@ $textFooter: #8b8b8b;
     }
 
     .hms-copy-resep-left {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
@@ -1472,7 +1494,7 @@ $textFooter: #8b8b8b;
     }
 
     .hms-copy-resep-right {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
@@ -1483,7 +1505,7 @@ $textFooter: #8b8b8b;
 
 .hms-modal-transation {
     h3 {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 18px;
@@ -1493,7 +1515,7 @@ $textFooter: #8b8b8b;
     }
 
     h6 {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 11px;
@@ -1503,7 +1525,7 @@ $textFooter: #8b8b8b;
     }
 
     .hms-modal-transation-left {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
@@ -1513,7 +1535,7 @@ $textFooter: #8b8b8b;
     }
 
     .hms-modal-transation-right {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
@@ -1523,7 +1545,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-modal-paraf-default {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
@@ -1533,7 +1555,7 @@ $textFooter: #8b8b8b;
 .MuiAutocomplete-popper {
     .MuiAutocomplete-listbox {
         li {
-            font-family: 'Outfit', sans-serif !important;
+            font-family: 'Inter', sans-serif !important;
             font-style: normal !important;
             font-weight: 500 !important;
             font-size: 13px !important;
@@ -1547,7 +1569,7 @@ $textFooter: #8b8b8b;
 
 .hms-tabs {
     .MuiButtonBase-root {
-        font-family: 'Outfit', sans-serif !important;
+        font-family: 'Inter', sans-serif !important;
         font-style: normal !important;
         font-weight: 500 !important;
         font-size: 14px !important;
@@ -1572,7 +1594,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-card-table-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
@@ -1581,7 +1603,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-card-tab-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -1590,7 +1612,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-card-tab-desc {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -1600,7 +1622,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-card-tab-desc-top {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
@@ -1610,7 +1632,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-card-tab-desc-detail {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -1618,7 +1640,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-card-tab-desc-note {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -1634,7 +1656,7 @@ $textFooter: #8b8b8b;
             position: relative;
 
             p {
-                font-family: 'Outfit', sans-serif;
+                font-family: 'Inter', sans-serif;
                 font-style: normal;
                 font-weight: 400;
                 font-size: 13px;
@@ -1661,7 +1683,7 @@ $textFooter: #8b8b8b;
             position: relative;
 
             p {
-                font-family: 'Outfit', sans-serif;
+                font-family: 'Inter', sans-serif;
                 font-style: normal;
                 font-weight: 400;
                 font-size: 13px;
@@ -1678,7 +1700,7 @@ $textFooter: #8b8b8b;
 
     p {
         width: 200px;
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 13px;
@@ -1687,7 +1709,7 @@ $textFooter: #8b8b8b;
     }
 
     span {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 13px;
@@ -1698,7 +1720,7 @@ $textFooter: #8b8b8b;
 
 .hms-before-chart-text {
     h6 {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
@@ -1708,7 +1730,7 @@ $textFooter: #8b8b8b;
     }
 
     p {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 11px;
@@ -1752,7 +1774,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-detail-after-chart-text {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -1761,7 +1783,7 @@ $textFooter: #8b8b8b;
 }
 
 .swal2-confirm {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-style: normal;
     font-weight: 500 !important;
     font-size: 13px !important;
@@ -1773,7 +1795,7 @@ $textFooter: #8b8b8b;
 }
 
 .swal2-title {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-style: normal;
     font-weight: 600 !important;
     font-size: 25px !important;
@@ -1781,7 +1803,7 @@ $textFooter: #8b8b8b;
 }
 
 .swal2-html-container {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-style: normal;
     font-weight: 600 !important;
     font-size: 15px !important;
@@ -1793,7 +1815,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-reason-text {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-style: normal;
     font-weight: 400 !important;
     font-size: 13px !important;
@@ -1801,7 +1823,7 @@ $textFooter: #8b8b8b;
 
 .hms-operator-transaction {
     p {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
@@ -1810,7 +1832,7 @@ $textFooter: #8b8b8b;
     }
 
     span {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 10px;
@@ -1836,13 +1858,13 @@ $textFooter: #8b8b8b;
     }
 
     .MuiPickersDay-root {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
     }
 
     .PrivatePickersFadeTransitionGroup-root {
         div {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-size: 13px !important;
         }
@@ -1850,7 +1872,7 @@ $textFooter: #8b8b8b;
 
     .PrivatePickersYear-root {
         button {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-size: 13px !important;
         }
@@ -1859,7 +1881,7 @@ $textFooter: #8b8b8b;
 
 .hms-prove-transaction {
     p {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 13px;
@@ -1869,7 +1891,7 @@ $textFooter: #8b8b8b;
     }
 
     span {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 13px;
@@ -1879,7 +1901,7 @@ $textFooter: #8b8b8b;
     }
 
     h5 {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
@@ -1889,7 +1911,7 @@ $textFooter: #8b8b8b;
     }
 
     h6 {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
@@ -1921,7 +1943,7 @@ $textFooter: #8b8b8b;
 }
 
 .hms-assign-report-text {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
@@ -1932,7 +1954,7 @@ $textFooter: #8b8b8b;
     text-align: center;
 
     .hms-assigned-knowing {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
@@ -1941,7 +1963,7 @@ $textFooter: #8b8b8b;
     }
 
     .hms-assigned-position {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 13px;
@@ -1950,7 +1972,7 @@ $textFooter: #8b8b8b;
     }
 
     .hms-assigned-brand {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 13px;
@@ -1980,7 +2002,7 @@ $textFooter: #8b8b8b;
     }
 
     .hms-assigned-name {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 13px;
@@ -1989,7 +2011,7 @@ $textFooter: #8b8b8b;
     }
 
     .hms-assigned-nip {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 13px;
@@ -2000,7 +2022,7 @@ $textFooter: #8b8b8b;
 
 .hms-desc-supplier {
     p {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
     }
 
@@ -2023,7 +2045,7 @@ $textFooter: #8b8b8b;
         }
 
         p {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 500;
             text-transform: uppercase;
