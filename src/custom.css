@@ -51,7 +51,7 @@ import
     position: absolute;
     left: 2rem;
     top: 2rem;
-
+    z-index: 909999;
 }
 
 .login-card{
@@ -87,7 +87,10 @@ import
 
 .registrasi-image{
     display: flex;
-    align-items: flex-end;
+    margin-bottom: 5rem;
+    margin-left: 4rem;
+    width: 25rem;
+    height: 25rem;
 }
 
 .register-words{

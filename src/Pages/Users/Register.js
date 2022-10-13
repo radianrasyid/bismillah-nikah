@@ -4,6 +4,7 @@ import { FormControl, useFormControl, OutlinedInput, FormHelperText, Stack, Butt
 import umrohImage from "../assets/illustrations/umrohimage.png"
 import { Link } from 'react-router-dom';
 import StyledSubmitButton from '../components/buttonSubmit';
+import logo from "../assets/images/logo-hrbs.jpg";
 import axios from 'axios';
 axios.defaults.headers = true;
 
@@ -77,11 +78,12 @@ export default function Register() {
 
   return (
     <div className='register-page'>
+        <img src={logo} className="logo-hrbs" style={{ width: "5rem", height: "5rem", borderRadius: "50%" }} />
         <div className='register-paper'>
             <div className='column-register left'>
                 <div>
                     <h4 className='register-words'>Halo,</h4>
-                    <h4 className='register-words' style={{ marginTop: "-0.8rem"}}>Ayo Daftarkan Akunmu</h4>
+                    <h4 className='register-words' style={{ marginTop: "-0.8rem", marginLeft: "5rem" }}>Ayo Daftarkan Akunmu</h4>
                 </div>
                 <div className='registrasi-image'>
                     <img src={umrohImage} />
