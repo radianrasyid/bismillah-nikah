@@ -1521,9 +1521,9 @@ input[type=submit]:focus {
   margin: 0;
   padding: 0;
 }
-.main-navigation ul > li.menu-item-has-children > a:after {
-  /* content: "\f0d7"; */
-}
+/* .main-navigation ul > li.menu-item-has-children > a:after {
+  content: "\f0d7";
+} */
 .main-navigation ul > li:last-child {
   border-bottom: none;
 }
@@ -4847,10 +4847,6 @@ Due to the split circle of progress-left and progress right, we must use the ani
   color: #ffffff;
 }
 
-.single-tour-inner {
-  /* the parent */
-  /* item */
-}
 .single-tour-inner h2 {
   margin-bottom: 35px;
 }
