@@ -28,6 +28,7 @@ import AdminProfile from "./Pages/Users/ADMIN/AdminProfile";
 import SidebarUser from "./Pages/universal/SidebarUser";
 import Products from "./Pages/Users/ADMIN/Products";
 import RewardsBonuses from "./Pages/Users/ADMIN/RewardsBonuses";
+import DashboardUser from "./Pages/Users/DashboardUser";
 
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
       <Route path="/admin-dashboard" element={<SidebarAdmin slug={"Dashboard"} props={<AdminProfile/>}/>}/>
       <Route path="/admin-products" element={<SidebarAdmin slug={"Products"} props={<Products/>}/>}/>
       <Route path="/admin-rewards" element={<SidebarAdmin slug={"Rewards & Bonus"} props={<RewardsBonuses/>}/>}/>
-      <Route path="/dashboard" element={<SidebarUser props={<AdminProfile/>}/>}/>
+      <Route path="/dashboard" element={<SidebarUser slug={"Dashboard"} props={<DashboardUser/>}/>}/>
     </Routes>
   );
 }

@@ -85,12 +85,79 @@ import
     padding: 1rem 2rem;
 }
 
+.progress-container{
+    width: 20rem;
+}
+
+.dashboard-user-program-card{
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    padding: 1rem 1rem;
+}
+
+.dashboard-user-welcome-title{
+    color: rgba(65, 125, 122, 1);
+    font-weight: 700;
+}
+
+.progress-bar.bg-info{
+    background-color: rgba(65, 125, 122, 1) !important;
+}
+
+.progress{
+    height: 0.5rem !important;
+}
+
+.dashboard-user-welcome-img{
+    width: 13rem;
+}
+
+.dashboard-user-program-price{
+    color: #417D7A;
+    margin-top: 0;
+}
+
+.table-container{
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 1rem 1rem;
+}
+
+.table-container-title{
+    font-weight: 600;
+    color: #222222;
+}
+
+.dashboard-user-welcome-info{
+    margin-top: 0.5rem;
+    font-weight: 400;
+}
+
+.dashboard-user-program-bar{
+    padding-right: 0;
+}
+
+.dashboard-user-program-text{
+    font-weight: 500;
+    color: #4F4F4F;
+}
+
 .registrasi-image{
     display: flex;
     margin-bottom: 5rem;
     margin-left: 4rem;
     width: 25rem;
     height: 25rem;
+}
+
+.dashboard-user-welcome-card{
+    background-color: rgba(240, 245, 244, 1);
+    border-radius: 12px;
+    padding: 2rem 2rem;
+}
+
+.progress-bar{
+    border-radius: 65px;
 }
 
 .register-words{
