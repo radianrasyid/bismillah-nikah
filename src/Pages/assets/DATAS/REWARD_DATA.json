@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "name": "1 jamaah umroh",
+        "terms_umroh": 10
+    },
+    {
+        "id": 2,
+        "name": "Suzuki Spreso",
+        "terms_umroh": 200,
+        "terms_hjplus": 100
+    },
+    {
+        "id": 3,
+        "name": "Mitsubishi Expander",
+        "terms_umroh": 300,
+        "terms_hjplus": 200
+    },
+    {
+        "id": 4,
+        "name": "Pajero Sport",
+        "terms_umroh": 650,
+        "terms_hjplus": 300
+    }
+]

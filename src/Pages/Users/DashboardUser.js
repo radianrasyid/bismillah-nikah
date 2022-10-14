@@ -46,7 +46,7 @@ export default function DashboardUser() {
                             <p className='dashboard-user-welcome-title'>Program 6 Bulan</p>
                             <small style={{ marginTop: "-1rem", fontWeight: 600, color: "#828282" }}>Umroh</small>
                         </Col>
-                        <div className='mb-3'>
+                        <div className='mb-1'>
                             <small className='dashboard-user-program-text'>Paket umroh reguler 6 bulan dengan jadwal keberangkatan 20 Januari 2023 dengan maskapai Saudia Airlanes</small>
                         </div>
                     </Row>

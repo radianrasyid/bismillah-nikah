@@ -95,6 +95,11 @@ import
     padding: 1rem 1rem;
 }
 
+.card-reward{
+    border: none;
+    border-radius: 8px;
+}
+
 .dashboard-user-welcome-title{
     color: rgba(65, 125, 122, 1);
     font-weight: 700;
@@ -140,6 +145,7 @@ import
 .dashboard-user-program-text{
     font-weight: 500;
     color: #4F4F4F;
+    font-size: 12px;
 }
 
 .registrasi-image{

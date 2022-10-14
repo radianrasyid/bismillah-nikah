@@ -43,31 +43,13 @@ export default function Navbar({props}) {
                      <nav id="navigation" className="navigation">
                         <ul>
                            <li className="menu-item-has-children">
-                              <a href="index.html">Home</a>
+                              <a href="/">Home</a>
                            </li>
                            <li className="menu-item-has-children">
                               <a href="#">Tour</a>
                               <ul>
                                  <li>
-                                    <a href="destination.html">Destination</a>
-                                 </li>
-                                 <li>
-                                    <a href="tour-packages.html">Tour Packages</a>
-                                 </li>
-                                 <li>
-                                    <a href="package-offer.html">Package Offer</a>
-                                 </li>
-                                 <li>
-                                    <a href="package-detail.html">Package Detail</a>
-                                 </li>
-                                 <li>
-                                    <a href="tour-cart.html">Tour Cart</a>
-                                 </li>
-                                 <li>
-                                    <a href="booking.html">Package Booking</a>
-                                 </li>
-                                 <li>
-                                    <a href="confirmation.html">Confirmation</a>
+                                    <a href="/tourpackages">Program</a>
                                  </li>
                               </ul>
                            </li>
@@ -122,12 +104,12 @@ export default function Navbar({props}) {
                               </ul>
                            </li> */}
                            <li className="menu-item-has-children">
-                              <a href="#">User</a>
+                              <a href="#">About Us</a>
                               <ul>
                                  <li>
-                                    <a href="admin/dashboard.html">Dashboard</a>
+                                    <a href="admin/dashboard.html">About Us</a>
                                  </li>
-                                 <li className="menu-item-has-children">
+                                 {/* <li className="menu-item-has-children">
                                     <a href="#">User</a>
                                     <ul>
                                        <li>
@@ -140,11 +122,11 @@ export default function Navbar({props}) {
                                           <a href="admin/new-user.html">New User</a>
                                        </li>
                                     </ul>
-                                 </li>
+                                 </li> */}
                                  <li>
-                                    <a href="admin/db-booking.html">Booking</a>
+                                    <a href="admin/db-booking.html">Why Us</a>
                                  </li>
-                                 <li className="menu-item-has-children">
+                                 {/* <li className="menu-item-has-children">
                                     <a href="admin/db-package.html">Package</a>
                                     <ul>
                                        <li>
@@ -169,7 +151,7 @@ export default function Navbar({props}) {
                                  </li>
                                  <li>
                                     <a href="admin/forgot.html">Forget Password</a>
-                                 </li>
+                                 </li> */}
                               </ul>
                            </li>
                         </ul>

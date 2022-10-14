@@ -237,7 +237,7 @@ export default function AdminProfile() {
                 </Card>
             </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
             <div className="col-lg-6 col-sm-6">
                 <div className="dashboard-box table-opp-color-box">
                     <Row>
@@ -346,7 +346,7 @@ export default function AdminProfile() {
                     </div>
                 </div>
             </div> 
-        </div>
+        </div> */}
         <div className="row">
             <div className="col-lg-6">
                 <div className="dashboard-box table-opp-color-box">
@@ -375,8 +375,7 @@ export default function AdminProfile() {
                 </div>
             </div>  
         </div>
-        <div className="row">
-            {/* <!-- site traffic --> */}
+        {/* <div className="row">
             <div className="col-lg-4">
                 <div className="dashboard-box chart-box">
                     <h4>Site Traffic</h4>
@@ -397,7 +396,7 @@ export default function AdminProfile() {
                     <div id="piechart" style={{ height: "250px", width: "100%" }}></div>
                 </div>
             </div>
-        </div>
+        </div> */}
         </div>
       )
 }

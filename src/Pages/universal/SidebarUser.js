@@ -306,10 +306,9 @@ export default function SidebarUser({props, slug}) {
                 <ListItemText primary={"Dashboard"} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItemCustomized> */}
-            <ListItemCustomized primary={"Dashboard"} icon={<MdSpaceDashboard/>} loc="/dashboard" actClick={() => direct("dashboard")} />
-            <ListItemCustomized primary={"Jaringan Saya"} icon={<GiSwipeCard/>} loc="/networks" />
-            <ListItemCustomized primary={"Rewards & Bonuses"} icon={<MdCardMembership/>} loc="/rewards" actClick={handleClick} 
-            anchor={openMember} icon1={<IoMdArrowDropup/>} icon2={<IoMdArrowDropdown/>}
+            <ListItemCustomized primary={"Dashboard"} icon={<MdSpaceDashboard/>} loc="/dashboard" actClick={() => direct("/dashboard")} />
+            <ListItemCustomized primary={"Jaringan Saya"} icon={<GiSwipeCard/>} loc="/networks" actClick={() => direct("/networks")} />
+            <ListItemCustomized primary={"Rewards & Bonuses"} icon={<MdCardMembership/>} loc="/rewards" actClick={() => direct("/rewards")}
             />
             {/* <Collapse in={openMember} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>

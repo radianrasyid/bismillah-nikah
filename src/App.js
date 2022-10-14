@@ -29,6 +29,10 @@ import SidebarUser from "./Pages/universal/SidebarUser";
 import Products from "./Pages/Users/ADMIN/Products";
 import RewardsBonuses from "./Pages/Users/ADMIN/RewardsBonuses";
 import DashboardUser from "./Pages/Users/DashboardUser";
+import Rewards from "./Pages/Users/Rewards";
+import MyNetworks from "./Pages/Users/MyNetworks";
+import TourPackage from "./Pages/packages/TourPackage";
+import TourPackageDetail from "./Pages/packages/TourPackageDetail";
 
 
 function App() {
@@ -41,12 +45,20 @@ function App() {
       <Route path="/" element={<Navbar props={<Homepage/>}/>}/>
       <Route path="/register" element={<Register/>}/>
       <Route path="/login" element={<Login/>}/>
+      
+      {/* ROUTING USER */}
       <Route path="/user" element={<NavbarUser props={<UserProfile/>}/>}/>
       <Route path="/user-edit" element={<NavbarUser props={<EditUser/>}/>}/>
       <Route path="/admin-dashboard" element={<SidebarAdmin slug={"Dashboard"} props={<AdminProfile/>}/>}/>
       <Route path="/admin-products" element={<SidebarAdmin slug={"Products"} props={<Products/>}/>}/>
       <Route path="/admin-rewards" element={<SidebarAdmin slug={"Rewards & Bonus"} props={<RewardsBonuses/>}/>}/>
       <Route path="/dashboard" element={<SidebarUser slug={"Dashboard"} props={<DashboardUser/>}/>}/>
+      <Route path="/rewards" element={<SidebarUser slug={"Rewards"} props={<Rewards/>}/>}/>
+      <Route path="/networks" element={<SidebarUser slug={"Jaringan Saya"} props={<MyNetworks/>}/>}/>
+
+      {/* ROUTING PRODUK */}
+      <Route path="/tourpackages" element={<Navbar props={<TourPackage/>}/>}/>
+      <Route path="/tourpackages/:id" element={<Navbar props={<TourPackageDetail/>}/>}/>
     </Routes>
   );
 }
