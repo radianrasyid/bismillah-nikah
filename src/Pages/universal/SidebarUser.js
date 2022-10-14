@@ -80,6 +80,7 @@ const AppBar = styled(MuiAppBar, {
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
+    backgroundColor: "#FFFFFF"
   }),
   ...(open && {
     marginLeft: drawerWidth,
@@ -87,6 +88,7 @@ const AppBar = styled(MuiAppBar, {
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
+      backgroundColor: "#FFFFFF"
     }),
   }),
 }));
@@ -176,7 +178,7 @@ export default function SidebarUser({props, slug}) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} sx={{ backgroundColor: "#FFFFFF" }}>
         <Container maxWidth="xl" style={{ paddingLeft: "5rem"}}>
             <Toolbar disableGutters>
             <Typography

@@ -176,7 +176,7 @@ export default function SidebarAdmin({props, slug}) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} sx={{ backgroundColor: "#FFFFFF" }}>
         <Container maxWidth="xl" style={{ paddingLeft: "5rem"}}>
             <Toolbar disableGutters>
             <Typography
