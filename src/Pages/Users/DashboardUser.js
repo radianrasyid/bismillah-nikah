@@ -59,7 +59,7 @@ export default function DashboardUser() {
 
     const fetchData = async(e) => {
         setLoading(true)
-        await fetch("http://localhost:8000/api/v1/user/whoami", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/whoami", {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -78,7 +78,7 @@ export default function DashboardUser() {
             })
             setActiveChild(activeMembers)
 
-            await fetch(`http://localhost:8000/api/v1/program/${hasil.user.ProgramId}`)
+            await fetch(`https://umrohwebsite.herokuapp.com/api/v1/program/${hasil.user.ProgramId}`)
             .then(async(res) => {
                 let result = await res.json();
                 setProgram(result.data);
@@ -101,7 +101,7 @@ export default function DashboardUser() {
         formData.append("amount", Number(amount));
         formData.append("image", file)
 
-        await fetch("http://localhost:8000/api/v1/transaction", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/transaction", {
             method: "POST",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -114,7 +114,7 @@ export default function DashboardUser() {
         e.preventDefault();
 
         if(agreement === "Saya Menyetujui"){
-            await fetch("http://localhost:8000/api/v1/user/roleup", {
+            await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/roleup", {
                 method: "POST",
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -131,7 +131,7 @@ export default function DashboardUser() {
         e.preventDefault();
 
         if(agreement === "Saya Menyetujui"){
-            await fetch("http://localhost:8000/api/v1/user/reqpin", {
+            await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/reqpin", {
                 method: "POST",
                 headers: {
                     'Authorization': `Bearer ${token}`,

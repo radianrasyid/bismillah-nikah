@@ -290,7 +290,7 @@ export default function TableReferred() {
     const currentUser = useSelector((state) => state.auth)
     
     const fetchData = async(e) => {
-        await fetch("http://localhost:8000/api/v1/user/whoami", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/whoami", {
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
             }
