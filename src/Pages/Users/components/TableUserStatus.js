@@ -273,10 +273,10 @@ function CustomPagination(props) {
     );
 }
 
-export default function TableReferred() {
+export default function TableUserStatus() {
 
     const [data, setData] = React.useState([]);
-    const [dataUser, setDataUser] = React.useState(null);
+    const [dataUser, setDataUser] = React.useState([]);
     const [tablePage, setTablePage] = React.useState(10);
     const [id, setId] = React.useState("1");
     const [edit, setEdit] = React.useState(false)
@@ -290,14 +290,19 @@ export default function TableReferred() {
     const currentUser = useSelector((state) => state.auth)
     
     const fetchData = async(e) => {
-        await fetch("http://localhost:8000/api/v1/user/whoami", {
+        await fetch("http://localhost:8000/api/v1/user/getall", {
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
             }
         })
         .then(async(res) => {
             let hasil = await res.json();
-            setData(hasil.user.referrerId);
+            let members = await hasil.data.filter((item) => {
+                if(item.userRole == 2 || item.userRole == 3){
+                    return item;
+                }
+            })
+            setDataUser(members);
         })
     }
     
@@ -306,15 +311,30 @@ export default function TableReferred() {
         { field: 'id', headerName: 'ID', hide: true },
         { field: 'no', headerName: 'No', hide: false, align: "center" },
         { field: 'stats', headerName: 'Stats', hide: true, align: "center" },
-        { field: 'type', headerName: 'Nama', align: "center"},
+        { field: 'type', headerName: 'Nama', align: "center", flex: 1},
+        { field: 'payment', headerName: 'Pembayaran', align: "center"},
         {
             headerName: "Status", renderCell: (params) => {
-                return(
-                    <>
-                    {params.row.stats === 0 ? "Belum Aktif" : "Aktif"}
-                    </>
-                )
-            }, flex: 2, align: "center"
+                if(params.row.stats == 0){
+                    return(
+                        <>
+                            Tidak Aktif
+                        </>
+                    )
+                }else if(params.row.stats == 1){
+                    return(
+                        <>
+                            Belum Lunas
+                        </>
+                    )
+                }else if(params.row.stats == 2){
+                    return(
+                        <>
+                            Lunas
+                        </>
+                    )
+                }
+            }, flex: 0.4, align: "center"
         }
         // { 
         //     field: 'namaProduk', 
@@ -345,7 +365,7 @@ export default function TableReferred() {
         // },
     ];
 
-    const rows = data.map((data, index) => {
+    const rows = dataUser.map((data, index) => {
         var numb = index + 1;
 
         return {
@@ -353,6 +373,7 @@ export default function TableReferred() {
             no: numb,
             stats: data.status,
             type: data.firstName + " " + data.lastName,
+            payment: data.currentPayment
         }
     });
 

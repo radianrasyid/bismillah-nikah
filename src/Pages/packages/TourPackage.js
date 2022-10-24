@@ -3,7 +3,8 @@ import { Row, Col, Card } from 'react-bootstrap';
 import { Button, Stack, styled } from "@mui/material";
 import sliderBanner1 from "../assetsUser/images/banner1.jpg";
 import REWARD_DATA from "../assets/DATAS/REWARD_DATA.json";
-import car from "../assetsUser/images/car.jpg"
+import car from "../assetsUser/images/car.jpg";
+import { useNavigate } from 'react-router-dom';
 
 const StyledButton = styled(Button)(({theme}) => ({
     '&:hover':{
@@ -19,6 +20,24 @@ const StyledButton = styled(Button)(({theme}) => ({
 }))
 
 export default function TourPackage() {
+
+    const direct = useNavigate();
+
+    const [program, setProgram] = React.useState([]);
+
+    const fetchData = async(e) => {
+        let response = await fetch("http://localhost:8000/api/v1/program");
+        let hasil = await response.json();
+
+        setProgram(hasil.data);
+    }
+
+    React.useEffect(() => {
+        fetchData();
+    }, [])
+
+    console.log("INI DATA PROGRAM", program);
+
   return (
     <div>
         <section className="home-slider-section mb-2">
@@ -41,19 +60,20 @@ export default function TourPackage() {
         <section className='mb-3 p-3'>
         <Row>
             {
-                REWARD_DATA.map((item, index) => {
+                program.map((item, index) => {
+                    let link = `http://localhost:3000/tourpackages/${item.id}`
                     return(
-                        <Col>
+                        <Col key={item.id}>
                             <Card className="card-reward">
-                                <Card.Img variant="top" src={car} />
+                                <Card.Img variant="top" className='product-image' src={item.image} />
                                 <Card.Body>
-                                    <Card.Title className='dashboard-user-welcome-title'>{item.name}</Card.Title>
-                                    <Card.Text className='dashboard-user-program-text'>Dapatkan kesempatan lebih baik dengan mengajak lebih banyak teman anda</Card.Text>
+                                    <Card.Title className='dashboard-user-welcome-title'>{item.programName}</Card.Title>
+                                    <Card.Text className='dashboard-user-program-text'>{item.programDescription}</Card.Text>
                                     <Stack direction={"row"} spacing={2}>
                                         <StyledButton className="mt-2" variant='contained' size="small" type="button">
                                             Ikuti
                                         </StyledButton>
-                                        <StyledButton className="mt-2" variant='contained' size="small" type="button">
+                                        <StyledButton className="mt-2" variant='contained' size="small" type="button" onClick={() => direct(`/tourpackages/${item.id}`)}>
                                             Detail
                                         </StyledButton>
                                     </Stack>

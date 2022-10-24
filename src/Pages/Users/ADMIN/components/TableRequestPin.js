@@ -12,11 +12,12 @@ import {
     GridToolbarExport,
     GridToolbarQuickFilter,
 } from '@mui/x-data-grid';
+import { KeyboardArrowDown } from '@mui/icons-material'
 import { styled } from '@mui/material/styles';
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 // import { Link } from 'react-router-dom';
-import { Button, FormControl, MenuItem, Select, IconButton, OutlinedInput } from '@mui/material';
+import { Button, FormControl, MenuItem, Select, IconButton, OutlinedInput, Autocomplete, TextField, Stack } from '@mui/material';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 import { Icon } from '@iconify/react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -32,11 +33,17 @@ import Slide from '@mui/material/Slide';
 import axios from 'axios';
 import ReactApexChart from 'react-apexcharts';
 import { useSelector } from 'react-redux';
+import formatRupiah from '../../../functions/formatRupiah';
 axios.defaults.withCredentials = true;
 
 const Transition = React.forwardRef(function Transition(props, ref) { 
     return <Slide direction='up' ref={ref} {...props} />
 })
+
+const roleList = [
+    {id: 1, role: "Admin", value: 2},
+    {id: 2, role: "Member", value: 3},
+]
 
 const data = [
     {id: 1, nama: "Antibiotik"},
@@ -141,11 +148,19 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
 }));
 
 function CustomToolbar(props) {
-    const [open, setOpen] = React.useState(false)
-    const [type, setType] = React.useState(null)
 
-    const handleOpenAdd = () => setOpen(true);
-    const handleCloseAdd = () => setOpen(false);
+    const currentUser = useSelector((state) => state.auth);
+    const [openCreate, setOpenCreate] = React.useState(false);
+    const [dataUser, setDataUser] = React.useState([]);
+
+    // FORM STATES
+    const [amount, setAmount] = React.useState(null);
+    const [program, setProgram] = React.useState(null);
+    const [sentBy, setSentBy] = React.useState(null);
+    const [file, setFile] = React.useState(null);
+    
+    const handleOpenCreate = () => setOpenCreate(true);
+    const handleCloseCreate = () => setOpenCreate(false);
 
     const handleClick = (e) => {
         props.setTablePage(e.target.value);
@@ -157,74 +172,75 @@ function CustomToolbar(props) {
         }
     }
 
-    const onSubmit = async(e) => {
-        await axios.post("http://10.10.29.171:8000/MD/prod_type", {
-            type
+    const fetchDataUser = async() => {
+        await fetch("http://localhost:8000/api/v1/user/getall", {
+            method: "GET",
+            headers: {
+                'Authorization': `Bearer ${currentUser.token}`
+            }
+        })
+        .then(async(res) => {
+            let hasil = await res.json();
+            let hasilData = await hasil.data;
+            let users = await hasilData.filter((item) => {
+                if(item.userRole !== 1){
+                    return item
+                }
+            })
+            setDataUser(users);
         })
     }
 
-    // return (
-    //     <GridToolbarContainer className='hms-gridtoolbar-container'>
-    //         {/* <div className='hms-gridtoolbar-showdata'>
-    //             <p className='me-2'>Show</p>
-    //             <FormControl fullWidth className=''>
-    //                 <Select
-    //                     IconComponent={UnfoldMoreIcon}
-    //                     value={props.tablePage}
-    //                     onChange={(e) => handleClick(e)}
-    //                     className="hms-small-textfield"
-    //                 >
-    //                     <MenuItem value={'10'}>10</MenuItem>
-    //                     <MenuItem value={'25'}>25</MenuItem>
-    //                     <MenuItem value={'50'}>50</MenuItem>
-    //                     <MenuItem value={'75'}>75</MenuItem>
-    //                     <MenuItem value={'100'}>100</MenuItem>
-    //                 </Select>
-    //             </FormControl>
-    //             <p className='ms-2'>data</p>
-    //         </div> */}
-    //         <div className='d-flex'>
-    //             {/* <GridToolbarQuickFilter className='hms-form-quickcustom-mui me-2' />
-    //             <GridToolbarFilterButton className='hms-btn-filtercustom-mui me-2' /> */}
-    //             <Dialog
-    //                 open={open}
-    //                 TransitionComponent={Transition}
-    //                 keepMounted
-    //                 fullWidth
-    //                 maxWidth={"md"}
-    //                 onClose={handleCloseAdd}
-    //                 aria-describedby="alert-dialog-slide-description"
-    //             >
-    //                 <DialogTitle>{"Form Tambah Jenis Produk"}</DialogTitle>
-    //                 <DialogContent>
-    //                 <DialogContentText id="alert-dialog-slide-description">
-    //                     <div>
-    //                         <Row>
-    //                             <Col>
-    //                                 <p className='hms-text-label mb-2'>Nama Jenis Produk</p>
-    //                             </Col>
-    //                             <Col>
-    //                                 <FormControl className='mb-3' variant='outlined' fullWidth>
-    //                                     <OutlinedInput
-    //                                     type="text"
-    //                                     className='hms-small-textfield'
-    //                                     placeholder='Antibiotik'
-    //                                     onChange={(e) => setType(e.target.value)}
-    //                                     />
-    //                                 </FormControl>
-    //                             </Col>
-    //                         </Row>
-    //                     </div>
-    //                 </DialogContentText>
-    //                 </DialogContent>
-    //                 <DialogActions>
-    //                 <Button onClick={handleCloseAdd}>Disagree</Button>
-    //                 <Button onClick={onSubmit}>Agree</Button>
-    //                 </DialogActions>
-    //             </Dialog>
-    //         </div>
-    //     </GridToolbarContainer>
-    // );
+    const createTransaction = async(e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+
+        formData.append("amount", amount);
+        formData.append("image", file);
+        formData.append("program", program);
+        formData.append("user_id", sentBy);
+
+        await fetch("http://localhost:8000/api/v2/create/transaction", {
+            method: "POST",
+            headers: {
+                'Authorization': `Bearer ${currentUser.token}`
+            },
+            body: formData
+        })
+    }
+
+    React.useEffect(() => {
+        fetchDataUser();
+    }, [])
+
+    return (
+        <GridToolbarContainer className='hms-gridtoolbar-container'>
+            {/* <div className='hms-gridtoolbar-showdata'>
+                <p className='me-2'>Show</p>
+                <FormControl fullWidth className=''>
+                    <Select
+                        IconComponent={UnfoldMoreIcon}
+                        value={props.tablePage}
+                        onChange={(e) => handleClick(e)}
+                        className="hms-small-textfield"
+                    >
+                        <MenuItem value={'10'}>10</MenuItem>
+                        <MenuItem value={'25'}>25</MenuItem>
+                        <MenuItem value={'50'}>50</MenuItem>
+                        <MenuItem value={'75'}>75</MenuItem>
+                        <MenuItem value={'100'}>100</MenuItem>
+                    </Select>
+                </FormControl>
+                <p className='ms-2'>data</p>
+            </div> */}
+            <div className='d-flex'>
+                <GridToolbarQuickFilter className='hms-form-quickcustom-mui me-2' />
+                <GridToolbarExport className='hms-btn-exportcustom-mui me-2' />
+                <GridToolbarFilterButton className='hms-btn-filtercustom-mui me-2' />
+            </div>
+        </GridToolbarContainer>
+    );
 }
 
 function CustomPagination(props) {
@@ -273,76 +289,169 @@ function CustomPagination(props) {
     );
 }
 
-export default function TableReferred() {
+export default function TableRequestPin() {
 
     const [data, setData] = React.useState([]);
-    const [dataUser, setDataUser] = React.useState(null);
     const [tablePage, setTablePage] = React.useState(10);
     const [id, setId] = React.useState("1");
+    const [oneUser, setOneUser] = React.useState(null);
     const [edit, setEdit] = React.useState(false)
     const [hapus, setHapus] = React.useState(false)
     const [type, setType] = React.useState(null);
     const [newPageSize, setNewPageSize] = React.useState(10);
     const [dataId, setDataId] = React.useState(null);
-    const [add, setAdd] = React.useState(false)
+    const [add, setAdd] = React.useState(false);
+    const [codes, setCodes] = React.useState([]);
     const navigate = useNavigate();
+    const currentUser = useSelector((state) => state.auth);
 
-    const currentUser = useSelector((state) => state.auth)
-    
+    // FORM STATES
+    const [userId, setUserId] = React.useState(null);
+    const [amount, setAmount] = React.useState(null);
+
+    const [openDecision, setOpenDecision] = React.useState(false);
+
+    const handleOpenDecision = () => setOpenDecision(true);
+    const handleCloseDecision = () => setOpenDecision(false)
+
     const fetchData = async(e) => {
-        await fetch("http://localhost:8000/api/v1/user/whoami", {
+        await fetch("http://localhost:8000/api/v1/requestpins", {
+            method: "GET",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
             }
         })
         .then(async(res) => {
             let hasil = await res.json();
-            setData(hasil.user.referrerId);
+            let hasildata = hasil.data;
+            setData(hasildata);
         })
     }
-    
+
+    const fetchDataUser = async(e) => {
+        await fetch(`http://localhost:8000/api/v1/userone/${id}`, {
+            method: "GET",
+            headers: {
+                'Authorization': `Bearer ${currentUser.token}`
+            }
+        })
+        .then(async(res) => {
+            let hasil = await res.json();
+            let hasilData = await hasil.data;
+            setOneUser(hasilData);
+        })
+    }
+
+    const approvePin = async(e) => {
+        await fetch("http://localhost:8000/api/v2/create/pin", {
+            method: "POST",
+            headers: {
+                'Authorization': `Bearer ${currentUser.token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user_id: userId,
+                amount: amount
+            })
+        })
+    }
+
+    React.useEffect(() => {
+        fetchDataUser();
+    }, [id])
     
     const columns = [
         { field: 'id', headerName: 'ID', hide: true },
-        { field: 'no', headerName: 'No', hide: false, align: "center" },
-        { field: 'stats', headerName: 'Stats', hide: true, align: "center" },
-        { field: 'type', headerName: 'Nama', align: "center"},
-        {
-            headerName: "Status", renderCell: (params) => {
+        { field: 'no', headerName: 'No', flex: 0.1, align: "center"},
+        { field: 'name', headerName: 'Nama', flex: 1, align: "center" },
+        { field: 'stats', headerName: "Stats", hide: true },
+        { field: "roles", headerName: "Amount", align: "center", flex: 1 },
+        { field: "type", headerName: "Keterangan", renderCell: (params) => {
+            if(params.row.type == "role"){
                 return(
                     <>
-                    {params.row.stats === 0 ? "Belum Aktif" : "Aktif"}
+                        Upgrade Akun
                     </>
                 )
-            }, flex: 2, align: "center"
-        }
-        // { 
-        //     field: 'namaProduk', 
-        //     headerName: 'Nama Produk', 
-        //     flex: 4,
-        //     renderCell: (params) => {
-        //         return <p className='mb-0'>
-        //             <Icon icon="healthicons:medicines-outline" className="me-2" style={{ color: "#322F2F" }} />
-        //             <span className='fw-semibold'>{params.value}</span>
-        //         </p>
-        //     } 
-        // },
-        // { field: 'expiredDate', headerName: 'Expired Date', flex: 2 },
-        // { field: 'hargaBeli', headerName: 'Harga Beli', flex: 2 },
-        // { field: 'hargaJual', headerName: 'Harga Jual', flex: 2 },
-        // { field: 'jumlah', headerName: 'Jumlah', type: 'number', flex: 1, align: 'center' },
-        // { field: 'satuan', headerName: 'Satuan', flex: 1, align: 'center' },
-        // { field: 'type', headerName: 'Type', flex: 2 },
-        // { 
-        //     field: 'action', 
-        //     headerName: 'Action', 
-        //     flex: 1,
-        //     sortable: false,
-        //     align: 'center',
-        //     renderCell: (params) => {
-        //         return <Button onClick={() => handleClickDetail()} variant='text' size='small' className="hms-btn hms-btn-link font-11 text-info">Detail</Button>
-        //     } 
-        // },
+            }else if(params.row.type == "transaction"){
+                return(
+                    <>
+                        Transaksi
+                    </>
+                )
+            }else if(params.row.type == "pin"){
+                return(
+                    <>
+                        Request Pin
+                    </>
+                )
+            }
+        }, align: "center", flex: 1 },
+        { headerName: "Status", renderCell: (param) => {
+            if(param.row.stats == 0){
+                return(
+                    <>
+                        <Button variant="outlined" size="small" onClick={handleOpenDecision}
+                        onMouseEnter={() => {
+                            setUserId(param.row.sentBy)
+                            setAmount(param.row.roles)
+                        }}
+                    sx={{
+                        fontWeight: "600"
+                    }}
+                    >
+                        Pending
+                    </Button>
+                    <Dialog
+                        open={openDecision}
+                        TransitionComponent={Transition}
+                        keepMounted
+                        onClose={handleOpenDecision}
+                        aria-describedby="alert-dialog-slide-description"
+                    >
+                        <DialogTitle>{"Persetujuan Pembuatan Pin"}</DialogTitle>
+                        <DialogContent>
+                            <div className='mb-3'>
+                                <p className='input-label-text'>Requested Leader</p>
+                                <FormControl className='no-border' variant='standard' fullWidth>
+                                    <OutlinedInput type='text' value={param.row.name}  className='input-textfield' readOnly />
+                                </FormControl>
+                            </div>
+                            <div className='mb-3'>
+                                <p className='input-label-text'>Jumlah Pin</p>
+                                <FormControl className='no-border' variant='standard' fullWidth>
+                                    <OutlinedInput type='text' value={param.row.roles} className='input-textfield' readOnly />
+                                </FormControl>
+                            </div>
+                        </DialogContent>
+                        <DialogActions>
+                        <Button onClick={handleCloseDecision}>Disagree</Button>
+                        <Button onMouseEnter={() => {
+                            console.log("INI USERID", userId);
+                            console.log("INI AMOUNT", amount);
+                        }} onClick={approvePin}>Agree</Button>
+                        </DialogActions>
+                    </Dialog>
+                    </>
+                )
+            }else if(param.row.stats == 1){
+                return(
+                    <Button variant='outlined' size="small"
+                    sx={{
+                        fontWeight: "600"
+                    }}
+                    >
+                        Disetujui
+                    </Button>
+                )
+            }else if(param.row.stats == -1){
+                return(
+                    <>
+                        Dibatalkan
+                    </>
+                )
+            }
+        }, align: "center", flex: 1 },
     ];
 
     const rows = data.map((data, index) => {
@@ -351,14 +460,18 @@ export default function TableReferred() {
         return {
             id: data.id,
             no: numb,
+            sentBy: data.sentBy,
+            name: `${data.sentby.firstName} ${data.sentby.lastName}`,
             stats: data.status,
-            type: data.firstName + " " + data.lastName,
+            roles: data.amount,
+            type: data.type,
         }
     });
 
     React.useEffect(() => {
-        fetchData();
+        fetchData()
     }, [])
+
         return (
             <div>
                 <StyledDataGrid

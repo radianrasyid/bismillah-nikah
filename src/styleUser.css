@@ -60,7 +60,7 @@ hr {
 }
 
 pre {
-  font-family: 'Inter';
+  font-family: 'Montserrat';
   font-size: 1em;
 }
 
@@ -77,7 +77,7 @@ abbr[title] {
 code,
 kbd,
 samp {
-  font-family: 'Inter';
+  font-family: 'Montserrat';
   font-size: 1em;
 }
 
@@ -110,7 +110,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: 'Inter';
+  font-family: 'Montserrat';
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
@@ -221,7 +221,7 @@ body {
   font-size: 15px;
   color: #383838;
   background-color: #ffffff;
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1.6;
@@ -255,7 +255,7 @@ blockquote, pre {
   -o-box-shadow: none;
   box-shadow: none;
   color: #1a1a1a;
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-style: italic;
   margin: 0 0 15px 0;
   padding: 25px 22px;
@@ -278,7 +278,7 @@ blockquote:before {
   background-color: #fff;
   color: #333333;
   content: "\f10d";
-  font-family: "Inter";
+  font-family: "Montserrat";
   font-weight: 900;
   font-size: 20px;
   float: left;
@@ -359,7 +359,7 @@ img {
 --------------------------------------------------------------*/
 h1, h2, h3, h4, h5, h6, p, small {
   color: #101F46;
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .connector{
@@ -622,7 +622,7 @@ input[type=submit]:focus {
   transition: all 0.4s;
 }
 .button-text:after {
-  font-family: "Inter";
+  font-family: "Montserrat";
   font-weight: 900;
   margin-left: 6px;
   -webkit-transition: all 0.4s;
@@ -886,7 +886,7 @@ form label {
   background-color: #0791BE;
   content: "\f00c";
   color: #ffffff;
-  font-family: "Inter";
+  font-family: "Montserrat";
   font-size: 8px;
   font-weight: 900;
   width: 100%;
@@ -1500,7 +1500,7 @@ input:checked ~ .custom-input-field:before {
   font-weight: 700;
 }
 .dashboard-box thead tr th {
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   border-width: 1px;
 }
@@ -1522,7 +1522,7 @@ input:checked ~ .custom-input-field:before {
 }
 .dashboard-box .list-name,
 .dashboard-box .list-enq-name {
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
   display: block;
   font-weight: 700;
   color: #263238;
@@ -1595,7 +1595,7 @@ input:checked ~ .custom-input-field:before {
   top: 0;
 }
 .css-10hburv-MuiTypography-root{
-  font-family: 'Inter' !important;
+  font-family: 'Montserrat' !important;
   font-size: 14px !important;
   font-weight: 500 !important;
 }
@@ -1884,7 +1884,7 @@ Tour packages added css
   package css
   ------------------------------------- */
 .db-package-wrap .package-name {
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 13px;
   color: #333333;
@@ -1932,13 +1932,13 @@ Tour packages added css
 .package-wrap .package-price h6 {
   color: #ffffff;
   font-size: 13px;
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
   line-height: 1.1;
   margin-bottom: 0;
   padding: 8px 16px;
 }
 .package-wrap .package-price h6 span {
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 22px;
   font-weight: 700;
   line-height: 1.2;
@@ -2094,7 +2094,7 @@ login form css
 .rating-start:before {
   color: #ddd;
   display: block;
-  font-family: "Inter";
+  font-family: "Montserrat";
 }
 .rating-start span {
   display: block;
@@ -2107,7 +2107,7 @@ login form css
   color: #FEBF00;
   content: "\f005\f005\f005\f005\f005";
   display: block;
-  font-family: "Inter";
+  font-family: "Montserrat";
   font-weight: 900;
 }
 

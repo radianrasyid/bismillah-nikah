@@ -19,11 +19,20 @@ import { ImageList, ImageListItem } from '@mui/material';
 export default function Homepage() {
 
    const [image, setImage] = useState([mecca3, mecca4, kaabah, payung])
+   const [programs, setPrograms] = useState([])
 
    const fetchData = async() => {
-      await fetch("http://localhost:8000", {
-         method: 'GET'
+      await fetch("http://localhost:8000/api/v1/program")
+      .then(async(res) => {
+         let hasil = await res.json();
+         setPrograms(hasil.data)
       })
+   }
+
+   const formatRupiah = (money) => {
+      return new Intl.NumberFormat('id-ID',
+        { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }
+      ).format(money);
    }
 
    React.useEffect(() => {
@@ -135,49 +144,58 @@ export default function Homepage() {
    </div>
    <div className="package-inner">
       <div className="row">
-         <div data-aos="fade-right" className="col-lg-4 col-md-6">
-            <div className="package-wrap">
-               <figure className="feature-image">
-                  <a href="#">
-                     <img src={mecca} alt="" className='br-8'/>
-                  </a>
-               </figure>
-               <div className="package-price">
-                  <h6>
-                     <span>Rp 34.600.000 </span>
-                  </h6>
-               </div>
-               <div className="package-content-wrap">
-                  <div className="package-meta text-center">
-                     <ul>
-                        <li>
-                           <i className="far fa-clock"></i>
-                           7D/6N
-                        </li>
-                        <li>
-                           <i className="fas fa-user-friends"></i>
-                           People: 5
-                        </li>
-                        <li>
-                           <i className="fas fa-map-marker-alt"></i>
-                           Saudi Arabia
-                        </li>
-                     </ul>
-                  </div>
-                  <div className="package-content">
-                     <h3>
-                        <a href="#">Program Reguler 6 bulan</a>
-                     </h3>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                     <div className="btn-wrap">
-                        <a href="/login" className="button-text width-6">Pesan Sekarang<i className="fas fa-arrow-right"></i></a>
-                        <a href="#" className="button-text width-6">Wish List<i className="far fa-heart"></i></a>
+         {
+            programs.map((item, index) => {
+               if(item.programType == 0 || item.programType == 1){
+                  const link = `http://localhost:3000/tourpackages/${item.id}`
+                  return(
+                     <div data-aos="fade-right" className="col-lg-4 col-md-6">
+                        <div className="package-wrap">
+                           <figure className="feature-image">
+                              <a href={link}>
+                                 <img src={item.image} alt="" className='br-8' style={{ height: "20rem", width: "30rem", objectFit: "cover" }}/>
+                              </a>
+                           </figure>
+                           <div className="package-price">
+                              <h6>
+                                 <span>{formatRupiah(item.price)}</span>
+                              </h6>
+                           </div>
+                           <div className="package-content-wrap">
+                              <div className="package-meta text-center">
+                                 <ul>
+                                    <li>
+                                       <i className="far fa-clock"></i>
+                                       7D/6N
+                                    </li>
+                                    <li>
+                                       <i className="fas fa-user-friends"></i>
+                                       People: {item.users.length}
+                                    </li>
+                                    <li>
+                                       <i className="fas fa-map-marker-alt"></i>
+                                       Saudi Arabia
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div className="package-content">
+                                 <h3>
+                                    <a href="#">{item.programName}</a>
+                                 </h3>
+                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
+                                 <div className="btn-wrap">
+                                    <a href="/login" className="button-text width-6">Pesan Sekarang<i className="fas fa-arrow-right"></i></a>
+                                    <a href="#" className="button-text width-6">Wish List<i className="far fa-heart"></i></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
                      </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div data-aos="fade-right" className="col-lg-4 col-md-6">
+                  )
+               }
+            })
+         }
+         {/* <div data-aos="fade-right" className="col-lg-4 col-md-6">
             <div className="package-wrap">
                <figure className="feature-image">
                   <a href="#">
@@ -260,7 +278,7 @@ export default function Homepage() {
                   </div>
                </div>
             </div>
-         </div>
+         </div> */}
       </div>
       <div className="btn-wrap text-center">
          <a href="#" className="button-primary">VIEW ALL PACKAGES</a>
@@ -288,24 +306,6 @@ export default function Homepage() {
    <div className="special-inner">
       <div className="row">
          <div className="col-md-6 col-lg-4">
-            {/* <div className="special-item">
-               <figure className="special-img">
-                  <img src={img9} className="img-rounded" alt=""/>
-               </figure>
-               <div className="special-content">
-                  <div className="meta-cat">
-                     <a href="#">CANADA</a>
-                  </div>
-                  <h3>
-                     <a href="#">Experience the natural beauty of glacier</a>
-                  </h3>
-                  <div className="package-price">
-                     Price:
-                     <del>$1500</del>
-                     <ins>$1200</ins>
-                  </div>
-               </div>
-            </div> */}
          </div>
          <div data-aos="fade-up" className="col-md-6 col-lg-4">
             <div className="special-item">
@@ -327,24 +327,6 @@ export default function Homepage() {
             </div>
          </div>
          <div className="col-md-6 col-lg-4">
-            {/* <div className="special-item">
-               <figure className="special-img">
-                  <img src={img9} className="img-rounded" alt=""/>
-               </figure>
-               <div className="special-content">
-                  <div className="meta-cat">
-                     <a href="#">MALAYSIA</a>
-                  </div>
-                  <h3>
-                     <a href="#">Sunset view of beautiful lakeside city</a>
-                  </h3>
-                  <div className="package-price">
-                     Price:
-                     <del>$1800</del>
-                     <ins>$1476</ins>
-                  </div>
-               </div>
-            </div> */}
          </div>
       </div>
    </div>

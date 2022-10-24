@@ -305,7 +305,7 @@ export default function SidebarAdmin({props, slug}) {
               </ListItemButton>
             </ListItemCustomized> */}
             <ListItemCustomized primary={"Dashboard"} icon={<MdSpaceDashboard/>} loc="/admin-dashboard" actClick={() => direct("/admin-dashboard")} />
-            <ListItemCustomized primary={"Transaksi"} icon={<GiSwipeCard/>} loc="/admin-transactions" />
+            <ListItemCustomized primary={"Transaksi"} icon={<GiSwipeCard/>} loc="/admin-transactions" actClick={() => direct("/admin-transactions")} />
             <ListItemCustomized primary={"Member"} icon={<MdCardMembership/>} loc="/admin-members" actClick={handleClick} 
             anchor={openMember} icon1={<IoMdArrowDropup/>} icon2={<IoMdArrowDropdown/>}
             />
@@ -341,7 +341,7 @@ export default function SidebarAdmin({props, slug}) {
             </Collapse>
             <ListItemCustomized primary={"Produk"} icon={<BsBoxSeam/>} loc="/admin-products" actClick={() => direct("/admin-products")} />
             <ListItemCustomized primary={"Rewards & Bonus"} icon={<BsGiftFill/>} loc="/admin-rewards" actClick={() => direct("/admin-rewards")} />
-            <ListItemCustomized primary={"Pin"} icon={<BsFillLockFill/>} loc="/admin-pins" />
+            <ListItemCustomized primary={"Pin"} icon={<BsFillLockFill/>} loc="/admin-pins" actClick={() => direct("/admin-pins")} />
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>

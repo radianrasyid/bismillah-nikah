@@ -6,11 +6,14 @@ import StyledSubmitButton from '../components/buttonSubmit';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import logo from "../assets/images/logo-hrbs.jpg";
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { setCredentials } from '../../redux/feature/auth/authSlice';
 
 export default function Login() {
 
     const direct = useNavigate();
+    const dispatch = useDispatch();
 
     // FORM STATES
     const [email, setEmail] = React.useState(null);
@@ -28,6 +31,19 @@ export default function Login() {
                     email,
                     password
                 })
+            }).then(async (response) => {
+                let hasil = await response.json();
+                if(hasil.token){
+                    dispatch(setCredentials({
+                        id: hasil.id,
+                        user: hasil.user,
+                        accessToken: hasil.token,
+                        image: hasil.image,
+                        role: hasil.userRole,
+                        referral: hasil.referralCode
+                    }))
+                    direct("/")
+                }
             })
         }else{
             alert("email atau password salah")

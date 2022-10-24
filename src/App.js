@@ -1,4 +1,5 @@
 import React from "react";
+import "./custom.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from "react-router-dom";
 // import "./Pages/assets/bs/css/bootstrap.min.css";
@@ -33,6 +34,10 @@ import Rewards from "./Pages/Users/Rewards";
 import MyNetworks from "./Pages/Users/MyNetworks";
 import TourPackage from "./Pages/packages/TourPackage";
 import TourPackageDetail from "./Pages/packages/TourPackageDetail";
+import EmployeeNode from "./EmployeeNode";
+import RegisterRef from "./Pages/Users/RegisterRef";
+import AdminTransaksi from "./Pages/Users/ADMIN/AdminTransaksi";
+import PinPage from "./Pages/Users/ADMIN/PinPage";
 
 
 function App() {
@@ -45,6 +50,7 @@ function App() {
       <Route path="/" element={<Navbar props={<Homepage/>}/>}/>
       <Route path="/register" element={<Register/>}/>
       <Route path="/login" element={<Login/>}/>
+      <Route path="/code/:id" element={<RegisterRef/>}/>
       
       {/* ROUTING USER */}
       <Route path="/user" element={<NavbarUser props={<UserProfile/>}/>}/>
@@ -52,6 +58,8 @@ function App() {
       <Route path="/admin-dashboard" element={<SidebarAdmin slug={"Dashboard"} props={<AdminProfile/>}/>}/>
       <Route path="/admin-products" element={<SidebarAdmin slug={"Products"} props={<Products/>}/>}/>
       <Route path="/admin-rewards" element={<SidebarAdmin slug={"Rewards & Bonus"} props={<RewardsBonuses/>}/>}/>
+      <Route path="/admin-transactions" element={<SidebarAdmin slug={"Transaksi"} props={<AdminTransaksi/>}/>}/>
+      <Route path="/admin-pins" element={<SidebarAdmin slug={"Transaksi"} props={<PinPage/>}/>}/>
       <Route path="/dashboard" element={<SidebarUser slug={"Dashboard"} props={<DashboardUser/>}/>}/>
       <Route path="/rewards" element={<SidebarUser slug={"Rewards"} props={<Rewards/>}/>}/>
       <Route path="/networks" element={<SidebarUser slug={"Jaringan Saya"} props={<MyNetworks/>}/>}/>
@@ -59,6 +67,9 @@ function App() {
       {/* ROUTING PRODUK */}
       <Route path="/tourpackages" element={<Navbar props={<TourPackage/>}/>}/>
       <Route path="/tourpackages/:id" element={<Navbar props={<TourPackageDetail/>}/>}/>
+
+      {/* TETS */}
+      <Route path="/test" element={<EmployeeNode/>}/>
     </Routes>
   );
 }

@@ -59,6 +59,57 @@ $textFooter: #8b8b8b;
     background-color: $dangerColor  !important;
 }
 
+.hms-unselect-mui {
+    .MuiSelect-select {
+        color: #b9b9b9;
+    }
+}
+
+.hms-small-textfield {
+    input {
+        padding: 12px 14px !important;
+        color: $blackColor !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-style: normal;
+        font-weight: 500 !important;
+    }
+
+    .MuiSelect-select {
+        padding: 9.5px 14px !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-style: normal;
+        font-weight: 500 !important;
+    }
+
+    textarea {
+        padding: 12px 14px !important;
+    }
+
+    fieldset {
+        border-radius: 7px !important;
+        border-color: #DEE7F9 !important;
+        // border-width: 1px !important;
+    }
+
+    .MuiInputAdornment-root {
+        p {
+            font-family: 'Outfit', sans-serif !important;
+            font-style: normal;
+            font-weight: 500 !important;
+            font-size: 12px;
+        }
+    }
+
+    .MuiAutocomplete-inputRoot {
+        padding: 0 !important;
+        padding-right: 39px !important;
+    }
+}
+
+.hms-small-textfield.MuiInputBase-readOnly {
+    background-color: $backgroundColor !important;
+}
+
 .bg-info {
     background-color: $infoColor  !important;
 }

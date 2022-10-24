@@ -31,6 +31,8 @@ import { GiSwipeCard } from "react-icons/gi"
 import { ImTree } from "react-icons/im"
 import { Collapse, Stack } from '@mui/material';
 import { Col, Row } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../redux/feature/auth/authSlice';
 
 const drawerWidth = 240;
 
@@ -118,6 +120,7 @@ export default function SidebarUser({props, slug}) {
     const router = useLocation()
     const location = router.pathname;
     const direct = useNavigate();  
+    const dispatch = useDispatch();
 
     const ListItemCustomized = ({primary, icon, loc, actClick, anchor, icon1, icon2}) => (
             <ListItem disablePadding sx={{ display: 'block' }}
@@ -212,7 +215,10 @@ export default function SidebarUser({props, slug}) {
                 >
                     <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
                     <MenuItem onClick={handleCloseUserMenu}>My account</MenuItem>
-                    <MenuItem onClick={handleCloseUserMenu}>Logout</MenuItem>
+                    <MenuItem onClick={() => {
+                      dispatch(logOut());
+                      direct("/")
+                    }}>Logout</MenuItem>
                 </Menu>
             </Box>
             </Toolbar>

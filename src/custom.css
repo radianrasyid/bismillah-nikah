@@ -113,6 +113,10 @@ import
     height: 0.5rem !important;
 }
 
+.MuiInputBase-input.MuiOutlinedInput-input.MuiInputBase-inputAdornedEnd.MuiAutocomplete-input.MuiAutocomplete-inputFocused.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input{
+    border: none !important;
+}
+
 .dashboard-user-welcome-img{
     width: 13rem;
 }
@@ -367,11 +371,43 @@ small {
     width: fit-content;
 }
 
+.css-z7uhs0-MuiStepConnector-line{
+    border-color: #000000 !important;
+}
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active{
+    color: rgba(65, 125, 122, 1) !important;
+}
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed{
+    color: rgba(65, 125, 122, 1) !important;
+}
+
+.product-image{
+    height: 15rem;
+    object-fit: cover;
+}
+
+.css-bdhsul-MuiTypography-root-MuiDialogTitle-root{
+    font-weight: 600 !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
 .card-admin-dashboard-number{
     margin-top: -1rem;
-    font-family: 'Inter';
+    font-family: 'Montserrat';
     font-weight: 700;
     color: #1A3C40;
+}
+
+.dialog-heading-2{
+    font-weight: 500;
+}
+
+.css-1h7i5k3-MuiButtonBase-root-MuiTab-root.Mui-selected{
+    color: #FFFFFF !important;
+    background-color: #344e4c !important;
 }
 
 .button-card-admin-dashboard{

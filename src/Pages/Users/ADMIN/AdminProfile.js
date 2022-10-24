@@ -10,6 +10,9 @@ import { MdGroups } from 'react-icons/md';
 import { TiLockOpen } from "react-icons/ti"
 import { Col, Row } from 'react-bootstrap';
 import Chart from "react-apexcharts";
+import TableRecentMembers from '../components/TableRecentMembers';
+import TableUserStatus from '../components/TableUserStatus';
+import { useSelector } from 'react-redux';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
     'label + &': {
@@ -112,9 +115,44 @@ export default function AdminProfile() {
     })
 
     const [age, setAge] = React.useState(0);
+    const [userReferred, setUserReferred] = React.useState([]);
+    const [activeMembers, setActiveMembers] = React.useState([]);
+    const [users, setUsers] = React.useState([]);
+    const [eligibleUsers, setEligibleUsers] = React.useState([]);
     const handleChange = (event) => {
         setAge(event.target.value);
       };
+
+    const currentUser = useSelector((state) => state.auth);
+
+    const fetchData = async(e) => {
+        await fetch("http://localhost:8000/api/v1/user/getall", {
+            method: "GET",
+            headers: {
+                'Authorization': `Bearer ${currentUser.token}`
+            }
+        }).then(async(res) => {
+            let hasil = await res.json();
+            let hasildata = await hasil.data;
+
+            let active = await hasildata.map((item) => {
+                if(item.status !== 0){
+                    return item
+                }
+            });
+
+            let eligible = await hasildata.map((item) => {
+                if(item.referredCode){
+                    
+                }
+            })
+
+        })
+    };
+
+    React.useEffect(() => {
+        fetchData();
+    }, [])
 
     return (
         <div>
@@ -352,7 +390,7 @@ export default function AdminProfile() {
                 <div className="dashboard-box table-opp-color-box">
                     <h4>Recent Members</h4>
                     <div className='mui-table-container'>
-                        <TableReferred/>
+                        <TableRecentMembers/>
                     </div>
                 </div>
             </div> 
@@ -360,7 +398,7 @@ export default function AdminProfile() {
                 <div className="dashboard-box table-opp-color-box">
                     <h4>User Status</h4>
                     <div className='mui-table-container'>
-                        <TableGroupMember/>
+                        <TableUserStatus/>
                     </div>
                 </div>
             </div> 

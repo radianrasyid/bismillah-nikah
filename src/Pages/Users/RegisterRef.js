@@ -4,7 +4,7 @@ import { FormControl, useFormControl, OutlinedInput, FormHelperText, Stack, Butt
 import { Stepper, Step, StepButton, Typography, StepLabel } from "@mui/material"
 // import StyledSubmitButton from '../components/buttonSubmit';
 import umrohImage from "../assets/illustrations/umrohimage.png"
-import { Link } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import StyledSubmitButton from '../components/buttonSubmit';
 import logo from "../assets/images/logo-hrbs.jpg";
 import axios from 'axios';
@@ -21,7 +21,9 @@ axios.defaults.headers = true;
 const steps = ["Pertama", "Kedua", "Ketiga"]
 
 
-export default function Register() {
+export default function RegisterRef() {
+
+    const { id } = useParams()
 
     // PAGE STATES
     const [activeStep, setActiveStep] = React.useState(0);
@@ -88,7 +90,7 @@ export default function Register() {
     const [ktpImage, setKtpImage] = React.useState(null);
     const [kkImage, setKkImage] = React.useState(null);
     const [passImage, setPassImage] = React.useState(null);
-    const [reffer, setReffer] = React.useState('1');
+    const {referralCode, setReferralCode} = React.useState(null);
 
     const validate = () => {
         if(password == confirmPass){
@@ -107,7 +109,6 @@ export default function Register() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                referralCode: reffer,
                 firstName: firstName,
                 lastName: lastName,
                 phoneNumber: phoneNumber,
@@ -122,6 +123,7 @@ export default function Register() {
                 district: district,
                 city: city,
                 province: province,
+                referralCode: id,
             })
         })
 
@@ -197,6 +199,8 @@ export default function Register() {
     React.useEffect(() => {
         fetchData()
     }, [])
+
+    console.log("INI DATA PARAMS", id);
 
   return (
     <div className='register-page'>
@@ -401,7 +405,7 @@ export default function Register() {
                                                         <div className='mb-3'>
                                                             <p className='input-label-text'>Kode Referral</p>
                                                             <FormControl className='no-border' variant='standard'>
-                                                                <OutlinedInput type='text' placeholder='XXXXXX' className='input-textfield' onChange={(e) => setReffer(e.target.value)} />
+                                                                <OutlinedInput type='text' placeholder='XXXXXX' value={id} className='input-textfield' readOnly />
                                                             </FormControl>
                                                         </div>
                                                     </div>
