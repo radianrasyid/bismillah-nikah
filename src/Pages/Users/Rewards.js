@@ -31,13 +31,13 @@ export default function Rewards() {
 
     const fetchData = async(e) => {
         setLoading(true);
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/program")
+        await fetch("http://localhost:8000/api/v1/program")
         .then(async(res) => {
             let hasil = await res.json();
             setProgram(hasil.data);
         })
 
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/whoami", {
+        await fetch("http://localhost:8000/api/v1/user/whoami", {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

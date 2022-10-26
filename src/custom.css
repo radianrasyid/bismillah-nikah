@@ -117,6 +117,12 @@ import
     border: none !important;
 }
 
+.orgchart-container{
+    border: none !important;
+    width: fit-content !important;
+    height: fit-content !important;
+}
+
 .dashboard-user-welcome-img{
     width: 13rem;
 }

@@ -38,6 +38,9 @@ import EmployeeNode from "./EmployeeNode";
 import RegisterRef from "./Pages/Users/RegisterRef";
 import AdminTransaksi from "./Pages/Users/ADMIN/AdminTransaksi";
 import PinPage from "./Pages/Users/ADMIN/PinPage";
+import EmployeeNodeAll from "./EmployeeNodeAll";
+import AdminTree from "./Pages/Users/ADMIN/AdminTree";
+import MyProfilePage from "./Pages/Users/MyProfilePage";
 
 
 function App() {
@@ -54,13 +57,16 @@ function App() {
       
       {/* ROUTING USER */}
       <Route path="/user" element={<NavbarUser props={<UserProfile/>}/>}/>
+      <Route path="/:id" element={<NavbarUser props={<EmployeeNode/>}/>}/>
       <Route path="/user-edit" element={<NavbarUser props={<EditUser/>}/>}/>
       <Route path="/admin-dashboard" element={<SidebarAdmin slug={"Dashboard"} props={<AdminProfile/>}/>}/>
       <Route path="/admin-products" element={<SidebarAdmin slug={"Products"} props={<Products/>}/>}/>
       <Route path="/admin-rewards" element={<SidebarAdmin slug={"Rewards & Bonus"} props={<RewardsBonuses/>}/>}/>
       <Route path="/admin-transactions" element={<SidebarAdmin slug={"Transaksi"} props={<AdminTransaksi/>}/>}/>
+      <Route path="/admin-networks" element={<SidebarAdmin slug={"Pohon Jaringan"} props={<AdminTree/>}/>}/>
       <Route path="/admin-pins" element={<SidebarAdmin slug={"Transaksi"} props={<PinPage/>}/>}/>
       <Route path="/dashboard" element={<SidebarUser slug={"Dashboard"} props={<DashboardUser/>}/>}/>
+      <Route path="/myprofile" element={<SidebarUser slug={"My Profile"} props={<MyProfilePage/>}/>}/>
       <Route path="/rewards" element={<SidebarUser slug={"Rewards"} props={<Rewards/>}/>}/>
       <Route path="/networks" element={<SidebarUser slug={"Jaringan Saya"} props={<MyNetworks/>}/>}/>
 
@@ -70,6 +76,7 @@ function App() {
 
       {/* TETS */}
       <Route path="/test" element={<EmployeeNode/>}/>
+      <Route path="/test-org" element={<EmployeeNodeAll/>}/>
     </Routes>
   );
 }

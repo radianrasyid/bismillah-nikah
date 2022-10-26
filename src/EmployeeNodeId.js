@@ -1,11 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import OrganizationChart from "@dabeng/react-orgchart"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-export default function EmployeeNode() {
+export default function EmployeeNodeId() {
 
   const direct = useNavigate()
+  const { id } = useParams();
   const currentUser = useSelector((state) => state.auth);
   const token = currentUser.token;
   const [loading, setLoading] = React.useState(null);
@@ -17,7 +18,7 @@ export default function EmployeeNode() {
 
   const fetchData = async(e) => {
     setLoading(true)
-    await fetch("http://localhost:8000/api/v1/user/whoami", {
+    await fetch(`http://localhost:8000/api/v1/userone/${id}`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -90,7 +91,7 @@ const [state, setState] = React.useState({
         children: [{ id: "11", name: "Yue Yue", title: "senior engineer" }]
       }
     ]
-  },
+  }
 })
 
 state.ds.children = childrens

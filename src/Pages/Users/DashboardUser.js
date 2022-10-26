@@ -27,6 +27,7 @@ export default function DashboardUser() {
     const [openCreate, setOpenCreate] = React.useState(false);
     const [openLeader, setOpenLeader] = React.useState(false);
     const [openReqPin, setOpenReqPin] = React.useState(false);
+    const [openInputPin, setOpenInputPin] = React.useState(false);
     let token = currentUser.token;
 
     // FORM STATES
@@ -34,6 +35,8 @@ export default function DashboardUser() {
     const [file, setFile] = React.useState(null);
     const [agreement, setAgreement] = React.useState(null);
     const [pinAmount, setPinAmount] = React.useState(null);
+
+    const [pin, setPin] = React.useState(null);
 
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -50,6 +53,9 @@ export default function DashboardUser() {
     const handleOpenReqPin = () => setOpenReqPin(true);
     const handleCloseReqPin = () => setOpenReqPin(false);
 
+    const handleOpenInputPin = () => setOpenInputPin(true);
+    const handleCloseInputPin = () => setOpenInputPin(false);
+
     const handleClose = () => {
         setAnchorEl(null);
     };
@@ -59,7 +65,7 @@ export default function DashboardUser() {
 
     const fetchData = async(e) => {
         setLoading(true)
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/whoami", {
+        await fetch("http://localhost:8000/api/v1/user/whoami", {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -78,7 +84,7 @@ export default function DashboardUser() {
             })
             setActiveChild(activeMembers)
 
-            await fetch(`https://umrohwebsite.herokuapp.com/api/v1/program/${hasil.user.ProgramId}`)
+            await fetch(`http://localhost:8000/api/v1/program/${hasil.user.ProgramId}`)
             .then(async(res) => {
                 let result = await res.json();
                 setProgram(result.data);
@@ -101,7 +107,7 @@ export default function DashboardUser() {
         formData.append("amount", Number(amount));
         formData.append("image", file)
 
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/transaction", {
+        await fetch("http://localhost:8000/api/v1/transaction", {
             method: "POST",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -114,7 +120,7 @@ export default function DashboardUser() {
         e.preventDefault();
 
         if(agreement === "Saya Menyetujui"){
-            await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/roleup", {
+            await fetch("http://localhost:8000/api/v1/user/roleup", {
                 method: "POST",
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -131,7 +137,7 @@ export default function DashboardUser() {
         e.preventDefault();
 
         if(agreement === "Saya Menyetujui"){
-            await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/reqpin", {
+            await fetch("http://localhost:8000/api/v1/user/reqpin", {
                 method: "POST",
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -143,6 +149,26 @@ export default function DashboardUser() {
             })
             return true;
         }else if(agreement !== "Saya Menyetujui"){
+            return false
+        }
+    }
+
+    const inputPin = async(e) => {
+        e.preventDefault();
+
+        if(agreement === "Pin Sudah Benar"){
+            await fetch("http://localhost:8000/api/v3/user/pin", {
+                method: "PATCH",
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    pin: pin
+                })
+            })
+            return true;
+        }else if(agreement !== "Pin Sudah Benar"){
             return false
         }
     }
@@ -387,14 +413,79 @@ export default function DashboardUser() {
                             </Dialog>
                             </div>
                         ) : (
-                            <MenuItem onClick={handleClose}>
-                                <ListItemIcon>
-                                    <MdInput/>
-                                </ListItemIcon>
-                                <ListItemText>
-                                    Pin Keanggotaan
-                                </ListItemText>
-                            </MenuItem>
+                            <div>
+                                <MenuItem onClick={handleOpenInputPin}>
+                                    <ListItemIcon>
+                                        <MdInput/>
+                                    </ListItemIcon>
+                                    <ListItemText>
+                                        Pin Keanggotaan
+                                    </ListItemText>
+                                </MenuItem>
+                                <Dialog
+                                    open={openInputPin}
+                                    TransitionComponent={Transition}
+                                    keepMounted
+                                    onClose={handleCloseInputPin}
+                                    aria-describedby="alert-dialog-slide-description"
+                                >
+                                    <DialogTitle>{"Masukkan Pin Keanggotaan"}</DialogTitle>
+                                    <DialogContent>
+                                        {/* <div className='mb-3'>
+                                            <p className='input-label-text'>Nama User</p>
+                                            <FormControl className='no-border' variant='standard' fullWidth>
+                                                    <Autocomplete
+                                                        options={dataUser}
+                                                        getOptionLabel={option => `${option.firstName} ${option.lastName}`}
+                                                        renderInput={params => (
+                                                            <TextField {...params} placeholder={"Nama Supplier"} variant="outlined" />
+                                                        )}
+                                                        onChange={(e, newValue) => {
+                                                            setSentBy(newValue.id);
+                                                            setProgram(newValue.ProgramId)
+                                                        }}
+                                                        className="hms-small-textfield mb-3"
+                                                    />
+                                            </FormControl>
+                                        </div> */}
+                                        <div className='text-center'>
+                                            <p>Masukkan pin keanggotaan anda</p>
+                                        </div>
+                                        <div className='mb-3'>
+                                            <FormControl className='no-border' variant='standard' fullWidth>
+                                                <OutlinedInput type='text' placeholder={"Input Pin Disini"} className='input-textfield' onChange={(e) => setPin(e.target.value)} />
+                                            </FormControl>
+                                        </div>
+                                        <div className='mb-3'>
+                                            <p className='input-label-text'>ketik <b>Pin Sudah Benar</b> untuk melanjutkan proses</p>
+                                            <FormControl className='no-border' variant='standard' fullWidth>
+                                                <OutlinedInput type='text' placeholder={"Ketik Pin Sudah Benar"} className='input-textfield' onChange={(e) => setAgreement(e.target.value)} />
+                                            </FormControl>
+                                        </div>
+                                    </DialogContent>
+                                    <DialogActions>
+                                    <Button onClick={handleCloseInputPin} variant="contained"
+                                    sx={{
+                                        backgroundColor: "#f04141",
+                                        boxShadow: "none",
+                                        borderRadius: "8px",
+                                        fontWeight: "600",
+                                        '&:hover': {
+                                            backgroundColor: "#f76060"
+                                        }
+                                    }}
+                                    >Batal</Button>
+                                    <Button onClick={inputPin} variant="contained"
+                                    sx={{
+                                        backgroundColor: "#417D7A",
+                                        boxShadow: "none",
+                                        borderRadius: "8px",
+                                        fontWeight: "600"
+                                    }}
+                                    >Setuju</Button>
+                                    </DialogActions>
+                                </Dialog>
+                            </div>
                         )
                     }
                 </Menu>

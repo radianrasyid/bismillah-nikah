@@ -150,6 +150,39 @@ export default function SidebarAdmin({props, slug}) {
                 </ListItemButton>
             </ListItem>
     )
+    const ListItemCustomizedSub = ({primary, icon, loc, actClick, anchor, icon1, icon2}) => (
+            <ListItem disablePadding sx={{ display: 'block', pl: 2 }}
+            className={location === loc ? 'active-sidebar' : ''}
+            >
+                <ListItemButton
+                onClick={actClick}
+                sx={{
+                    minHeight: 48,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
+                }}
+                >
+                <ListItemIcon
+                    sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                    }}
+                >
+                    <div style={{
+                        backgroundColor: "rgba(65, 125, 122, 1)",
+                        padding: "1rem 1rem",
+                        borderRadius: "6px",
+                        color: "white"
+                    }}>
+                        {icon}
+                    </div>
+                </ListItemIcon>
+                <ListItemText className='sidebar-text' primary={primary} sx={{ opacity: open ? 1 : 0 }} />
+                { anchor ? icon1 : icon2 }
+                </ListItemButton>
+            </ListItem>
+    )
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -311,32 +344,8 @@ export default function SidebarAdmin({props, slug}) {
             />
             <Collapse in={openMember} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                        <div style={{
-                        backgroundColor: "rgba(65, 125, 122, 1)",
-                        padding: "1rem 1rem",
-                        borderRadius: "6px",
-                        color: "white"
-                    }}>
-                            <MdCardMembership />
-                        </div>
-                    </ListItemIcon>
-                    <ListItemText primary="Member" />
-                </ListItemButton>
-                <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                        <div style={{
-                        backgroundColor: "rgba(65, 125, 122, 1)",
-                        padding: "1rem 1rem",
-                        borderRadius: "6px",
-                        color: "white"
-                    }}>
-                            <ImTree />
-                        </div>
-                    </ListItemIcon>
-                    <ListItemText primary="Pohon Jaringan" />
-                </ListItemButton>
+                  <ListItemCustomizedSub primary={"Member"} icon={<GiSwipeCard/>} loc="/admin-members" actClick={() => direct("/admin-members")} />
+                  <ListItemCustomizedSub primary={"Pohon Jaringan"} icon={<GiSwipeCard/>} loc="/admin-networks" actClick={() => direct("/admin-networks")} />
                 </List>
             </Collapse>
             <ListItemCustomized primary={"Produk"} icon={<BsBoxSeam/>} loc="/admin-products" actClick={() => direct("/admin-products")} />

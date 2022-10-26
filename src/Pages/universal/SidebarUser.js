@@ -213,7 +213,7 @@ export default function SidebarUser({props, slug}) {
                 onClose={handleCloseUserMenu}
                 onClick={handleCloseUserMenu}
                 >
-                    <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
+                    <MenuItem onClick={() => direct("/myprofile")}>Profile</MenuItem>
                     <MenuItem onClick={handleCloseUserMenu}>My account</MenuItem>
                     <MenuItem onClick={() => {
                       dispatch(logOut());

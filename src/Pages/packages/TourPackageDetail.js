@@ -51,7 +51,7 @@ export default function TourPackageDetail() {
   const currentUser = useSelector((state) => state.auth);
 
   const fetchData = async(e) => {
-      let response = await fetch(`https://umrohwebsite.herokuapp.com/api/v1/program/${id}`)
+      let response = await fetch(`http://localhost:8000/api/v1/program/${id}`)
       let hasil = await response.json();
 
       setData(hasil.data);
@@ -60,7 +60,7 @@ export default function TourPackageDetail() {
   const onChoose = async(e) => {
    e.preventDefault();
 
-   await fetch("https://umrohwebsite.herokuapp.com/api/v3/user/program", {
+   await fetch("http://localhost:8000/api/v3/user/program", {
       method: "PATCH",
       headers: {
          'Content-Type': 'application/json',
