@@ -40,7 +40,8 @@ export default function Login() {
                         accessToken: hasil.token,
                         image: hasil.image,
                         role: hasil.userRole,
-                        referral: hasil.referralCode
+                        referral: hasil.referralCode,
+                        leader_code: hasil.leaderCode
                     }))
                     direct("/")
                 }

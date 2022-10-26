@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { DiGitPullRequest } from "react-icons/di"
 import { TbFileReport } from "react-icons/tb";
 import { MdInput } from "react-icons/md";
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const Transition = React.forwardRef(function Transition(props, ref) { 
     return <Slide direction='up' ref={ref} {...props} />
@@ -28,7 +29,14 @@ export default function DashboardUser() {
     const [openLeader, setOpenLeader] = React.useState(false);
     const [openReqPin, setOpenReqPin] = React.useState(false);
     const [openInputPin, setOpenInputPin] = React.useState(false);
+    const [lookReferral, setLookReferral] = React.useState(false);
+    const [lookPin, setLookPin] = React.useState(false)
     let token = currentUser.token;
+
+    const [state, setState] = React.useState({
+        value: '',
+        copied: false,
+    })
 
     // FORM STATES
     const [amount, setAmount] = React.useState(0);
@@ -55,6 +63,12 @@ export default function DashboardUser() {
 
     const handleOpenInputPin = () => setOpenInputPin(true);
     const handleCloseInputPin = () => setOpenInputPin(false);
+
+    const handleOpenLookReferral = () => setLookReferral(true);
+    const handleCloseLookReferral = () => setLookReferral(false);
+
+    const handleOpenLookPin = () => setLookPin(true);
+    const handleCloseLookPin = () => setLookPin(false);
 
     const handleClose = () => {
         setAnchorEl(null);
@@ -312,14 +326,20 @@ export default function DashboardUser() {
                         horizontal: "right"
                     }}
                 >
-                    <MenuItem onClick={handleOpenLeader}>
-                        <ListItemIcon>
-                            <DiGitPullRequest style={{ transform: "scale(1.2)", marginRight: "-1rem"}}/>
-                        </ListItemIcon>
-                        <ListItemText>
-                            Menjadi Leader
-                        </ListItemText>
-                    </MenuItem>
+                    {
+                        currentUser.role == 3 ? (
+                            <MenuItem onClick={handleOpenLeader}>
+                                <ListItemIcon>
+                                    <DiGitPullRequest style={{ transform: "scale(1.2)", marginRight: "-1rem"}}/>
+                                </ListItemIcon>
+                                <ListItemText>
+                                    Menjadi Leader
+                                </ListItemText>
+                            </MenuItem>
+                        ) : (
+                            <></>
+                        )
+                    }
                     <MenuItem onClick={handleOpenCreate}>
                         <ListItemIcon>
                             <TbFileReport/>
@@ -488,6 +508,28 @@ export default function DashboardUser() {
                             </div>
                         )
                     }
+                    <MenuItem onClick={handleOpenLookReferral}>
+                        <ListItemIcon>
+                            <TbFileReport/>
+                        </ListItemIcon>
+                        <ListItemText>
+                            Kode Referral
+                        </ListItemText>
+                    </MenuItem>
+                    {
+                        currentUser.role == 2 ? (
+                            <MenuItem onClick={handleOpenLookPin}>
+                                <ListItemIcon>
+                                    <TbFileReport/>
+                                </ListItemIcon>
+                                <ListItemText>
+                                    Lihat Pin
+                                </ListItemText>
+                            </MenuItem>
+                        ) : (
+                            <></>
+                        )
+                    }
                 </Menu>
             </Popover>
             <Dialog
@@ -599,6 +641,56 @@ export default function DashboardUser() {
                 }}
                 >Setuju</Button>
                 </DialogActions>
+            </Dialog>
+            <Dialog
+                open={lookReferral}
+                TransitionComponent={Transition}
+                keepMounted
+                onClose={handleCloseLookReferral}
+                aria-describedby="alert-dialog-slide-description"
+            >
+                <DialogTitle>{"Request Menjadi Leader"}</DialogTitle>
+                <DialogContent>
+                    <div className='text-center'>
+                        <p>Ini Kode Referral Anda</p>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <CopyToClipboard text={currentUser.referral}>
+                        <Button size="large" variant="outlined"
+                            sx={{
+                                fontWeight: "600"
+                            }}
+                            >
+                                {currentUser.referral}
+                        </Button>
+                    </CopyToClipboard>
+                    </div>
+                </DialogContent>
+            </Dialog>
+            <Dialog
+                open={lookPin}
+                TransitionComponent={Transition}
+                keepMounted
+                onClose={handleCloseLookPin}
+                aria-describedby="alert-dialog-slide-description"
+            >
+                <DialogTitle>{"Request Menjadi Leader"}</DialogTitle>
+                <DialogContent>
+                    <div className='text-center'>
+                        <p>Ini pin anda sebagai leader</p>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <CopyToClipboard text={currentUser.referral}>
+                        <Button size="large" variant="outlined"
+                            sx={{
+                                fontWeight: "600"
+                            }}
+                            >
+                                {currentUser.referral}
+                        </Button>
+                    </CopyToClipboard>
+                    </div>
+                </DialogContent>
             </Dialog>
             </div>
         </div>
