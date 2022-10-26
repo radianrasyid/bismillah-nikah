@@ -173,7 +173,7 @@ function CustomToolbar(props) {
     }
 
     const fetchDataUser = async() => {
-        await fetch("http://localhost:8000/api/v1/user/getall", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/getall", {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -201,7 +201,7 @@ function CustomToolbar(props) {
         formData.append("program", program);
         formData.append("user_id", sentBy);
 
-        await fetch("http://localhost:8000/api/v2/create/transaction", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v2/create/transaction", {
             method: "POST",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -316,7 +316,7 @@ export default function TableRequest() {
     const handleCloseDecision = () => setOpenDecision(false)
 
     const fetchData = async(e) => {
-        await fetch("http://localhost:8000/api/v1/requests", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/requests", {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -328,7 +328,7 @@ export default function TableRequest() {
             setData(hasildata);
         })
 
-        await fetch("http://localhost:8000/api/v1/codes", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/codes", {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -342,7 +342,7 @@ export default function TableRequest() {
     }
 
     const fetchDataUser = async(e) => {
-        await fetch(`http://localhost:8000/api/v1/userone/${id}`, {
+        await fetch(`https://umrohwebsite.herokuapp.com/api/v1/userone/${id}`, {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -358,7 +358,7 @@ export default function TableRequest() {
     const updateRole = async(e) => {
         e.preventDefault();
 
-        await fetch("http://localhost:8000/api/v3/user/update/role", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v3/user/update/role", {
             method: "PATCH",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`,

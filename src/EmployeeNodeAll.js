@@ -15,7 +15,7 @@ export default function EmployeeNodeAll() {
 
   const fetchData = async(e) => {
     setLoading(true)
-    await fetch("http://localhost:8000/api/v1/leaders", {
+    await fetch("https://umrohwebsite.herokuapp.com/api/v1/leaders", {
       method: "GET",
       headers: {
         'Authorization': `Bearer ${currentUser.token}`

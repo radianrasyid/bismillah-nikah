@@ -22,7 +22,7 @@ export default function Login() {
     const onSubmit = async(e) => {
         e.preventDefault()
         if(email !== null && password !== null){
-            await fetch("http://localhost:8000/api/v1/login", {
+            await fetch("https://umrohwebsite.herokuapp.com/api/v1/login", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'

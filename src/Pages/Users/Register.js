@@ -101,7 +101,7 @@ export default function Register() {
     const onSubmit = async(e) => {
         e.preventDefault();
         console.log();
-        await fetch("http://localhost:8000/api/v1/user", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -129,7 +129,7 @@ export default function Register() {
         formData.append("email", email)
         formData.append("nik", nik)
         formData.append("image_id", ktpImage)
-        await fetch("http://localhost:8000/api/v1/ktpimage", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/ktpimage", {
             method: 'PATCH',
             body: formData,
         })
@@ -138,7 +138,7 @@ export default function Register() {
         formData1.append("email", email)
         formData1.append("nik", nik)
         formData1.append("image_passport", passImage)
-        await fetch("http://localhost:8000/api/v1/passportimage", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/passportimage", {
             method: 'PATCH',
             body: formData1,
         })
@@ -147,7 +147,7 @@ export default function Register() {
         formData2.append("email", email)
         formData2.append("nik", nik)
         formData2.append("image_family", kkImage)
-        await fetch("http://localhost:8000/api/v1/familyimage", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/familyimage", {
             method: 'PATCH',
             body: formData2,
         })
@@ -160,7 +160,7 @@ export default function Register() {
         formData.append("email", email)
         formData.append("nik", nik)
         formData.append("image_id", ktpImage)
-        await fetch("http://localhost:8000/api/v1/ktpimage", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/ktpimage", {
             method: 'PATCH',
             body: formData,
         })
@@ -172,7 +172,7 @@ export default function Register() {
         formData.append("email", email)
         formData.append("nik", nik)
         formData.append("image_passport", passImage)
-        await fetch("http://localhost:8000/api/v1/passportimage", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/passportimage", {
             method: 'PATCH',
             body: formData,
         })
@@ -184,14 +184,14 @@ export default function Register() {
         formData.append("email", email)
         formData.append("nik", nik)
         formData.append("image_passport", kkImage)
-        await fetch("http://localhost:8000/api/v1/familyimage", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/familyimage", {
             method: 'PATCH',
             body: formData,
         })
     }
 
     const fetchData = async() => {
-        await axios.get("http://localhost:8000")
+        await axios.get("https://umrohwebsite.herokuapp.com")
     }
 
     React.useEffect(() => {

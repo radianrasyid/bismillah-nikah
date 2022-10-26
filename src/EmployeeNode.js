@@ -17,7 +17,7 @@ export default function EmployeeNode() {
 
   const fetchData = async(e) => {
     setLoading(true)
-    await fetch("http://localhost:8000/api/v1/user/whoami", {
+    await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/whoami", {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -38,7 +38,7 @@ export default function EmployeeNode() {
         })
         setActiveChild(activeMembers)
 
-        await fetch(`http://localhost:8000/api/v1/program/${hasil.user.ProgramId}`)
+        await fetch(`https://umrohwebsite.herokuapp.com/api/v1/program/${hasil.user.ProgramId}`)
         .then(async(res) => {
             let result = await res.json();
             setProgram(result.data);
