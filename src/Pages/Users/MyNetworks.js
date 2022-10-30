@@ -16,7 +16,11 @@ export default function MyNetworks() {
                 <div className='mb-3'>
                   <p>Referral</p>
                 </div>
-                <EmployeeNode/>
+                <div>
+                  <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center'}}>
+                    <EmployeeNode/>
+                  </div>
+                </div>
             </div>
           </Col>
           <Col>
@@ -24,7 +28,11 @@ export default function MyNetworks() {
                 <div className='mb-3'>
                   <p>Leader</p>
                 </div>
-                <EmployeeNode/>
+                <div>
+                  <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center'}}>
+                    <EmployeeNode/>
+                  </div>
+                </div>
             </div>
           </Col>
         </Row>

@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import StyledSubmitButton from '../components/buttonSubmit';
 import logo from "../assets/images/logo-hrbs.jpg";
 import axios from 'axios';
+import { LoadingButton } from '@mui/lab';
 axios.defaults.headers = true;
 
 // const StyledSubmitButton = styled(Button)({
@@ -26,6 +27,7 @@ export default function Register() {
     // PAGE STATES
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
+    const [loading, setLoading] = React.useState(null);
 
     const isStepOptional = (step) => {
         return step === 1;
@@ -100,7 +102,7 @@ export default function Register() {
 
     const onSubmit = async(e) => {
         e.preventDefault();
-        console.log();
+        setLoading(true)
         await fetch("https://umrohwebsite.herokuapp.com/api/v1/user", {
             method: 'POST',
             headers: {
@@ -151,7 +153,7 @@ export default function Register() {
             method: 'PATCH',
             body: formData2,
         })
-
+        setLoading(false)
     }
 
     const onPatch = async(e) => {
@@ -234,12 +236,14 @@ export default function Register() {
                     </Typography>
                 </div>
                 <div className='text-center'>
-                    <Button variant="contained" onClick={onSubmit}
+                    <LoadingButton variant='contained' onClick={onSubmit}
                     sx={{
                         fontWeight: "600"
                     }}
-                    >Daftar
-                    </Button>
+                    loading={loading == true ? true : false}
+                    >
+                        Daftar
+                    </LoadingButton>
                 </div>
                 </React.Fragment>
             ) : (

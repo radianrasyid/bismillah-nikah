@@ -66,7 +66,7 @@ function App() {
       <Route path="/admin-rewards" element={<SidebarAdmin slug={"Rewards & Bonus"} props={<RewardsBonuses/>}/>}/>
       <Route path="/admin-transactions" element={<SidebarAdmin slug={"Transaksi"} props={<AdminTransaksi/>}/>}/>
       <Route path="/admin-networks" element={<SidebarAdmin slug={"Pohon Jaringan"} props={<AdminTree/>}/>}/>
-      <Route path="/admin-pins" element={<SidebarAdmin slug={"Transaksi"} props={<PinPage/>}/>}/>
+      <Route path="/admin-pins" element={<SidebarAdmin slug={"Pins"} props={<PinPage/>}/>}/>
       <Route path="/dashboard" element={<SidebarUser slug={"Dashboard"} props={<DashboardUser/>}/>}/>
       <Route path="/myprofile" element={<SidebarUser slug={"My Profile"} props={<MyProfilePage/>}/>}/>
       <Route path="/rewards" element={<SidebarUser slug={"Rewards"} props={<Rewards/>}/>}/>

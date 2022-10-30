@@ -5,7 +5,7 @@ import EmployeeNodeAll from '../../../EmployeeNodeAll'
 export default function AdminTree() {
   return (
     <div>
-        <div className='table-container'>
+        <div className='table-container' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <EmployeeNodeAll/>
         </div>
     </div>

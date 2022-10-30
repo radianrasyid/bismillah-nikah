@@ -145,10 +145,19 @@ import
     border: none !important;
 }
 
+.pp-addleader-title{
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 .orgchart-container{
     border: none !important;
     width: fit-content !important;
     height: fit-content !important;
+}
+
+.orgchart{
+    background-image: none !important;
 }
 
 .player-wrapper{

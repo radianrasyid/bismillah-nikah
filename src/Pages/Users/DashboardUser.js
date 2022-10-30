@@ -12,6 +12,7 @@ import { DiGitPullRequest } from "react-icons/di"
 import { TbFileReport } from "react-icons/tb";
 import { MdInput } from "react-icons/md";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import ReactLoading from "react-loading"
 
 const Transition = React.forwardRef(function Transition(props, ref) { 
     return <Slide direction='up' ref={ref} {...props} />
@@ -618,7 +619,7 @@ export default function DashboardUser() {
                 onClose={handleCloseLookPin}
                 aria-describedby="alert-dialog-slide-description"
             >
-                <DialogTitle>{"Request Menjadi Leader"}</DialogTitle>
+                <DialogTitle>{"Pin Leader"}</DialogTitle>
                 <DialogContent>
                     <div className='text-center'>
                         <p>Ini pin anda sebagai leader</p>
@@ -626,19 +627,21 @@ export default function DashboardUser() {
                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <CopyToClipboard text={currentUser.referral}>
                         {
+
                             currentUser.role !== 2 ? (
                                 <div>
                                     <p>Anda bukan leader</p>
                                 </div>
                             ) : (
-                                <Button size="large" variant="outlined"
-                                    sx={{
-                                        fontWeight: "600",
-                                        textTransform: "none"
-                                    }}
-                                    >
-                                        {pins[Math.floor(Math.random() * pins.length)].pins}
-                                </Button>
+                                <CopyToClipboard text={pins[0].pins}>
+                                    <Button size="large" variant="outlined"
+                                        sx={{
+                                            fontWeight: "600"
+                                        }}
+                                        >
+                                            {pins[0].pins}
+                                    </Button>
+                                </CopyToClipboard>
                             )
                         }
                     </CopyToClipboard>
@@ -648,5 +651,11 @@ export default function DashboardUser() {
             </div>
         </div>
       )
+  }else if(loading == true){
+    return(
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <ReactLoading type='bars' color='#2E6A67' height={"10%"} width={"10%"} />
+        </div>
+    )
   }
 }
