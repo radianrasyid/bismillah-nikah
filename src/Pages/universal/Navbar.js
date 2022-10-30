@@ -38,7 +38,7 @@ export default function Navbar({props}) {
                     <div className="container d-flex justify-content-between align-items-center">
                        <div className="site-identity">
                           <h1 className="site-title">
-                             <a href="index.html">
+                             <a href="/">
                                 <img className="white-logo" src={logo} alt="logo"/>
                                 <img className="black-logo" src={logo} alt="logo"/>
                              </a>
@@ -112,7 +112,7 @@ export default function Navbar({props}) {
                                    <a href="#">About Us</a>
                                    <ul>
                                       <li>
-                                         <a href="admin/dashboard.html">About Us</a>
+                                         <a href="/about">About Us</a>
                                       </li>
                                       {/* <li className="menu-item-has-children">
                                          <a href="#">User</a>
@@ -191,36 +191,88 @@ export default function Navbar({props}) {
               {/* MAIN END */}
      
               <footer id="colophon" className="site-footer footer-primary">
-                 <div className="buttom-footer">
-                    <div className="container">
-                       <div className="row align-items-center">
-                          <div className="col-md-5">
-                             <div className="footer-menu">
-                                <ul>
-                                   <li>
-                                      <a href="#">Privacy Policy</a>
-                                   </li>
-                                   <li>
-                                      <a href="#">Term & Condition</a>
-                                   </li>
-                                   <li>
-                                      <a href="#">FAQ</a>
-                                   </li>
-                                </ul>
-                             </div>
-                          </div>
-                          <div className="col-md-2 text-center">
-                             <div className="footer-logo">
-                                <a href="#"><img src={logo} style={{ width: "5rem", height: "5rem", borderRadius: "50%" }} alt=""/></a>
-                             </div>
-                          </div>
-                          <div className="col-md-5" style={{ display: "flex", justifyContent: "right" }}>
-                             <div className="copy-right ms-auto">Copyright © 2021 Travele. All rights reserveds</div>
-                          </div>
-                       </div>
-                    </div>
-                 </div>
-              </footer>
+            <div className="top-footer">
+               <div className="container">
+                  <div className="row">
+                     <div className="col-lg-6 col-md-6">
+                        <aside className="widget widget_text">
+                           <h3 className="widget-title">
+                              Tentang Travel
+                           </h3>
+                           <div className="textwidget widget-text">
+                              Kami bermitra dengan PT. Fadar Dian Karomah yang terpercaya dan memiliki izin bertaraf nasional seperti :
+                           </div>
+                           <div>
+                              <ul>
+                                 <li>IATA {"International Air Transport Association"}</li>
+                                 <li>KAN {"Komite Akreditasi Nasional"}</li>
+                                 <li>PPIU {"Penyelenggara Perjalanan Ibadah Umroh"}</li>
+                              </ul>
+                           </div>
+                        </aside>
+                     </div>
+                     <div className="col-lg-6 col-md-6">
+                        <aside className="widget widget_text">
+                           <h3 className="widget-title">KONTAK KAMI</h3>
+                           <div className="textwidget widget-text">
+                              Anda dapat menghubungi kami di kontak dibawah ini
+                              <ul>
+                                 <li>
+                                    <a href="https://wa.me/+622169551258" target={"_blank"}>
+                                       <i className="fas fa-phone-alt"></i>
+                                       +622169551258
+                                    </a>
+                                 </li>
+                                 {/* <li>
+                                    <a href="#">
+                                       <i className="fas fa-envelope"></i>
+                                       company@domain.com
+                                    </a>
+                                 </li>
+                                 <li>
+                                    <i className="fas fa-map-marker-alt"></i>
+                                    3146  Koontz, California
+                                 </li> */}
+                              </ul>
+                           </div>
+                        </aside>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div className="buttom-footer">
+               <div className="container">
+                  <div className="row align-items-center">
+                     <div className="col-md-4">
+                        <div className="footer-menu">
+                           <ul>
+                              <li>
+                                 <a href="#">Privacy Policy</a>
+                              </li>
+                              <li>
+                                 <a href="#">Term & Condition</a>
+                              </li>
+                              <li>
+                                 <a href="#">FAQ</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div className="col-md-4 text-center">
+                        <div className="footer-logo">
+                           <a href="#"><img src={logo} alt="" className='logo-footer'/></a>
+                        </div>
+                     </div>
+                     <div className="col-md-4" style={{
+                        display: 'flex',
+                        justifyContent: 'right'
+                     }}>
+                        <div className="copy-right text-right">Copyright © 2022 PT HARAMAIN BAROKAH SINERGI. All rights reserved</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </footer>
               <a id="backTotop" href="#" className="to-top-icon">
                  <i className="fas fa-chevron-up"></i>
               </a>

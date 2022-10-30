@@ -41,7 +41,8 @@ export default function Login() {
                         image: hasil.image,
                         role: hasil.userRole,
                         referral: hasil.referralCode,
-                        leader_code: hasil.leaderCode
+                        leader_code: hasil.leaderCode,
+                        program_id: hasil.programId
                     }))
                     direct("/")
                 }

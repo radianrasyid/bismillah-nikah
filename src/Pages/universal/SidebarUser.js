@@ -33,6 +33,7 @@ import { Collapse, Stack } from '@mui/material';
 import { Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/feature/auth/authSlice';
+import { AiOutlineHome } from "react-icons/ai"
 
 const drawerWidth = 240;
 
@@ -316,8 +317,8 @@ export default function SidebarUser({props, slug}) {
             </ListItemCustomized> */}
             <ListItemCustomized primary={"Dashboard"} icon={<MdSpaceDashboard/>} loc="/dashboard" actClick={() => direct("/dashboard")} />
             <ListItemCustomized primary={"Jaringan Saya"} icon={<GiSwipeCard/>} loc="/networks" actClick={() => direct("/networks")} />
-            <ListItemCustomized primary={"Rewards & Bonuses"} icon={<MdCardMembership/>} loc="/rewards" actClick={() => direct("/rewards")}
-            />
+            <ListItemCustomized primary={"Rewards & Bonuses"} icon={<MdCardMembership/>} loc="/rewards" actClick={() => direct("/rewards")}/>
+            <ListItemCustomized primary={"Home"} icon={<AiOutlineHome/>} loc="/rewards" actClick={() => direct("/")}/>
             {/* <Collapse in={openMember} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                 <ListItemButton sx={{ pl: 4 }}>

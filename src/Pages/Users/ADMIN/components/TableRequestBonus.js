@@ -148,6 +148,8 @@ function CustomToolbar(props) {
     const currentUser = useSelector((state) => state.auth);
     const [openCreate, setOpenCreate] = React.useState(false);
     const [dataUser, setDataUser] = React.useState([]);
+    const [id, setId] = React.useState('1')
+    const [dataId, setDataId] = React.useState(null);
 
     // FORM STATES
     const [amount, setAmount] = React.useState(null);
@@ -343,17 +345,17 @@ function CustomPagination(props) {
     );
 }
 
-export default function TableTransaksi() {
+export default function TableRequestBonus() {
 
     const [data, setData] = React.useState([]);
     const [tablePage, setTablePage] = React.useState(10);
     const [id, setId] = React.useState("1");
-    const [oneUser, setOneUser] = React.useState(null);
+    const [dataId, setDataId] = React.useState(null);
     const [edit, setEdit] = React.useState(false)
     const [hapus, setHapus] = React.useState(false)
     const [type, setType] = React.useState(null);
     const [newPageSize, setNewPageSize] = React.useState(10);
-    const [dataId, setDataId] = React.useState(null);
+    // const [dataId, setDataId] = React.useState(null);
     const [add, setAdd] = React.useState(false)
     const navigate = useNavigate();
     const currentUser = useSelector((state) => state.auth);
@@ -369,7 +371,7 @@ export default function TableTransaksi() {
     const handleCloseDecision = () => setOpenDecision(false)
 
     const fetchData = async(e) => {
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/transaction", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/reqrew", {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -382,37 +384,50 @@ export default function TableTransaksi() {
         })
     }
 
-    const fetchDataUser = async(e) => {
-        await fetch(`https://umrohwebsite.herokuapp.com/api/v1/userone/${id}`, {
+    const fetchDataId = async(e) => {
+        await fetch(`https://umrohwebsite.herokuapp.com/api/v1/reqrew/${id}`, {
             method: "GET",
+            mode: 'cors',
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
             }
-        })
-        .then(async(res) => {
+        }).then(async(res) => {
             let hasil = await res.json();
-            let hasilData = await hasil.data;
-            setOneUser(hasilData);
+            let hasilData = hasil.data;
+            setDataId(hasilData);
         })
     }
 
-    const updateTransaction = async(e) => {
-        await fetch("https://umrohwebsite.herokuapp.com/api/v3/update/transaction", {
+    const approveReqRew = async(e) => {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/approve/reward", {
             method: "PATCH",
+            mode: 'cors',
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                id: idTrans,
-                amount: Number(amount),
-                decision: decision,
+                reqrew_id: id
+            })
+        })
+    }
+
+    const approveReqBonus = async(e) => {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/approve/bonus", {
+            method: "PATCH",
+            mode: 'cors',
+            headers: {
+                'Authorization': `Bearer ${currentUser.token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                reqrew_id: id
             })
         })
     }
 
     React.useEffect(() => {
-        fetchDataUser();
+        fetchDataId()
     }, [id])
     
     const columns = [
@@ -421,23 +436,15 @@ export default function TableTransaksi() {
         { field: 'no', headerName: 'No', flex: 0.1, align: "center"},
         { field: 'name', headerName: "Nama", flex: 0.7, align: "center"},
         { field: 'amount', headerName: "Jumlah", flex: 0.5, align: "center"},
-        { field: 'program', headerName: "Program", align: "center", flex: 0.5},
-        { field: 'image', headerName: "Gambar", align: "center", renderCell: (params) => {
-            return(
-                <a className='text-decoration-none' href={params.row.img} target="_blank">
-                    Lihat Gambar
-                </a>
-            )
-        }},
+        { field: 'program', headerName: "Nama Reward & Bonus", align: "center", flex: 0.5},
         { field: 'img', headerName: "img", align: "center", hide: true},
         { field: 'stats', headerName: "Stats", hide: true},
         { headerName: "Status", renderCell: (params) => {
-            if(params.row.stats == false){
+            if(params.row.stats == 0){
                 return(
                     <div>
                         <Button variant='outlined' size="small" onMouseEnter={() => {
-                            setId(params.row.sentBy)
-                            setIdTrans(params.row.id)
+                            setId(params.row.id)
                         }} onClick={handleOpenDecision}
                         sx={{
                             fontWeight: "600"
@@ -446,7 +453,7 @@ export default function TableTransaksi() {
                             Pending
                         </Button>
                         {
-                            oneUser !== null ? (
+                            dataId !== null ? (
                                 <Dialog
                                 open={openDecision}
                                 keepMounted
@@ -454,13 +461,13 @@ export default function TableTransaksi() {
                                 maxWidth={"sm"}
                                 fullWidth={true}
                                 >
-                                    <DialogTitle>{"Edit Status Transaksi"}</DialogTitle>
+                                    <DialogTitle>{"Edit Request Reward"}</DialogTitle>
                                     <DialogContent>
                                          <div>
                                          <div className='mb-3'>
-                                            <p className='input-label-text'>Jumlah</p>
+                                            <p className='input-label-text'>Nama Yang Mengajukan</p>
                                             <FormControl className='no-border' variant='standard' fullWidth>
-                                                <OutlinedInput type='text' placeholder="Jumlah Transaksi" className='input-textfield' onChange={(e) => setAmount(e.target.value)} />
+                                                <OutlinedInput type='text' placeholder="Jumlah Transaksi" className='input-textfield' />
                                             </FormControl>
                                          </div>
                                          <div className='mb-3'>
@@ -503,19 +510,16 @@ export default function TableTransaksi() {
                                             fontWeight: "550"
                                             
                                         }}
-                                        onClick={updateTransaction}
                                         >
                                             Setuju
                                         </Button>
                                     </DialogActions>
                                 </Dialog>
-                            ) : (
-                                <></>
-                            )
+                            ) : (<></>)
                         }
                     </div>
                 )
-            }else if(params.row.stats == true){
+            }else if(params.row.stats == 1){
                 return(
                     <div>
                         <Button variant='outlined' size="small" onMouseEnter={() => {
@@ -529,7 +533,7 @@ export default function TableTransaksi() {
                             Disetujui
                         </Button>
                         {
-                            oneUser !== null ? (
+                            dataId !== null ? (
                                 <Dialog
                                 open={openDecision}
                                 keepMounted
@@ -537,13 +541,13 @@ export default function TableTransaksi() {
                                 maxWidth={"sm"}
                                 fullWidth={true}
                                 >
-                                    <DialogTitle>{"Edit Status Transaksi"}</DialogTitle>
+                                    <DialogTitle>{"Edit Request Reward"}</DialogTitle>
                                     <DialogContent>
                                          <div>
                                          <div className='mb-3'>
-                                            <p className='input-label-text'>Jumlah</p>
+                                            <p className='input-label-text'>Nama Yang Mengajukan</p>
                                             <FormControl className='no-border' variant='standard' fullWidth>
-                                                <OutlinedInput type='text' placeholder="Jumlah Transaksi" className='input-textfield' onChange={(e) => setAmount(e.target.value)} />
+                                                <OutlinedInput type='text' placeholder="Jumlah Transaksi" className='input-textfield' />
                                             </FormControl>
                                          </div>
                                          <div className='mb-3'>
@@ -586,15 +590,12 @@ export default function TableTransaksi() {
                                             fontWeight: "550"
                                             
                                         }}
-                                        onClick={updateTransaction}
                                         >
                                             Setuju
                                         </Button>
                                     </DialogActions>
                                 </Dialog>
-                            ) : (
-                                <></>
-                            )
+                            ) : (<></>)
                         }
                     </div>
                 )
@@ -607,12 +608,11 @@ export default function TableTransaksi() {
 
         return {
             id: data.id,
-            sentBy: data.SentBy,
+            sentBy: data.useridentify.id,
             no: numb,
-            name: `${data.sentBy.firstName} ${data.sentBy.lastName}`,
+            name: `${data.useridentify.firstName} ${data.useridentify.lastName}`,
             amount: formatRupiah(data.amount),
-            program: data.programid.programName,
-            img: data.image,
+            program: data.rewardNumber == null ? data.bonusnumber.bonusName : data.rewardnumber.name,
             stats: data.status
             
         }

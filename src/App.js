@@ -41,6 +41,8 @@ import PinPage from "./Pages/Users/ADMIN/PinPage";
 import EmployeeNodeAll from "./EmployeeNodeAll";
 import AdminTree from "./Pages/Users/ADMIN/AdminTree";
 import MyProfilePage from "./Pages/Users/MyProfilePage";
+import AboutUs from "./Pages/AboutUs";
+import UserDetailAdmin from "./Pages/Users/ADMIN/UserDetailAdmin";
 
 
 function App() {
@@ -69,6 +71,12 @@ function App() {
       <Route path="/myprofile" element={<SidebarUser slug={"My Profile"} props={<MyProfilePage/>}/>}/>
       <Route path="/rewards" element={<SidebarUser slug={"Rewards"} props={<Rewards/>}/>}/>
       <Route path="/networks" element={<SidebarUser slug={"Jaringan Saya"} props={<MyNetworks/>}/>}/>
+
+      {/* ADMIN */}
+      <Route path="/userdetail/:id" element={<SidebarAdmin slug={"User Detail"} props={<UserDetailAdmin/>}/>}/>
+
+      {/* ABOUT US */}
+      <Route path="/about" element={<Navbar props={<AboutUs/>}/>}/>
 
       {/* ROUTING PRODUK */}
       <Route path="/tourpackages" element={<Navbar props={<TourPackage/>}/>}/>

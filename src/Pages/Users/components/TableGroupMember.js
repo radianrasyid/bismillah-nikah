@@ -125,7 +125,8 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
     },
     '& .MuiDataGrid-cell': {
         color:
-            theme.palette.mode === 'light' ? 'rgba(0,0,0,.85)' : 'rgba(255,255,255,0.65)',
+            theme.palette.mode === 'light' ? '#2E6A67' : '#2E6A67',
+        backgroundColor: "#FFFFFF"
     },
     '& .MuiPaginationItem-root': {
         fontFamily: 'Outfit',

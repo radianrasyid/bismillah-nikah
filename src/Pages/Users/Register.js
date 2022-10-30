@@ -228,13 +228,19 @@ export default function Register() {
             </Stepper>
             {activeStep === steps.length ? (
                 <React.Fragment>
-                <Typography sx={{ mt: 2, mb: 1 }}>
-                    All steps completed - you&apos;re finished
-                </Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                    <Box sx={{ flex: '1 1 auto' }} />
-                    <Button onClick={onSubmit}>Reset</Button>
-                </Box>
+                <div className='text-center'>
+                    <Typography sx={{ mt: 2, mb: 1 }}>
+                        Proses pendaftaran sudah selesai, silahkan klik daftar untuk melanjutkan
+                    </Typography>
+                </div>
+                <div className='text-center'>
+                    <Button variant="contained" onClick={onSubmit}
+                    sx={{
+                        fontWeight: "600"
+                    }}
+                    >Daftar
+                    </Button>
+                </div>
                 </React.Fragment>
             ) : (
                 <React.Fragment>

@@ -1,0 +1,393 @@
+import React, { useState } from 'react'
+import img1 from "./assets/images/img1.jpg";
+import img5 from "./assets/images/img5.jpg";
+import img9 from "./assets/images/img9.jpg";
+import mecca3 from "./assetsUser/images/mecca1.jpg"
+import { Row, Col, Form, Card } from 'react-bootstrap';
+import mecca4 from "./assetsUser/images/mecca3.jpg"
+import kaabah from "./assetsUser/images/kaabah.jpg"
+import payung from "./assetsUser/images/payung.jpg"
+import hajiplus from "./assetsUser/images/hajiplus.jpg"
+import mecca from "./assetsUser/images/mecca.jpg"
+import mecca2 from "./assetsUser/images/mecca2.jpg"
+import mosque from "./assetsUser/images/mosque.jpg";
+import sliderBanner1 from "./assetsUser/images/banner1.jpg";
+import PENDIRI from "./Users/ADMIN/components/PENDIRI.json"
+import fadar from "./assetsUser/images/fadar.png"
+import kan from "./assetsUser/images/kan.png"
+import iata from "./assetsUser/images/iata.png"
+import sliderBanner2 from "./assetsUser/images/banner2.jpg";
+import { Carousel } from 'react-bootstrap';
+import { ImageList, ImageListItem } from '@mui/material';
+import ReactPlayer from 'react-player/youtube'
+
+const images = [
+    fadar, kan, iata
+]
+
+
+export default function Homepage() {
+
+   const [image, setImage] = useState([mecca3, mecca4, kaabah, payung])
+   const [programs, setPrograms] = useState([])
+
+   const fetchData = async() => {
+      await fetch("https://umrohwebsite.herokuapp.com/api/v1/program")
+      .then(async(res) => {
+         let hasil = await res.json();
+         setPrograms(hasil.data)
+      })
+   }
+
+   const formatRupiah = (money) => {
+      return new Intl.NumberFormat('id-ID',
+        { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }
+      ).format(money);
+   }
+
+   React.useEffect(() => {
+      fetchData()
+   }, [])
+
+  return (
+    <>
+      {/* <!-- Home slider html start --> */}
+<section className="home-slider-section">
+<div className="home-slider">
+         <div className="home-banner-items">
+            <div className="banner-inner-wrap" style={{ backgroundImage: `url(${sliderBanner1})` }}></div>
+               <div className="banner-content-wrap">
+                  <div className="container">
+                     <div className="banner-content text-center">
+                        <h2 className="banner-title">PT HARAMAIN BAROKAH SINERGI</h2>
+                        <Row>
+                            <Col style={{ textAlign: 'left'}}>
+                                <p>Sebagai perusahaan pelayanan dan jasa yang bergerak di banyak bidang antara lain :</p>
+                                <p>
+                                Pelayanan perjalanan Haji dan Umroh mengajak umat Muslim untuk menguatkan niat untuk berangkat, bersilaturahmi, dan menunaikan ibadah bersama kami dengan Mitra kami PT FADAR DIAN KAROMAH dan beberapa Perusahaan Travel lain yang sudah memiliki izin PPIU sebagai penyelenggara keberangkatannya
+                                <br></br>
+                                PT HARAMAIN BAROKAH SINERGI juga bergerak pada bidang Pelayanan Jasa Properti, Suplayer produk herbal dan kesehatan, pemasaran sofeware dan hardware, serta pelayanan jasa penyedia unit kendaraan
+                                </p>
+                            </Col>
+                            <Col>
+                                <ReactPlayer
+                                    url={"https://youtu.be/hrnT2IFqyro"}
+                                    style={{
+                                        borderRadius: "8px !important"
+                                    }}
+                                />
+                            </Col>
+                        </Row>
+                     </div>
+                  </div>
+               </div>
+            <div className="overlay"></div>
+         </div>
+</div>
+</section>
+{/* <!-- slider html start -->
+<!-- Home search field html start --> */}
+{/* <div className="trip-search-section shape-search-section br-8">
+<div className="slider-shape"></div>
+<div className="container">
+   <div className="trip-search-inner white-bg d-flex br-8">
+      <div className='text-center' style={{ display: "flex", justifyContent: "center" }}>
+         <p className='home-page-quotes'>Dari sahabat Abu Hurairah ra, dari Nabi Muhammad saw, ia bersabda, "Umrah ke umrah merupakan kafarah (dosa) di antara keduanya. Sedangkan haji mabrur tiada balasan baginya kecuali surga"
+            <br></br>
+            (HR Malik, Bukhari, Muslim, At-Tirmidzi, An-Nasai, Ibnu Majah, Al-Asbihani)
+         </p>
+      </div>
+   </div>
+</div>
+</div> */}
+{/* <!-- search search field html end --> */}
+<section className="destination-section">
+   <div className="container">
+      <div className="section-heading">
+        <div className='text-center mt-5'>
+            <h2>MITRA KAMI</h2>
+        </div>
+        <Row>
+            {
+                images.map((item) => {
+                    return(
+                        <Col style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                            <img src={item} />
+                        </Col>
+                    )
+                })
+            }
+        </Row>
+      </div>
+      <div className="destination-inner destination-three-column">
+         
+         {/* <div className="btn-wrap text-center">
+            <a href="#" className="button-primary">MORE DESTINATION</a>
+         </div> */}
+      </div>
+   </div>
+</section>
+{/* <!-- Home packages section html start --> */}
+<section className="package-section">
+<div className="container">
+   <div className="section-heading text-center">
+      <div className="row">
+         <div className="col-lg-8 offset-lg-2">
+            <h5 className="dash-style">BERIBADAH DENGAN MUDAH</h5>
+            <h2>PAKET UMROH</h2>
+            <p>Kami menawarkan beragam paket umroh dengan kesempatan besar untuk mendapatkan hadiah menarik</p>
+         </div>
+      </div>
+   </div>
+   <div className="package-inner">
+      <div className="row">
+         {
+            programs.map((item, index) => {
+               if(item.programType == 0 || item.programType == 1){
+                  const link = `http://localhost:3000/tourpackages/${item.id}`
+                  return(
+                     <div data-aos="fade-right" className="col-lg-4 col-md-6">
+                        <div className="package-wrap">
+                           <figure className="feature-image">
+                              <a href={link}>
+                                 <img src={item.image} alt="" className='br-8' style={{ height: "20rem", width: "30rem", objectFit: "cover" }}/>
+                              </a>
+                           </figure>
+                           <div className="package-price">
+                              <h6>
+                                 <span>{formatRupiah(item.price)}</span>
+                              </h6>
+                           </div>
+                           <div className="package-content-wrap">
+                              <div className="package-meta text-center">
+                                 <ul>
+                                    <li>
+                                       <i className="far fa-clock"></i>
+                                       7D/6N
+                                    </li>
+                                    <li>
+                                       <i className="fas fa-user-friends"></i>
+                                       People: {item.users.length}
+                                    </li>
+                                    <li>
+                                       <i className="fas fa-map-marker-alt"></i>
+                                       Saudi Arabia
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div className="package-content">
+                                 <h3>
+                                    <a href={link}>{item.programName}</a>
+                                 </h3>
+                                 <div className="btn-wrap">
+                                    <a href={link} className="button-text width-12">Pesan Sekarang<i className="fas fa-arrow-right"></i></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  )
+               }
+            })
+         }
+         {/* <div data-aos="fade-right" className="col-lg-4 col-md-6">
+            <div className="package-wrap">
+               <figure className="feature-image">
+                  <a href="#">
+                     <img src={mosque} alt="" className='br-8'/>
+                  </a>
+               </figure>
+               <div className="package-price">
+                  <h6>
+                     <span>Rp 39.000.000 </span>
+                  </h6>
+               </div>
+               <div className="package-content-wrap">
+                  <div className="package-meta text-center">
+                     <ul>
+                        <li>
+                           <i className="far fa-clock"></i>
+                           5D/4N
+                        </li>
+                        <li>
+                           <i className="fas fa-user-friends"></i>
+                           People: 8
+                        </li>
+                        <li>
+                           <i className="fas fa-map-marker-alt"></i>
+                           Saudi Arabia
+                        </li>
+                     </ul>
+                  </div>
+                  <div className="package-content">
+                     <h3>
+                        <a href="#">Program Umroh Plus Turki</a>
+                     </h3>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
+                     <div className="btn-wrap">
+                        <a href="#" className="button-text width-6">Pesan Sekarang<i className="fas fa-arrow-right"></i></a>
+                        <a href="#" className="button-text width-6">Wish List<i className="far fa-heart"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div data-aos="fade-right" className="col-lg-4 col-md-6">
+            <div className="package-wrap">
+               <figure className="feature-image">
+                  <a href="#">
+                     <img src={mecca2} alt="" className='br-8'/>
+                  </a>
+               </figure>
+               <div className="package-price">
+                  <h6>
+                     <span>Rp 34.600.000 </span>
+                  </h6>
+               </div>
+               <div className="package-content-wrap">
+                  <div className="package-meta text-center">
+                     <ul>
+                        <li>
+                           <i className="far fa-clock"></i>
+                           6D/5N
+                        </li>
+                        <li>
+                           <i className="fas fa-user-friends"></i>
+                           People: 6
+                        </li>
+                        <li>
+                           <i className="fas fa-map-marker-alt"></i>
+                           Saudi Arabia
+                        </li>
+                     </ul>
+                  </div>
+                  <div className="package-content">
+                     <h3>
+                        <a href="#">Umroh Kolektif 45 Jama'ah</a>
+                     </h3>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
+                     <div className="btn-wrap">
+                        <a href="#" className="button-text width-6">Pesan Sekarang<i className="fas fa-arrow-right"></i></a>
+                        <a href="#" className="button-text width-6">Wish List<i className="far fa-heart"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div> */}
+      </div>
+      <div className="btn-wrap text-center">
+         <a href="#" className="button-primary">VIEW ALL PACKAGES</a>
+      </div>
+   </div>
+</div>
+</section>
+
+<section className="package-section">
+<div className="container">
+   <div className="section-heading text-center">
+      <div className="row">
+         <div className="col-lg-8 offset-lg-2">
+            <h5 className="dash-style">KENALI PERUSAHAAN KAMI LEBIH DALAM</h5>
+            <h2>PENDIRI PT HARAMAIN BAROKAH SINERGI</h2>
+         </div>
+      </div>
+   </div>
+   <div className="package-inner">
+      <Row className='g-3'>
+      {
+            PENDIRI.map((item, index) => {
+               return(
+                  <Col lg={4} data-aos="fade-right">
+                     <Card className='card-pendiri'>
+                        <Card.Img variant='top' src={item.image} alt="" className='br-8' style={{ height: "30rem", width: "25rem", objectFit: "cover" }} />
+                        <Card.Body>
+                           <div className='text-center'>
+                              <p className='card-pendiri-posisi'>{item.posisi}</p>
+                           </div>
+                           <div className='text-center' style={{ marginTop: '-1rem' }}>
+                              <p className='card-pendiri-nama'>{item.nama}</p>
+                           </div>
+                        </Card.Body>
+                     </Card>
+                  </Col>
+               )
+            })
+         }
+      </Row>
+   </div>
+</div>
+</section>
+{/* <!-- packages html end -->
+<!-- Home callback section html start --> */}
+{/* <!-- callback html end -->
+<!-- Home activity section html start --> */}
+{/* <!-- activity html end -->
+<!-- Home special section html start --> */}
+{/* <!-- special html end -->
+<!-- Home special section html start --> */}
+{/* <!-- best html end -->
+<!-- Home client section html start --> */}
+{/* <!-- client html end -->
+<!-- Home blog section html start --> */}
+{/* <!-- blog html end -->
+<!-- Home testimonial section html start --> */}
+{/* <div className="testimonial-section" style={{ backgroundImage: "url(assets/images/img23.jpg)" }}>
+<div className="container">
+   <div className="row">
+      <div className="col-lg-10 offset-lg-1">
+         <div className="testimonial-inner testimonial-slider">
+            <Carousel>
+               <Carousel.Item>
+                  <div className="testimonial-item text-center">
+                     <figure className="testimonial-img">
+                        <img src="assets/images/img20.jpg" alt=""/>
+                     </figure>
+                     <div className="testimonial-content">
+                        <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis condi mentum acpri! "</p>
+                        <cite>
+                           Johny English
+                           <span className="company">Travel Agent</span>
+                        </cite>
+                     </div>
+                  </div>
+               </Carousel.Item>
+               <Carousel.Item>
+                  <div className="testimonial-item text-center">
+                     <figure className="testimonial-img">
+                        <img src="assets/images/img21.jpg" alt=""/>
+                     </figure>
+                     <div className="testimonial-content">
+                        <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis condi mentum acpri! "</p>
+                        <cite>
+                           William Housten
+                           <span className="company">Travel Agent</span>
+                        </cite>
+                     </div>
+                  </div>
+               </Carousel.Item>
+               <Carousel.Item>
+                  <div className="testimonial-item text-center">
+                     <figure className="testimonial-img">
+                        <img src="assets/images/img22.jpg" alt=""/>
+                     </figure>
+                     <div className="testimonial-content">
+                        <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis condi mentum acpri! "</p>
+                        <cite>
+                           Alison Wright
+                           <span className="company">Travel Guide</span>
+                        </cite>
+                     </div>
+                  </div>
+               </Carousel.Item>
+            </Carousel>
+         </div>
+      </div>
+   </div>
+</div>
+</div> */}
+{/* <!-- testimonial html end -->
+<!-- Home contact details section html start --> */}
+{/* <!--  contact details html end --> */}
+    </>
+  )
+}

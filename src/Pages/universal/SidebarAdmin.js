@@ -31,6 +31,8 @@ import { GiSwipeCard } from "react-icons/gi"
 import { ImTree } from "react-icons/im"
 import { Collapse, Stack } from '@mui/material';
 import { Col, Row } from 'react-bootstrap';
+import { logOut } from '../../redux/feature/auth/authSlice';
+import { useDispatch } from 'react-redux';
 
 const drawerWidth = 240;
 
@@ -113,6 +115,8 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export default function SidebarAdmin({props, slug}) {
 
+    const dispatch = useDispatch()
+
     const router = useLocation()
     const location = router.pathname;
     const direct = useNavigate();  
@@ -193,17 +197,16 @@ export default function SidebarAdmin({props, slug}) {
   const handleCloseUserMenu = (e) => setAnchorElUser(null);
   const openUser = Boolean(anchorElUser)
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+  const handleDrawerOpen = () => setOpen(true);
+  const handleDrawerClose = () => setOpen(!open);
 
   const handleClick = () => setOpenMember(!openMember);
   const handleDirect = (links) => direct(links)
 
-  const handleDrawerClose = () => {
-    setOpen(!open);
-  };
-
+  const handleLogOut = () => {
+    dispatch(logOut())
+    direct("/")
+  }
 
 
   return (
@@ -222,11 +225,11 @@ export default function SidebarAdmin({props, slug}) {
                 display: { xs: 'none', md: 'flex' },
                 fontFamily: 'Inter',
                 fontWeight: 700,
-                color: 'inherit',
+                color: '#2E6A67 !important',
                 textDecoration: 'none',
                 }}
             >
-                {slug}
+                <h3 style={{ color: "#2E6A67 !important"}}>{slug}</h3>
             </Typography>
 
             <Box sx={{ flexGrow: 0 }} className="ms-auto">
@@ -241,61 +244,12 @@ export default function SidebarAdmin({props, slug}) {
                 >
                     <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
                     <MenuItem onClick={handleCloseUserMenu}>My account</MenuItem>
-                    <MenuItem onClick={handleCloseUserMenu}>Logout</MenuItem>
+                    <MenuItem onClick={handleLogOut}>Logout</MenuItem>
                 </Menu>
             </Box>
             </Toolbar>
         </Container>
         </AppBar>
-      {/* <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ fontWeight: 700, fontSize:"28px"}}>
-            {slug}
-          </Typography>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </AppBar> */}
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <Row>
@@ -351,6 +305,7 @@ export default function SidebarAdmin({props, slug}) {
             <ListItemCustomized primary={"Produk"} icon={<BsBoxSeam/>} loc="/admin-products" actClick={() => direct("/admin-products")} />
             <ListItemCustomized primary={"Rewards & Bonus"} icon={<BsGiftFill/>} loc="/admin-rewards" actClick={() => direct("/admin-rewards")} />
             <ListItemCustomized primary={"Pin"} icon={<BsFillLockFill/>} loc="/admin-pins" actClick={() => direct("/admin-pins")} />
+            <ListItemCustomized primary={"Home"} icon={<BsFillLockFill/>} loc="/admin-pins" actClick={() => direct("/")} />
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>

@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "posisi": "Komisaris Utama",
+        "image": "https://res.cloudinary.com/dbihbfpig/image/upload/v1667100033/rama_l3d0wk.jpg",
+        "nama": "RAMA IRWANDI"
+    },
+    {
+        "id": 2,
+        "posisi": "Komisaris",
+        "image": "https://res.cloudinary.com/dbihbfpig/image/upload/v1667100033/erwin_gjt9la.jpg",
+        "nama": "ERWIN J.CHAN"
+    },
+    {
+        "id": 3,
+        "posisi": "Komisaris",
+        "image": "https://res.cloudinary.com/dbihbfpig/image/upload/v1667100033/muslim_fhxlhx.jpg",
+        "nama": "Ir. MUSLIM"
+    },
+    {
+        "id": 4,
+        "posisi": "Komisaris",
+        "image": "https://res.cloudinary.com/dbihbfpig/image/upload/v1667100033/edi_kcttnx.jpg",
+        "nama": "EDI ANTONI"
+    },
+    {
+        "id": 5,
+        "posisi": "Komisaris",
+        "image": "https://res.cloudinary.com/dbihbfpig/image/upload/v1667100033/edi_rinaldy_od13ai.jpg",
+        "nama": "EDI RINALDY"
+    },
+    {
+        "id": 6,
+        "posisi": "Direktur",
+        "image": "https://res.cloudinary.com/dbihbfpig/image/upload/v1667100033/john_npyaql.jpg",
+        "nama": "JOHN LEONAS"
+    }
+]

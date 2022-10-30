@@ -43,6 +43,7 @@ export default function DashboardUser() {
     const [file, setFile] = React.useState(null);
     const [agreement, setAgreement] = React.useState(null);
     const [pinAmount, setPinAmount] = React.useState(null);
+    const [pins, setPins] = React.useState([]);
 
     const [pin, setPin] = React.useState(null);
 
@@ -104,6 +105,23 @@ export default function DashboardUser() {
                 setProgram(result.data);
             })
         })
+
+        await fetch(`https://umrohwebsite.herokuapp.com/api/v1/getpin`, {
+            method: "GET",
+            mode: 'cors',
+            headers: {
+                'Authorization': `Bearer ${currentUser.token}`
+            }
+        }).then(async(res) => {
+            let hasil = await res.json();
+            let hasilData = await hasil.data;
+            let truePin = hasilData.filter((item) => {
+                if(item.status === false){
+                    return item
+                }
+            })
+            setPins(truePin)
+        })
         setLoading(false)
     }
 
@@ -121,13 +139,18 @@ export default function DashboardUser() {
         formData.append("amount", Number(amount));
         formData.append("image", file)
 
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/transaction", {
+        if(userData.ProgramId == null || userData.ProgramId == undefined){
+            return window.alert("anda belum memilih program apapun");
+        }else{
+            await fetch("https://umrohwebsite.herokuapp.com/api/v1/transaction", {
             method: "POST",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
             },
             body: formData
         })
+        return true
+        }
     }
 
     const createAgreement = async(e) => {
@@ -328,14 +351,7 @@ export default function DashboardUser() {
                 >
                     {
                         currentUser.role == 3 ? (
-                            <MenuItem onClick={handleOpenLeader}>
-                                <ListItemIcon>
-                                    <DiGitPullRequest style={{ transform: "scale(1.2)", marginRight: "-1rem"}}/>
-                                </ListItemIcon>
-                                <ListItemText>
-                                    Menjadi Leader
-                                </ListItemText>
-                            </MenuItem>
+                            <></>
                         ) : (
                             <></>
                         )
@@ -359,78 +375,6 @@ export default function DashboardUser() {
                                     Request Pin
                                 </ListItemText>
                             </MenuItem>
-                            <Dialog
-                                open={openReqPin}
-                                TransitionComponent={Transition}
-                                keepMounted
-                                onClose={handleCloseReqPin}
-                                aria-describedby="alert-dialog-slide-description"
-                            >
-                                <DialogTitle>{"Request Menjadi Leader"}</DialogTitle>
-                                <DialogContent>
-                                    {/* <div className='mb-3'>
-                                        <p className='input-label-text'>Nama User</p>
-                                        <FormControl className='no-border' variant='standard' fullWidth>
-                                                <Autocomplete
-                                                    options={dataUser}
-                                                    getOptionLabel={option => `${option.firstName} ${option.lastName}`}
-                                                    renderInput={params => (
-                                                        <TextField {...params} placeholder={"Nama Supplier"} variant="outlined" />
-                                                    )}
-                                                    onChange={(e, newValue) => {
-                                                        setSentBy(newValue.id);
-                                                        setProgram(newValue.ProgramId)
-                                                    }}
-                                                    className="hms-small-textfield mb-3"
-                                                />
-                                        </FormControl>
-                                    </div> */}
-                                    <div className='mb-3'>
-                                        <p>Berikut beberapa kesepakatan sebelum menjadi admin</p>
-                                        <ul>
-                                            <li>
-                                                <small>Anda diharuskan mencari jamaah yang melunasi seluruh pembayaran sebanyak pin yang telah anda request</small>
-                                            </li>
-                                            <li>
-                                                <small>Jika jumlah jamaah yang melunasi pembayaran tidak sama dengan jumlah pin yang anda request dalam kurung waktu yang telah ditentukan, maka anda akan dikenakan sanksi</small>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className='mb-3'>
-                                        <p className='input-label-text'>Jumlah Pin</p>
-                                        <FormControl className='no-border' variant='standard' fullWidth>
-                                            <OutlinedInput type='text' placeholder={"Masukkan Jumlah Pin"} className='input-textfield' onChange={(e) => setPinAmount(Number(e.target.value))} />
-                                        </FormControl>
-                                    </div>
-                                    <div className='mb-3'>
-                                        <p className='input-label-text'>ketik <b>Saya Menyetujui</b> dibawah untuk menyetujui persyaratan</p>
-                                        <FormControl className='no-border' variant='standard' fullWidth>
-                                            <OutlinedInput type='text' placeholder={"Ketik Saya Menyetujui"} className='input-textfield' onChange={(e) => setAgreement(e.target.value)} />
-                                        </FormControl>
-                                    </div>
-                                </DialogContent>
-                                <DialogActions>
-                                <Button onClick={handleCloseReqPin} variant="contained"
-                                sx={{
-                                    backgroundColor: "#f04141",
-                                    boxShadow: "none",
-                                    borderRadius: "8px",
-                                    fontWeight: "600",
-                                    '&:hover': {
-                                        backgroundColor: "#f76060"
-                                    }
-                                }}
-                                >Batal</Button>
-                                <Button onClick={requestPin} variant="contained"
-                                sx={{
-                                    backgroundColor: "#417D7A",
-                                    boxShadow: "none",
-                                    borderRadius: "8px",
-                                    fontWeight: "600"
-                                }}
-                                >Setuju</Button>
-                                </DialogActions>
-                            </Dialog>
                             </div>
                         ) : (
                             <div>
@@ -681,13 +625,22 @@ export default function DashboardUser() {
                     </div>
                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <CopyToClipboard text={currentUser.referral}>
-                        <Button size="large" variant="outlined"
-                            sx={{
-                                fontWeight: "600"
-                            }}
-                            >
-                                {currentUser.referral}
-                        </Button>
+                        {
+                            currentUser.role !== 2 ? (
+                                <div>
+                                    <p>Anda bukan leader</p>
+                                </div>
+                            ) : (
+                                <Button size="large" variant="outlined"
+                                    sx={{
+                                        fontWeight: "600",
+                                        textTransform: "none"
+                                    }}
+                                    >
+                                        {pins[Math.floor(Math.random() * pins.length)].pins}
+                                </Button>
+                            )
+                        }
                     </CopyToClipboard>
                     </div>
                 </DialogContent>
