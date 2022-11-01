@@ -24,7 +24,7 @@ export default function RewardTabs() {
     const [data, setData] = React.useState([])
 
     const fetchData = async(e) => {
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/reward", {
+        await fetch("http://localhost:8000/api/v1/reward", {
             method: "GET",
             mode: "cors",
             headers: {
@@ -68,7 +68,7 @@ export default function RewardTabs() {
                                             <Card.Text className='dashboard-user-program-text' style={{ fontSize: "12px"}}>Dapatkan kesempatan lebih baik dengan mengajak lebih banyak teman anda</Card.Text>
                                             <ProgressBar now={activeChild == null ? 0 : activeChild.length} max={item.amountUmroh} min={0} variant={"info"}/>
                                             <FormHelperText>
-                                                <small className='dashboard-user-welcome-info'><b>{activeChild == null ? 0 : activeChild.length}</b> jamaah didapatkan / <b>{item.terms_umroh}</b></small>
+                                                <small className='dashboard-user-welcome-info'><b>{activeChild == null ? 0 : activeChild.length}</b> Mitra jamaah didapatkan / <b>{item.terms_umroh}</b></small>
                                             </FormHelperText>
                                             <StyledButton className="mt-2" variant='contained' size="small" type="button"
                                             disabled={amount === item.amountUmroh || amount === item.amountHaji ? false : true }
@@ -87,7 +87,7 @@ export default function RewardTabs() {
                                             <Card.Text className='dashboard-user-program-text' style={{ fontSize: "12px"}}>Dapatkan kesempatan lebih baik dengan mengajak lebih banyak teman anda</Card.Text>
                                             <ProgressBar now={activeChild == null ? 0 : activeChild.length} max={item.amountUmroh} min={0} variant={"info"}/>
                                             <FormHelperText>
-                                                <small className='dashboard-user-welcome-info'><b>{activeChild == null ? 0 : activeChild.length}</b> jamaah didapatkan / <b>{item.terms_umroh}</b></small>
+                                                <small className='dashboard-user-welcome-info'><b>{activeChild == null ? 0 : activeChild.length}</b> Mitra jamaah didapatkan / <b>{item.terms_umroh}</b></small>
                                             </FormHelperText>
                                             <StyledButton className="mt-2" variant='contained' size="small" type="button"
                                             disabled={amount === item.referAmount ? false : true }

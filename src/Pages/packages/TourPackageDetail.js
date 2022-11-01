@@ -4,7 +4,7 @@ import { TabContext, TabList, TabPanel } from '@mui/lab';
 import hajivektor from "../assetsUser/images/hajivektor.png"
 import { useParams } from 'react-router-dom';
 import { Row, Col, Form, Card } from "react-bootstrap"
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button } from "@mui/material";
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button, Snackbar } from "@mui/material";
 import { useSelector } from 'react-redux';
 import formatRupiah from '../functions/formatRupiah';
 
@@ -40,6 +40,24 @@ export default function TourPackageDetail() {
   const [value, setValue] = React.useState("1");
   const [data, setData] = React.useState(null);
   const [open, setOpen] = React.useState(false);
+  const [snackbar, setSnackbar] = React.useState(false);
+  const [snackbarFailed, setSnackbarFailed] = React.useState(false)
+
+  const handleCloseSnackbar = (event, reason) => {
+   if (reason === 'clickaway') {
+     return;
+   }
+
+   setSnackbar(false);
+ };
+
+  const handleCloseSnackbarFailed = (event, reason) => {
+   if (reason === 'clickaway') {
+     return;
+   }
+
+   setSnackbarFailed(false);
+ };
 
   const handleChange = (e, newValue) => {
     setValue(newValue)
@@ -51,7 +69,7 @@ export default function TourPackageDetail() {
   const currentUser = useSelector((state) => state.auth);
 
   const fetchData = async(e) => {
-      let response = await fetch(`https://umrohwebsite.herokuapp.com/api/v1/program/${id}`)
+      let response = await fetch(`http://localhost:8000/api/v1/program/${id}`)
       let hasil = await response.json();
 
       setData(hasil.data);
@@ -60,7 +78,7 @@ export default function TourPackageDetail() {
   const onChoose = async(e) => {
    e.preventDefault();
 
-   await fetch("https://umrohwebsite.herokuapp.com/api/v3/user/program", {
+   await fetch("http://localhost:8000/api/v3/user/program", {
       method: "PATCH",
       headers: {
          'Content-Type': 'application/json',
@@ -75,12 +93,11 @@ export default function TourPackageDetail() {
       let response = await res.json();
 
       if(response.message==="successfully choosed a program"){
-         return window.alert(`Berhasil memilih program`)
+         setSnackbar(true);
       }else if(response.message !=="successfully choosed a program"){
-         return window.alert("Terjadi kesalahan dalam memilih program")
+         setSnackbarFailed(true)
       }
    })
-
    setOpen(false);
   }
 
@@ -91,6 +108,24 @@ export default function TourPackageDetail() {
   if(data !== null){
    return (
       <div id="page" className="full-page">
+         <Snackbar
+         open={snackbar}
+         autoHideDuration={6000}
+         onClose={handleCloseSnackbar}
+         message="Program berhasil dipilih"
+         sx={{
+            backgroundColor: "#00ffab"
+         }}
+         />
+         <Snackbar
+         open={snackbar}
+         autoHideDuration={6000}
+         onClose={handleCloseSnackbar}
+         message="Program berhasil dipilih"
+         sx={{
+            backgroundColor: "#f05454"
+         }}
+         />
            <main id="content" className="site-main">
               {/* <!-- Inner Banner html start--> */}
               <section className="inner-banner-wrap inner-banner-gray">
@@ -192,7 +227,7 @@ export default function TourPackageDetail() {
                                       <ins>{formatter.format(data.price)}</ins>
                                    </div>
                                    <form className="cart-item">
-                                      <button className="button-primary" onClick={handleClickOpen} type="button">Ikuti</button>
+                                      <button className="button-primary" onClick={handleClickOpen} type="button">Daftar Program</button>
                                       <Dialog
                                        open={open}
                                        onClose={handleClose}

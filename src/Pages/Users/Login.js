@@ -22,7 +22,7 @@ export default function Login() {
     const onSubmit = async(e) => {
         e.preventDefault()
         if(email !== null && password !== null){
-            await fetch("https://umrohwebsite.herokuapp.com/api/v1/login", {
+            await fetch("http://localhost:8000/api/v1/login", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -44,7 +44,11 @@ export default function Login() {
                         leader_code: hasil.leaderCode,
                         program_id: hasil.programId
                     }))
-                    direct("/")
+                    if(hasil.userRole == 1){
+                        return direct("/admin-dashboard")
+                    }else if(hasil.userRole !== 1){
+                        return direct("/dashboard")
+                    }
                 }
             })
         }else{

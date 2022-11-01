@@ -7,6 +7,7 @@ import mecca4 from "./assetsUser/images/mecca3.jpg"
 import kaabah from "./assetsUser/images/kaabah.jpg"
 import payung from "./assetsUser/images/payung.jpg"
 import hajiplus from "./assetsUser/images/hajiplus.jpg"
+import bgvid from "./assetsUser/video/bgvid.mp4"
 import mecca from "./assetsUser/images/mecca.jpg"
 import mecca2 from "./assetsUser/images/mecca2.jpg"
 import mosque from "./assetsUser/images/mosque.jpg";
@@ -25,7 +26,7 @@ export default function Homepage() {
 
    const fetchData = async() => {
       setLoading(true)
-      await fetch("https://umrohwebsite.herokuapp.com/api/v1/program")
+      await fetch("http://localhost:8000/api/v1/program")
       .then(async(res) => {
          let hasil = await res.json();
          setPrograms(hasil.data)
@@ -49,38 +50,23 @@ export default function Homepage() {
         {/* <!-- Home slider html start --> */}
   <section className="home-slider-section">
   <div className="home-slider">
-     <Carousel>
-        <Carousel.Item>
            <div className="home-banner-items">
-              <div className="banner-inner-wrap" style={{ backgroundImage: `url(${sliderBanner1})` }}></div>
+              <div className="banner-inner-wrap">
+               <video autoPlay loop muted>
+                  <source src={bgvid} type='video/mp4' />
+               </video>
+              </div>
                  <div className="banner-content-wrap">
                     <div className="container">
                        <div className="banner-content text-center">
                           <h2 className="banner-title">HRB SINERGI</h2>
                           <p>Memberikan kemudahan bagi anda untuk melakukan ibadah haji dan umroh dengan aman, nyaman, dan terjamin</p>
-                          <a href="#" className="button-primary">CONTINUE READING</a>
+                          <a href="/register" className="button-primary">BERGABUNG SEKARANG</a>
                        </div>
                     </div>
                  </div>
               <div className="overlay"></div>
            </div>
-        </Carousel.Item>
-        <Carousel.Item>
-           <div className="home-banner-items">
-              <div className="banner-inner-wrap" style={{ backgroundImage: `url(${sliderBanner2})` }}></div>
-                 <div className="banner-content-wrap">
-                    <div className="container">
-                       <div className="banner-content text-center">
-                          <h2 className="banner-title">HRB SINERGI</h2>
-                          <p>Agen haji dan umroh terpercaya</p>
-                          <a href="#" className="button-primary">CONTINUE READING</a>
-                       </div>
-                    </div>
-                 </div>
-              <div className="overlay"></div>
-           </div>
-        </Carousel.Item>
-     </Carousel>
   </div>
   </section>
   {/* <!-- slider html start -->
@@ -105,7 +91,7 @@ export default function Homepage() {
            <div className="row align-items-end">
               <div className="col-lg-7">
                  <h5 className="dash-style">INGIN TAU LEBIH DALAM TENTANG KAMI?</h5>
-                 <h2>AGEN UMROH DAN HAJI TERPERCAYA</h2>
+                 <h2>PARTNER DARI AGEN UMROH DAN HAJI TERPERCAYA</h2>
               </div>
               <div className="col-lg-5">
                  <div className="section-disc">
@@ -339,81 +325,6 @@ export default function Homepage() {
   </section>
   {/* <!-- special html end -->
   <!-- Home special section html start --> */}
-  <section className="best-section">
-  <div className="container">
-     <div className="row">
-        <div className="col-lg-5">
-           <div className="section-heading">
-              <h5 className="dash-style">ALBUM</h5>
-              <h2>MOMEN YANG DIABADIKAN</h2>
-              {/* <p>Aperiam sociosqu urna praesent, tristique, corrupti condimentum asperiores platea ipsum ad arcu. Nostrud. Esse? Aut nostrum, ornare quas provident laoreet nesciunt odio voluptates etiam, omnis.</p> */}
-           </div>
-           <div>
-              <ImageList variant='masonry' cols={3} gap={8}>
-                 {
-                    image.map((item, index) => {
-                       return(
-                          <ImageListItem key={index} data-aos="fade-right">
-                             <img
-                             src={`${item}?w=248&fit=crop&auto=format`}
-                             srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                             // alt={item.title}
-                             loading="lazy"
-                             />
-                          </ImageListItem>
-                       )
-                    })
-                 }
-              </ImageList>
-           </div>
-           {/* <figure className="gallery-img">
-              <img src={mecca3} alt=""/>
-           </figure> */}
-        </div>
-        <div className="col-lg-7">
-           <div>
-              <ImageList variant='masonry' cols={3} gap={8}>
-                 {
-                    image.map((item, index) => {
-                       return(
-                          <ImageListItem key={index} data-aos="fade-left">
-                             <img
-                             src={`${item}?w=248&fit=crop&auto=format`}
-                             srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                             // alt={item.title}
-                             loading="lazy"
-                             />
-                          </ImageListItem>
-                       )
-                    })
-                 }
-              </ImageList>
-           </div>
-        </div>
-        {/* <div className="col-lg-7">
-           <div className="row">
-              <div className="col-sm-6">
-                 <figure className="gallery-img">
-                    <img src={mecca4} alt=""/>
-                 </figure>
-              </div>
-              <div className="col-sm-6">
-                 <figure className="gallery-img">
-                    <img src={kaabah} alt=""/>
-                 </figure>
-              </div>
-           </div>
-           <div className="row">
-              <div className="col-12">
-                 <figure className="gallery-img">
-                    <img src={payung} alt=""/>
-                 </figure>
-              </div>
-           </div>
-        </div> */}
-     </div>
-  </div>
-  </section>
   {/* <!-- best html end -->
   <!-- Home client section html start --> */}
   {/* <!-- client html end -->

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, ProgressBar } from "react-bootstrap"
-import { Button, FormControl, useFormControl, FormHelperText, Fab, Typography, Popover, Menu, MenuItem, ListItemIcon, ListItemText } from '@mui/material';
-import { Autocomplete, TextField, OutlinedInput, Dialog, DialogActions, DialogContent, Slide, DialogTitle } from "@mui/material"
+import { Button, FormControl, useFormControl, FormHelperText, Fab, Typography, Popover, Menu, MenuItem, ListItemIcon, ListItemText, Stack } from '@mui/material';
+import { Autocomplete, TextField, OutlinedInput, Dialog, DialogActions, DialogContent, Slide, DialogTitle, Alert, AlertTitle } from "@mui/material"
 import AddIcon from '@mui/icons-material/Add';
 import hajivektor from "../assetsUser/images/hajivektor.png";
 import logo from "../assets/images/logo-hrbs.jpg";
@@ -81,7 +81,7 @@ export default function DashboardUser() {
 
     const fetchData = async(e) => {
         setLoading(true)
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/whoami", {
+        await fetch("http://localhost:8000/api/v1/user/whoami", {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -92,7 +92,7 @@ export default function DashboardUser() {
             let userCurrent = await hasil.user.referrerId;
 
             let activeMembers = userCurrent.map((item) => {
-                if(item.status == 1 && item.currentPayment !== 0){
+                if(item.status == 2 && item.currentPayment !== 0){
                     return item;
                 }else{
                     return null
@@ -100,14 +100,14 @@ export default function DashboardUser() {
             })
             setActiveChild(activeMembers)
 
-            await fetch(`https://umrohwebsite.herokuapp.com/api/v1/program/${hasil.user.ProgramId}`)
+            await fetch(`http://localhost:8000/api/v1/program/${hasil.user.ProgramId}`)
             .then(async(res) => {
                 let result = await res.json();
                 setProgram(result.data);
             })
         })
 
-        await fetch(`https://umrohwebsite.herokuapp.com/api/v1/getpin`, {
+        await fetch(`http://localhost:8000/api/v1/getpin`, {
             method: "GET",
             mode: 'cors',
             headers: {
@@ -139,18 +139,31 @@ export default function DashboardUser() {
 
         formData.append("amount", Number(amount));
         formData.append("image", file)
+        formData.append("left_amount", program.price - (Number(userData.currentPayment) + Number(amount)))
 
         if(userData.ProgramId == null || userData.ProgramId == undefined){
-            return window.alert("anda belum memilih program apapun");
+            return (
+                <Alert severity="warning">
+                    <AlertTitle>Perhatian</AlertTitle>
+                    Anda belum memilih program apapun
+                </Alert>
+            )
+        }else if(amount == null || file == null){
+            return (
+                <Alert severity="warning">
+                    <AlertTitle>Perhatian</AlertTitle>
+                    Anda belum mengisi jumlah atau bukti transaksi
+                </Alert>
+            )
         }else{
-            await fetch("https://umrohwebsite.herokuapp.com/api/v1/transaction", {
+            await fetch("http://localhost:8000/api/v1/transaction", {
             method: "POST",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
             },
             body: formData
-        })
-        return true
+            })
+            return true
         }
     }
 
@@ -158,7 +171,7 @@ export default function DashboardUser() {
         e.preventDefault();
 
         if(agreement === "Saya Menyetujui"){
-            await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/roleup", {
+            await fetch("http://localhost:8000/api/v1/user/roleup", {
                 method: "POST",
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -175,7 +188,7 @@ export default function DashboardUser() {
         e.preventDefault();
 
         if(agreement === "Saya Menyetujui"){
-            await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/reqpin", {
+            await fetch("http://localhost:8000/api/v1/user/reqpin", {
                 method: "POST",
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -195,7 +208,7 @@ export default function DashboardUser() {
         e.preventDefault();
 
         if(agreement === "Pin Sudah Benar"){
-            await fetch("https://umrohwebsite.herokuapp.com/api/v3/user/pin", {
+            await fetch("http://localhost:8000/api/v3/user/pin", {
                 method: "PATCH",
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -231,7 +244,7 @@ export default function DashboardUser() {
                                 </div>
                                 <div>
                                     {
-                                        activeChild[0] == null ? (<small>Anda belum memiliki jamaah aktif.</small>) : (<small>Dapatkan <b>{activeChild.length}</b> lagi untuk mendapatkan 1 free jamaah umroh</small>)
+                                        activeChild[0] == null ? (<small>Anda belum memiliki mitra jamaah aktif.</small>) : (<small>Dapatkan <b>{activeChild.length}</b> lagi untuk mendapatkan 1 free jamaah umroh</small>)
                                     }
                                 </div>
                                 <div className='progress-container mt-4'>
@@ -239,10 +252,28 @@ export default function DashboardUser() {
                                         activeChild[0] == null ? (<></>) : (<FormControl fullWidth={true}>
                                             <ProgressBar now={activeChild[0] == null ? 0 : activeChild.length} max={10} min={0} variant="info" />
                                             <FormHelperText style={{ margin: "0", width: "10rem" }}>
-                                                <small className='dashboard-user-welcome-info'><b>{userData.referrerId.length}</b> jamaah didapatkan</small>
+                                                <small className='dashboard-user-welcome-info'><b>{userData.referrerId.length}</b> Mitra jamaah didapatkan</small>
                                             </FormHelperText>
                                         </FormControl>)
                                     }
+                                </div>
+                                <div>
+                                    <Stack direction={"row"} spacing={2}>
+                                    <div>
+                                        <small style={{ fontWeight: "600" }}>Kode Referral Saya :</small>
+                                    </div>
+                                    <div style={{ display: "flex", justifyContent: "left", alignItems: "center" }}>
+                                        <CopyToClipboard text={currentUser.referral}>
+                                            <Button size="large" variant="outlined"
+                                                sx={{
+                                                    fontWeight: "600"
+                                                }}
+                                                >
+                                                    {currentUser.referral}
+                                            </Button>
+                                        </CopyToClipboard>
+                                    </div>
+                                    </Stack>
                                 </div>
                             </Col>
                             <Col style={{ display: "flex", justifyContent: "right" }}>
@@ -303,13 +334,13 @@ export default function DashboardUser() {
     
             <Row>
                 <Col className='table-container' style={{ marginRight: "1rem" }}>
-                    <p className='table-container-title mb-3'>Grup Saya</p>
+                    <p className='table-container-title mb-3'>Grup MItra Saya</p>
                     <div>
                         <TableGrupSaya/>
                     </div>
                 </Col>
                 <Col className='table-container'>
-                    <p className="table-container-title mb-3">Jaringan Saya</p>
+                    <p className="table-container-title mb-3">Mitra Saya</p>
                     <div>
                         <TableReferred/>
                     </div>
@@ -486,23 +517,19 @@ export default function DashboardUser() {
             >
                 <DialogTitle>{"Buat Laporan Transaksi"}</DialogTitle>
                 <DialogContent>
-                    {/* <div className='mb-3'>
-                        <p className='input-label-text'>Nama User</p>
-                        <FormControl className='no-border' variant='standard' fullWidth>
-                                <Autocomplete
-                                    options={dataUser}
-                                    getOptionLabel={option => `${option.firstName} ${option.lastName}`}
-                                    renderInput={params => (
-                                        <TextField {...params} placeholder={"Nama Supplier"} variant="outlined" />
-                                    )}
-                                    onChange={(e, newValue) => {
-                                        setSentBy(newValue.id);
-                                        setProgram(newValue.ProgramId)
-                                    }}
-                                    className="hms-small-textfield mb-3"
-                                />
-                        </FormControl>
-                    </div> */}
+                    <div className='mb-3'>
+                        <div className='text-center'>
+                            <p>REKENING PEMBAYARAN</p>
+                        </div>
+                        <div>
+                            <p>Perhatian</p>
+                            <ul>
+                                <li>Pembayaran yang sah hanya melalui rekening atas nama <br></br> <b>PT. HARAMAIN BAROKAH SINERGI</b> dan diverifikasi bagian keuangan</li>
+                                <li>REKENING BRI : <b>0015-01-002342-56-2</b></li>
+                                <li>Transaksi akan terupdate otomatis jika sudah disetujui oleh admin HRBS</li>
+                            </ul>
+                        </div>
+                    </div>
                     <div className='mb-3'>
                         <p className='input-label-text'>Jumlah</p>
                         <FormControl className='no-border' variant='standard' fullWidth>
@@ -517,8 +544,8 @@ export default function DashboardUser() {
                     </div>
                 </DialogContent>
                 <DialogActions>
-                <Button onClick={handleCloseCreate}>Disagree</Button>
-                <Button onClick={createTransaction}>Agree</Button>
+                <Button onClick={handleCloseCreate} variant="outlined">Batal</Button>
+                <Button onClick={createTransaction} variant={"contained"}>Input Transaksi</Button>
                 </DialogActions>
             </Dialog>
             <Dialog

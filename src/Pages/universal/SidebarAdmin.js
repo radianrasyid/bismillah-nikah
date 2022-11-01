@@ -205,7 +205,7 @@ export default function SidebarAdmin({props, slug}) {
 
   const handleLogOut = () => {
     dispatch(logOut())
-    direct("/")
+    direct("/login")
   }
 
 
@@ -256,7 +256,9 @@ export default function SidebarAdmin({props, slug}) {
             <Col>
                 {
                     // open == true ? (<img src={logo} style={{ width: "5rem", height: "5rem" }} />) : (<></>)
-                    open == true ? (<></>) : (<></>)
+                    open == true ? (<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <h2 style={{ marginBottom: "0" }}>HRBS</h2>
+                  </div>) : (<></>)
                 }
             </Col>
             <Col className={open == true ? "go-hard-middle" : ""}>
@@ -303,7 +305,7 @@ export default function SidebarAdmin({props, slug}) {
                 </List>
             </Collapse>
             <ListItemCustomized primary={"Produk"} icon={<BsBoxSeam/>} loc="/admin-products" actClick={() => direct("/admin-products")} />
-            <ListItemCustomized primary={"Rewards & Bonus"} icon={<BsGiftFill/>} loc="/admin-rewards" actClick={() => direct("/admin-rewards")} />
+            <ListItemCustomized primary={"Reward & Komisi"} icon={<BsGiftFill/>} loc="/admin-rewards" actClick={() => direct("/admin-rewards")} />
             <ListItemCustomized primary={"Pin"} icon={<BsFillLockFill/>} loc="/admin-pins" actClick={() => direct("/admin-pins")} />
             <ListItemCustomized primary={"Home"} icon={<BsFillLockFill/>} loc="/admin-pins" actClick={() => direct("/")} />
         </List>

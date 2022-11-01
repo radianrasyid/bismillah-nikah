@@ -171,7 +171,7 @@ function CustomToolbar(props) {
     }
 
     const fetchDataUser = async() => {
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/getall", {
+        await fetch("http://localhost:8000/api/v1/user/getall", {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -199,7 +199,7 @@ function CustomToolbar(props) {
         formData.append("program", program);
         formData.append("user_id", sentBy);
 
-        await fetch("https://umrohwebsite.herokuapp.com/api/v2/create/transaction", {
+        await fetch("http://localhost:8000/api/v2/create/transaction", {
             method: "POST",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -371,7 +371,7 @@ export default function TableRequestBonus() {
     const handleCloseDecision = () => setOpenDecision(false)
 
     const fetchData = async(e) => {
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/reqrew", {
+        await fetch("http://localhost:8000/api/v1/reqrew", {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -385,7 +385,7 @@ export default function TableRequestBonus() {
     }
 
     const fetchDataId = async(e) => {
-        await fetch(`https://umrohwebsite.herokuapp.com/api/v1/reqrew/${id}`, {
+        await fetch(`http://localhost:8000/api/v1/reqrew/${id}`, {
             method: "GET",
             mode: 'cors',
             headers: {
@@ -399,7 +399,7 @@ export default function TableRequestBonus() {
     }
 
     const approveReqRew = async(e) => {
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/approve/reward", {
+        await fetch("http://localhost:8000/api/v1/approve/reward", {
             method: "PATCH",
             mode: 'cors',
             headers: {
@@ -413,7 +413,7 @@ export default function TableRequestBonus() {
     }
 
     const approveReqBonus = async(e) => {
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/approve/bonus", {
+        await fetch("http://localhost:8000/api/v1/approve/bonus", {
             method: "PATCH",
             mode: 'cors',
             headers: {
@@ -436,7 +436,7 @@ export default function TableRequestBonus() {
         { field: 'no', headerName: 'No', flex: 0.1, align: "center"},
         { field: 'name', headerName: "Nama", flex: 0.7, align: "center"},
         { field: 'amount', headerName: "Jumlah", flex: 0.5, align: "center"},
-        { field: 'program', headerName: "Nama Reward & Bonus", align: "center", flex: 0.5},
+        { field: 'program', headerName: "Nama Reward & Komisi", align: "center", flex: 0.5},
         { field: 'img', headerName: "img", align: "center", hide: true},
         { field: 'stats', headerName: "Stats", hide: true},
         { headerName: "Status", renderCell: (params) => {

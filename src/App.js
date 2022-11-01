@@ -43,6 +43,8 @@ import AdminTree from "./Pages/Users/ADMIN/AdminTree";
 import MyProfilePage from "./Pages/Users/MyProfilePage";
 import AboutUs from "./Pages/AboutUs";
 import UserDetailAdmin from "./Pages/Users/ADMIN/UserDetailAdmin";
+import MyPins from "./Pages/Users/MyPins";
+import TransactionUser from "./Pages/Users/TransactionUser";
 
 
 function App() {
@@ -63,14 +65,16 @@ function App() {
       <Route path="/user-edit" element={<NavbarUser props={<EditUser/>}/>}/>
       <Route path="/admin-dashboard" element={<SidebarAdmin slug={"Dashboard"} props={<AdminProfile/>}/>}/>
       <Route path="/admin-products" element={<SidebarAdmin slug={"Products"} props={<Products/>}/>}/>
-      <Route path="/admin-rewards" element={<SidebarAdmin slug={"Rewards & Bonus"} props={<RewardsBonuses/>}/>}/>
+      <Route path="/admin-rewards" element={<SidebarAdmin slug={"Reward & Komisi"} props={<RewardsBonuses/>}/>}/>
       <Route path="/admin-transactions" element={<SidebarAdmin slug={"Transaksi"} props={<AdminTransaksi/>}/>}/>
       <Route path="/admin-networks" element={<SidebarAdmin slug={"Pohon Jaringan"} props={<AdminTree/>}/>}/>
       <Route path="/admin-pins" element={<SidebarAdmin slug={"Pins"} props={<PinPage/>}/>}/>
       <Route path="/dashboard" element={<SidebarUser slug={"Dashboard"} props={<DashboardUser/>}/>}/>
+      <Route path="/transaction" element={<SidebarUser slug={"Transaction"} props={<TransactionUser/>}/>}/>
       <Route path="/myprofile" element={<SidebarUser slug={"My Profile"} props={<MyProfilePage/>}/>}/>
       <Route path="/rewards" element={<SidebarUser slug={"Rewards"} props={<Rewards/>}/>}/>
-      <Route path="/networks" element={<SidebarUser slug={"Jaringan Saya"} props={<MyNetworks/>}/>}/>
+      <Route path="/networks" element={<SidebarUser slug={"Mitra Saya"} props={<MyNetworks/>}/>}/>
+      <Route path="/pins" element={<SidebarUser slug={"Pins"} props={<MyPins/>}/>}/>
 
       {/* ADMIN */}
       <Route path="/userdetail/:id" element={<SidebarAdmin slug={"User Detail"} props={<UserDetailAdmin/>}/>}/>

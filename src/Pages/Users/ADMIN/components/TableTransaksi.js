@@ -169,7 +169,7 @@ function CustomToolbar(props) {
     }
 
     const fetchDataUser = async() => {
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/getall", {
+        await fetch("http://localhost:8000/api/v1/user/getall", {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -197,7 +197,7 @@ function CustomToolbar(props) {
         formData.append("program", program);
         formData.append("user_id", sentBy);
 
-        await fetch("https://umrohwebsite.herokuapp.com/api/v2/create/transaction", {
+        await fetch("http://localhost:8000/api/v2/create/transaction", {
             method: "POST",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -369,7 +369,7 @@ export default function TableTransaksi() {
     const handleCloseDecision = () => setOpenDecision(false)
 
     const fetchData = async(e) => {
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/transaction", {
+        await fetch("http://localhost:8000/api/v1/transaction", {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -383,7 +383,7 @@ export default function TableTransaksi() {
     }
 
     const fetchDataUser = async(e) => {
-        await fetch(`https://umrohwebsite.herokuapp.com/api/v1/userone/${id}`, {
+        await fetch(`http://localhost:8000/api/v1/userone/${id}`, {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -397,7 +397,7 @@ export default function TableTransaksi() {
     }
 
     const updateTransaction = async(e) => {
-        await fetch("https://umrohwebsite.herokuapp.com/api/v3/update/transaction", {
+        await fetch("http://localhost:8000/api/v3/update/transaction", {
             method: "PATCH",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`,
@@ -406,7 +406,7 @@ export default function TableTransaksi() {
             body: JSON.stringify({
                 id: idTrans,
                 amount: Number(amount),
-                decision: decision,
+                decision: Number(decision),
             })
         })
     }
@@ -458,12 +458,6 @@ export default function TableTransaksi() {
                                     <DialogContent>
                                          <div>
                                          <div className='mb-3'>
-                                            <p className='input-label-text'>Jumlah</p>
-                                            <FormControl className='no-border' variant='standard' fullWidth>
-                                                <OutlinedInput type='text' placeholder="Jumlah Transaksi" className='input-textfield' onChange={(e) => setAmount(e.target.value)} />
-                                            </FormControl>
-                                         </div>
-                                         <div className='mb-3'>
                                             <p className='input-label-text'>Status</p>
                                             <FormControl className='no-border' variant='standard' fullWidth>
                                             <Select
@@ -475,8 +469,8 @@ export default function TableTransaksi() {
                                             <MenuItem value="">
                                                 <em>Pilih</em>
                                             </MenuItem>
-                                            <MenuItem value={true}>Setuju</MenuItem>
-                                            <MenuItem value={false}>Tolak</MenuItem>
+                                            <MenuItem value={1}>Setuju</MenuItem>
+                                            <MenuItem value={-1}>Tolak</MenuItem>
                                             </Select>
                                             </FormControl>
                                          </div>
@@ -541,12 +535,6 @@ export default function TableTransaksi() {
                                     <DialogContent>
                                          <div>
                                          <div className='mb-3'>
-                                            <p className='input-label-text'>Jumlah</p>
-                                            <FormControl className='no-border' variant='standard' fullWidth>
-                                                <OutlinedInput type='text' placeholder="Jumlah Transaksi" className='input-textfield' onChange={(e) => setAmount(e.target.value)} />
-                                            </FormControl>
-                                         </div>
-                                         <div className='mb-3'>
                                             <p className='input-label-text'>Status</p>
                                             <FormControl className='no-border' variant='standard' fullWidth>
                                             <Select
@@ -558,8 +546,8 @@ export default function TableTransaksi() {
                                             <MenuItem value="">
                                                 <em>Pilih</em>
                                             </MenuItem>
-                                            <MenuItem value={true}>Setuju</MenuItem>
-                                            <MenuItem value={false}>Tolak</MenuItem>
+                                            <MenuItem value={1}>Setuju</MenuItem>
+                                            <MenuItem value={-1}>Tolak</MenuItem>
                                             </Select>
                                             </FormControl>
                                          </div>

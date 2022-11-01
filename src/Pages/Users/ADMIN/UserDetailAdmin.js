@@ -41,7 +41,7 @@ export default function UserDetailAdmin() {
     }
 
     const fetchData = async(e) => {
-      await fetch(`https://umrohwebsite.herokuapp.com/api/v1/userone/${id}`, {
+      await fetch(`http://localhost:8000/api/v1/userone/${id}`, {
         method: "GET",
         mode: 'cors',
         headers: {
@@ -191,7 +191,7 @@ export default function UserDetailAdmin() {
                             display:'none'
                           }
                         }}/>
-                        <Tab label="Reward & Bonus" value="2" sx={{
+                        <Tab label="Reward & Komisi" value="2" sx={{
                           backgroundColor: "white",
                           borderRadius: "8px",
                           textTransform: "none",

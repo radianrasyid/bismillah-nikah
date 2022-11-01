@@ -31,7 +31,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import axios from 'axios';
 import ReactApexChart from 'react-apexcharts';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUserData } from '../../../redux/optional/userSlice';
 axios.defaults.withCredentials = true;
 
 const Transition = React.forwardRef(function Transition(props, ref) { 
@@ -276,6 +277,8 @@ function CustomPagination(props) {
 
 export default function TableRecentMembers() {
 
+    const dispatch = useDispatch();
+
     const [data, setData] = React.useState([]);
     const [dataUser, setDataUser] = React.useState([]);
     const [tablePage, setTablePage] = React.useState(10);
@@ -284,6 +287,7 @@ export default function TableRecentMembers() {
     const [hapus, setHapus] = React.useState(false)
     const [type, setType] = React.useState(null);
     const [newPageSize, setNewPageSize] = React.useState(10);
+    const [userId, setUserId] = React.useState(null);
     const [dataId, setDataId] = React.useState(null);
     const [add, setAdd] = React.useState(false)
     const navigate = useNavigate();
@@ -291,7 +295,7 @@ export default function TableRecentMembers() {
     const currentUser = useSelector((state) => state.auth)
     
     const fetchData = async(e) => {
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/getall", {
+        await fetch("http://localhost:8000/api/v1/user/getall", {
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
             }
@@ -306,6 +310,26 @@ export default function TableRecentMembers() {
             setDataUser(members);
         })
     }
+
+    const fetchUserId = async() => {
+        await fetch(`http://localhost:8000/api/v1/userone/${userId}`, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                'Authorization': `Bearer ${currentUser.token}`
+            }
+        }).then(async(res) => {
+            let hasil = await res.json();
+            let hasilData = hasil.data;
+            dispatch(setUserData({
+                data: hasilData
+            }))
+        })
+    }
+
+    React.useEffect(() => {
+        fetchUserId()
+    }, [userId])
     
     
     const columns = [
@@ -335,6 +359,18 @@ export default function TableRecentMembers() {
                     )
                 }
             }, flex: 0.4, align: "center"
+        },
+        {
+            field: 'detail', headerName: "Detail", align: "center", renderCell: (params) => {
+                const link = `http://localhost:3000/userdetail/${params.row.id}`
+                return(
+                    <a href={link}>
+                        <Button variant='text' size='small' type='button' onMouseEnter={() => setUserId(params.row.id)}>
+                            Details
+                        </Button>
+                    </a>
+                )
+            }
         }
         // { 
         //     field: 'namaProduk', 

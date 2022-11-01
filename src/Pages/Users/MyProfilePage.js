@@ -10,7 +10,7 @@ export default function MyProfilePage() {
   const [data, setData] = React.useState(null);
 
   const fetchData = async(e) => {
-    await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/whoami", {
+    await fetch("http://localhost:8000/api/v1/user/whoami", {
       method: "GET",
       mode: 'cors',
       headers: {

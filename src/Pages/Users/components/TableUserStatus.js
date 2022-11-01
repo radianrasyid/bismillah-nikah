@@ -291,7 +291,7 @@ export default function TableUserStatus() {
     const currentUser = useSelector((state) => state.auth)
     
     const fetchData = async(e) => {
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/getall", {
+        await fetch("http://localhost:8000/api/v1/user/getall", {
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
             }
@@ -336,6 +336,18 @@ export default function TableUserStatus() {
                     )
                 }
             }, flex: 0.4, align: "center"
+        },
+        {
+            field: 'detail', headerName: "Detail", align: "center", renderCell: (params) => {
+                const link = `http://localhost:3000/userdetail/${params.row.id}`
+                return(
+                    <a href={link}>
+                        <Button variant='text' size='small' type='button'>
+                            Details
+                        </Button>
+                    </a>
+                )
+            }
         }
         // { 
         //     field: 'namaProduk', 

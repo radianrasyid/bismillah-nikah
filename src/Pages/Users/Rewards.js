@@ -40,13 +40,13 @@ export default function Rewards() {
 
     const fetchData = async(e) => {
         setLoading(true);
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/program")
+        await fetch("http://localhost:8000/api/v1/program")
         .then(async(res) => {
             let hasil = await res.json();
             setProgram(hasil.data);
         })
 
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/reward", {
+        await fetch("http://localhost:8000/api/v1/reward", {
             method: "GET",
             mode: 'cors',
             headers: {
@@ -58,7 +58,7 @@ export default function Rewards() {
             setReward(hasilData);
         })
 
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/whoami", {
+        await fetch("http://localhost:8000/api/v1/user/whoami", {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -77,7 +77,7 @@ export default function Rewards() {
             setActiveChild(members)
         })
 
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/bonus", {
+        await fetch("http://localhost:8000/api/v1/bonus", {
             method: "GET",
             mode: 'cors',
             headers: {
@@ -93,7 +93,7 @@ export default function Rewards() {
 
     const onRewardClaimed = async(id) => {
 
-        await fetch(`https://umrohwebsite.herokuapp.com/api/v2/reward/claim`, {
+        await fetch(`http://localhost:8000/api/v2/reward/claim`, {
             method: "POST",
             mode: 'cors',
             headers: {
@@ -108,7 +108,7 @@ export default function Rewards() {
 
     const onBonusClaimed = async(id) => {
 
-        await fetch(`https://umrohwebsite.herokuapp.com/api/v2/bonus/claim`, {
+        await fetch(`http://localhost:8000/api/v2/bonus/claim`, {
             method: "POST",
             mode: 'cors',
             headers: {
@@ -146,7 +146,7 @@ export default function Rewards() {
                             <FormControl fullWidth={true}>
                                 <ProgressBar now={activeChild == null ? 0 : activeChild.lengthh} max={10} min={0} variant="info" />
                                 <FormHelperText style={{ margin: "0", width: "10rem" }}>
-                                    <small className='dashboard-user-welcome-info'><b>{activeChild == null ? 0 : activeChild.length}</b> jamaah didapatkan</small>
+                                    <small className='dashboard-user-welcome-info'><b>{activeChild == null ? 0 : activeChild.length}</b> Mitra jamaah didapatkan</small>
                                 </FormHelperText>
                             </FormControl>
                         </div>
@@ -202,7 +202,7 @@ export default function Rewards() {
                                                     <Card.Text className='dashboard-user-program-text'>Dapatkan kesempatan lebih baik dengan mengajak lebih banyak teman anda</Card.Text>
                                                     <ProgressBar now={activeChild == null ? 0 : activeChild.length} max={item.terms_umroh} min={0} variant={"info"}/>
                                                     <FormHelperText>
-                                                        <small className='dashboard-user-welcome-info'><b>{activeChild == null ? 0 : activeChild.length}</b> jamaah didapatkan / <b>{item.terms_umroh}</b></small>
+                                                        <small className='dashboard-user-welcome-info'><b>{activeChild == null ? 0 : activeChild.length}</b> Mitra jamaah didapatkan / <b>{item.terms_umroh}</b></small>
                                                     </FormHelperText>
                                                     <StyledButton className="mt-2" variant='contained' size="small" type="button" onClick={(e) => {
                                                         e.preventDefault();

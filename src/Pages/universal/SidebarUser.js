@@ -31,7 +31,7 @@ import { GiSwipeCard } from "react-icons/gi"
 import { ImTree } from "react-icons/im"
 import { Collapse, Stack } from '@mui/material';
 import { Col, Row } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../redux/feature/auth/authSlice';
 import { AiOutlineHome } from "react-icons/ai"
 
@@ -158,9 +158,11 @@ export default function SidebarUser({props, slug}) {
     )
 
   const theme = useTheme();
+  const currentUser = useSelector((state) => state.auth);
   const [open, setOpen] = React.useState(false);
   const [openMember, setOpenMember] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [dataUser, setDataUser] = React.useState(null);
 
   const handleOpenUserMenu = (e) => setAnchorElUser(e.currentTarget);
   const handleCloseUserMenu = (e) => setAnchorElUser(null);
@@ -177,188 +179,225 @@ export default function SidebarUser({props, slug}) {
     setOpen(!open);
   };
 
+  const fetchData = async() => {
+    await fetch("http://localhost:8000/api/v1/user/whoami", {
+      method: "GET",
+      mode: 'cors',
+      headers: {
+        'Authorization': `Bearer ${currentUser.token}`
+      }
+    }).then(async(res) => {
+      let hasil = await res.json();
+      let hasilData = hasil.user;
+      setDataUser(hasilData);
+    })
+  }
 
+  React.useEffect(() => {
+    fetchData();
+  }, [])
 
-  return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open} sx={{ backgroundColor: "#FFFFFF" }}>
-        <Container maxWidth="xl" style={{ paddingLeft: "5rem"}}>
-            <Toolbar disableGutters>
-            <Typography
-                variant="h6"
-                noWrap
-                component="a"
-                href="/"
-                sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'Inter',
-                fontWeight: 700,
-                color: 'inherit',
-                textDecoration: 'none',
-                }}
-            >
-                {slug}
-            </Typography>
-
-            <Box sx={{ flexGrow: 0 }} className="ms-auto">
-                <Stack>
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                      <Avatar alt="Remy Sharp" src={logo} />
-                  </IconButton>
-                </Stack>
-                <Menu
-                anchorEl={anchorElUser}
-                open={openUser}
-                onClose={handleCloseUserMenu}
-                onClick={handleCloseUserMenu}
-                >
-                    <MenuItem onClick={() => direct("/myprofile")}>Profile</MenuItem>
-                    <MenuItem onClick={handleCloseUserMenu}>My account</MenuItem>
-                    <MenuItem onClick={() => {
-                      dispatch(logOut());
-                      direct("/")
-                    }}>Logout</MenuItem>
-                </Menu>
-            </Box>
-            </Toolbar>
-        </Container>
-        </AppBar>
-      {/* <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ fontWeight: 700, fontSize:"28px"}}>
-            {slug}
-          </Typography>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </AppBar> */}
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <Row>
-            <Col>
-                {
-                    // open == true ? (<img src={logo} style={{ width: "5rem", height: "5rem" }} />) : (<></>)
-                    open == true ? (<></>) : (<></>)
-                }
-            </Col>
-            <Col className={open == true ? "go-hard-middle" : ""}>
-                <IconButton onClick={handleDrawerClose}>
-                    {/* {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />} */}
-                    {
-                        open == true ? (<ChevronLeftIcon/>) : (<ChevronRightIcon />)
-                    }
-                </IconButton>
-            </Col>
-          </Row>
-        </DrawerHeader>
-        <Divider />
-        <List>
-            {/* <ListItemCustomized disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+  if(dataUser !== null){
+    return (
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <AppBar position="fixed" open={open} sx={{ backgroundColor: "#FFFFFF" }}>
+          <Container maxWidth="xl" style={{ paddingLeft: "5rem"}}>
+              <Toolbar disableGutters>
+              <Typography
+                  variant="h6"
+                  noWrap
+                  component="a"
+                  href="/"
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                  mr: 2,
+                  display: { xs: 'none', md: 'flex' },
+                  fontFamily: 'Inter',
+                  fontWeight: 700,
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  }}
+              >
+                  {slug}
+              </Typography>
+  
+              <Box sx={{ flexGrow: 0 }} className="ms-auto">
+                  <Stack direction={"row"} spacing={2}>
+                    <div>
+                      <Button variant='outlined' sx={{
+                        borderColor: dataUser.status == 0 ? ("#393e51") : (dataUser.status == 1 ? ("#f7d716") : ("#79f8bb")),
+                        color: dataUser.status == 0 ? ("#393e51") : (dataUser.status == 1 ? ("#f7d716") : ("#79f8bb")),
+                        fontWeight: "600"
+                      }}>
+                        {
+                          dataUser.status == 0 ? "Belum Aktif" : (dataUser.status == 1 ? "Belum Lunas" : "Lunas")
+                        }
+                      </Button>
+                    </div>
+                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                        <Avatar alt="Remy Sharp" src={logo} />
+                    </IconButton>
+                  </Stack>
+                  <Menu
+                  anchorEl={anchorElUser}
+                  open={openUser}
+                  onClose={handleCloseUserMenu}
+                  onClick={handleCloseUserMenu}
+                  >
+                      <MenuItem onClick={() => direct("/myprofile")}>Profile</MenuItem>
+                      <MenuItem onClick={handleCloseUserMenu}>My account</MenuItem>
+                      <MenuItem onClick={() => {
+                        dispatch(logOut());
+                        direct("/login")
+                      }}>Logout</MenuItem>
+                  </Menu>
+              </Box>
+              </Toolbar>
+          </Container>
+          </AppBar>
+        {/* <AppBar position="fixed" open={open}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: 5,
+                ...(open && { display: 'none' }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap component="div" sx={{ fontWeight: 700, fontSize:"28px"}}>
+              {slug}
+            </Typography>
+  
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {settings.map((setting) => (
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">{setting}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          </Toolbar>
+        </AppBar> */}
+        <Drawer variant="permanent" open={open}>
+          <DrawerHeader>
+            <Row>
+              <Col>
+                  {
+                      // open == true ? (<img src={logo} style={{ width: "5rem", height: "5rem" }} />) : (<></>)
+                      open == true ? (<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                        <h2 style={{ marginBottom: '0' }}>HRBS</h2>
+                      </div>) : (<></>)
+                  }
+              </Col>
+              <Col className={open == true ? "go-hard-middle" : ""}>
+                  <IconButton onClick={handleDrawerClose}>
+                      {/* {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />} */}
+                      {
+                          open == true ? (<ChevronLeftIcon/>) : (<ChevronRightIcon />)
+                      }
+                  </IconButton>
+              </Col>
+            </Row>
+          </DrawerHeader>
+          <Divider />
+          <List>
+              {/* <ListItemCustomized disablePadding sx={{ display: 'block' }}>
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
                   }}
                 >
-                  <MdSpaceDashboard />
-                </ListItemIcon>
-                <ListItemText primary={"Dashboard"} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItemCustomized> */}
-            <ListItemCustomized primary={"Dashboard"} icon={<MdSpaceDashboard/>} loc="/dashboard" actClick={() => direct("/dashboard")} />
-            <ListItemCustomized primary={"Jaringan Saya"} icon={<GiSwipeCard/>} loc="/networks" actClick={() => direct("/networks")} />
-            <ListItemCustomized primary={"Rewards & Bonuses"} icon={<MdCardMembership/>} loc="/rewards" actClick={() => direct("/rewards")}/>
-            <ListItemCustomized primary={"Home"} icon={<AiOutlineHome/>} loc="/rewards" actClick={() => direct("/")}/>
-            {/* <Collapse in={openMember} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                        <div style={{
-                        backgroundColor: "rgba(65, 125, 122, 1)",
-                        padding: "1rem 1rem",
-                        borderRadius: "6px",
-                        color: "white"
-                    }}>
-                            <MdCardMembership />
-                        </div>
-                    </ListItemIcon>
-                    <ListItemText primary="Member" />
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <MdSpaceDashboard />
+                  </ListItemIcon>
+                  <ListItemText primary={"Dashboard"} sx={{ opacity: open ? 1 : 0 }} />
                 </ListItemButton>
-                <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                        <div style={{
-                        backgroundColor: "rgba(65, 125, 122, 1)",
-                        padding: "1rem 1rem",
-                        borderRadius: "6px",
-                        color: "white"
-                    }}>
-                            <ImTree />
-                        </div>
-                    </ListItemIcon>
-                    <ListItemText primary="Pohon Jaringan" />
-                </ListItemButton>
-                </List>
-            </Collapse>
-            <ListItemCustomized primary={"Produk"} icon={<BsBoxSeam/>} loc="/admin-products" actClick={() => direct("/admin-products")} />
-            <ListItemCustomized primary={"Rewards & Bonus"} icon={<BsGiftFill/>} loc="/admin-rewards" actClick={() => direct("/admin-rewards")} />
-            <ListItemCustomized primary={"Pin"} icon={<BsFillLockFill/>} loc="/admin-pins" /> */}
-        </List>
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <div className='sidebar-enabled-main' style={{ marginTop: "4rem"}}>
-            {props}
-        </div>
+              </ListItemCustomized> */}
+              <ListItemCustomized primary={"Dashboard"} icon={<MdSpaceDashboard/>} loc="/dashboard" actClick={() => direct("/dashboard")} />
+              <ListItemCustomized primary={"Transaction"} icon={<MdSpaceDashboard/>} loc="/transaction" actClick={() => direct("/transaction")} />
+              {
+                currentUser.role == 2 ? (
+                  <ListItemCustomized primary={"Pins"} icon={<MdSpaceDashboard/>} loc="/pins" actClick={() => direct("/pins")} />
+                ) : (null)
+              }
+              <ListItemCustomized primary={"Mitra Saya"} icon={<GiSwipeCard/>} loc="/networks" actClick={() => direct("/networks")} />
+              <ListItemCustomized primary={"Reward & Komisi"} icon={<MdCardMembership/>} loc="/rewards" actClick={() => direct("/rewards")}/>
+              <ListItemCustomized primary={"Home"} icon={<AiOutlineHome/>} loc="/rewards" actClick={() => direct("/")}/>
+              {/* <Collapse in={openMember} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                  <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                          <div style={{
+                          backgroundColor: "rgba(65, 125, 122, 1)",
+                          padding: "1rem 1rem",
+                          borderRadius: "6px",
+                          color: "white"
+                      }}>
+                              <MdCardMembership />
+                          </div>
+                      </ListItemIcon>
+                      <ListItemText primary="Member" />
+                  </ListItemButton>
+                  <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                          <div style={{
+                          backgroundColor: "rgba(65, 125, 122, 1)",
+                          padding: "1rem 1rem",
+                          borderRadius: "6px",
+                          color: "white"
+                      }}>
+                              <ImTree />
+                          </div>
+                      </ListItemIcon>
+                      <ListItemText primary="Pohon Jaringan" />
+                  </ListItemButton>
+                  </List>
+              </Collapse>
+              <ListItemCustomized primary={"Produk"} icon={<BsBoxSeam/>} loc="/admin-products" actClick={() => direct("/admin-products")} />
+              <ListItemCustomized primary={"Reward & Komisi"} icon={<BsGiftFill/>} loc="/admin-rewards" actClick={() => direct("/admin-rewards")} />
+              <ListItemCustomized primary={"Pin"} icon={<BsFillLockFill/>} loc="/admin-pins" /> */}
+          </List>
+        </Drawer>
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <div className='sidebar-enabled-main' style={{ marginTop: "4rem"}}>
+              {props}
+          </div>
+        </Box>
       </Box>
-    </Box>
-  );
+    );
+  }
 }

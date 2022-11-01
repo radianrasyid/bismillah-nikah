@@ -7,8 +7,8 @@ import img5 from "../assets/images/img5.jpg"
 import car from "../assetsUser/images/car.jpg"
 import "../../style.css";
 import { useSelector } from 'react-redux'
-import { Avatar, IconButton } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
+import { Avatar, Button, IconButton, Stack } from '@mui/material'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Navbar({props}) {
 
@@ -109,10 +109,10 @@ export default function Navbar({props}) {
                                    </ul>
                                 </li> */}
                                 <li className="menu-item-has-children">
-                                   <a href="#">About Us</a>
+                                   <a href="#">TENTANG KAMI</a>
                                    <ul>
                                       <li>
-                                         <a href="/about">About Us</a>
+                                         <a href="/about">Tentang Kami</a>
                                       </li>
                                       {/* <li className="menu-item-has-children">
                                          <a href="#">User</a>
@@ -128,9 +128,6 @@ export default function Navbar({props}) {
                                             </li>
                                          </ul>
                                       </li> */}
-                                      <li>
-                                         <a href="admin/db-booking.html">Why Us</a>
-                                      </li>
                                       {/* <li className="menu-item-has-children">
                                          <a href="admin/db-package.html">Package</a>
                                          <ul>
@@ -168,15 +165,33 @@ export default function Navbar({props}) {
                                 <a href="/login" className="button-primary login">Login</a>
                              </div>
                           ) : (
-                             <IconButton size="small" onClick={() => {
-                              if(currentUser.role == 2 || currentUser.role == 3){
-                                 return direct("/dashboard")
-                              }else if(currentUser.role == 1){
-                                 return direct("/admin-dashboard")
-                              }
-                             }}>
-                                <Avatar alt={currentUser.user} src={currentUser.image !== null ? currentUser.image : car} sx={{ width: 50, height: 50 }} />
-                             </IconButton>
+                             <Stack direction={"row"} spacing={2}>
+                                 <div style={{ display: "flex", alignItems: "center" }}>
+                                    <Link to={currentUser.role == 1 ? "/admin-dashboard" : "/dashboard"}>
+                                       <Button variant='contained' size='small' sx={{
+                                          fontWeight: "600",
+                                          borderRadius: "8px",
+                                          backgroundColor: "#2E6A67",
+                                          '&:hover': {
+                                             backgroundColor: "#488b88"
+                                          }
+                                       }}>
+                                          Dashboard
+                                       </Button>
+                                    </Link>
+                                 </div>
+                                 <div>
+                                    <IconButton size="small" onClick={() => {
+                                    if(currentUser.role == 2 || currentUser.role == 3){
+                                       return direct("/dashboard")
+                                    }else if(currentUser.role == 1){
+                                       return direct("/admin-dashboard")
+                                    }
+                                 }}>
+                                    <Avatar alt={currentUser.user} src={currentUser.image !== null ? currentUser.image : car} sx={{ width: 50, height: 50 }} />
+                                 </IconButton>
+                                 </div>
+                             </Stack>
                           )
                        }
                     </div>
@@ -194,7 +209,7 @@ export default function Navbar({props}) {
             <div className="top-footer">
                <div className="container">
                   <div className="row">
-                     <div className="col-lg-6 col-md-6">
+                     <div className="col-lg-4 col-md-6">
                         <aside className="widget widget_text">
                            <h3 className="widget-title">
                               Tentang Travel
@@ -211,7 +226,7 @@ export default function Navbar({props}) {
                            </div>
                         </aside>
                      </div>
-                     <div className="col-lg-6 col-md-6">
+                     <div className="col-lg-4 col-md-6">
                         <aside className="widget widget_text">
                            <h3 className="widget-title">KONTAK KAMI</h3>
                            <div className="textwidget widget-text">
@@ -233,6 +248,19 @@ export default function Navbar({props}) {
                                     <i className="fas fa-map-marker-alt"></i>
                                     3146  Koontz, California
                                  </li> */}
+                              </ul>
+                           </div>
+                        </aside>
+                     </div>
+                     <div className="col-lg-4 col-md-6">
+                        <aside className="widget widget_text">
+                           <h3 className="widget-title">ALAMAT KAMI</h3>
+                           <div className="textwidget widget-text">
+                              Anda dapat mendatangi kantor kami di:
+                              <ul>
+                                 <li>
+                                    Jorong Surau Pinang, Ampang Gadang, Ampek Angkek, Kabupaten Agam 26190, Sumatera Barat
+                                 </li>
                               </ul>
                            </div>
                         </aside>

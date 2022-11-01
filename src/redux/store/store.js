@@ -6,10 +6,12 @@ import thunk from "redux-thunk";
 
 import authSlice from "../feature/auth/authSlice";
 import userSlice from "../optional/userSlice";
+import pinSlice from "../feature/pin/pinSlice";
 
 const reducer = combineReducers({
     auth: authSlice,
-    user: userSlice
+    user: userSlice,
+    pin: pinSlice,
 })
 
 const persistConfig = {

@@ -26,7 +26,7 @@ export default function TourPackage() {
     const [program, setProgram] = React.useState([]);
 
     const fetchData = async(e) => {
-        let response = await fetch("https://umrohwebsite.herokuapp.com/api/v1/program");
+        let response = await fetch("http://localhost:8000/api/v1/program");
         let hasil = await response.json();
 
         setProgram(hasil.data);
@@ -71,7 +71,7 @@ export default function TourPackage() {
                                     <Card.Text className='dashboard-user-program-text'>{item.programDescription}</Card.Text>
                                     <Stack direction={"row"} spacing={2}>
                                         <StyledButton className="mt-2" variant='contained' size="small" type="button">
-                                            Ikuti
+                                            Daftar Menjadi Jamaah
                                         </StyledButton>
                                         <StyledButton className="mt-2" variant='contained' size="small" type="button" onClick={() => direct(`/tourpackages/${item.id}`)}>
                                             Detail

@@ -4,6 +4,16 @@ import
     padding: 4rem 4rem;
 }
 
+
+
+ul{
+    list-style-image: url(./Pages/assetsUser/images/ellipse.png);
+}
+
+li.list-icon{
+    list-style-image: url("./Pages/assetsUser/images/ellipse.png");
+}
+
 .button-material.submit-btn{
     background-color: #2E6A67;
     box-shadow: none;
@@ -107,8 +117,20 @@ import
     padding: 1rem 2rem;
 }
 
+.carousel-control-prev-icon{
+    opacity: 0%;
+}
+
+.carousel-control-next-icon{
+    opacity: 0%;
+}
+
 .progress-container{
     width: 20rem;
+}
+
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+    border-radius: 8px !important;
 }
 
 .dashboard-user-program-card{

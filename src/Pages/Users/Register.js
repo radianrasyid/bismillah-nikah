@@ -4,7 +4,8 @@ import { FormControl, useFormControl, OutlinedInput, FormHelperText, Stack, Butt
 import { Stepper, Step, StepButton, Typography, StepLabel } from "@mui/material"
 // import StyledSubmitButton from '../components/buttonSubmit';
 import umrohImage from "../assets/illustrations/umrohimage.png"
-import { Link } from 'react-router-dom';
+import { Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material"
+import { Link, useNavigate } from 'react-router-dom';
 import StyledSubmitButton from '../components/buttonSubmit';
 import logo from "../assets/images/logo-hrbs.jpg";
 import axios from 'axios';
@@ -24,10 +25,18 @@ const steps = ["Pertama", "Kedua", "Ketiga"]
 
 export default function Register() {
 
+    const direct = useNavigate();
+
     // PAGE STATES
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
     const [loading, setLoading] = React.useState(null);
+    const [registered, setRegistered] = React.useState(false);
+
+    const handleCloseRegistered = () => {
+        setRegistered(false);
+        direct("/login")
+    };
 
     const isStepOptional = (step) => {
         return step === 1;
@@ -103,7 +112,7 @@ export default function Register() {
     const onSubmit = async(e) => {
         e.preventDefault();
         setLoading(true)
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user", {
+        await fetch("http://localhost:8000/api/v1/user", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -131,7 +140,7 @@ export default function Register() {
         formData.append("email", email)
         formData.append("nik", nik)
         formData.append("image_id", ktpImage)
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/ktpimage", {
+        await fetch("http://localhost:8000/api/v1/ktpimage", {
             method: 'PATCH',
             body: formData,
         })
@@ -140,7 +149,7 @@ export default function Register() {
         formData1.append("email", email)
         formData1.append("nik", nik)
         formData1.append("image_passport", passImage)
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/passportimage", {
+        await fetch("http://localhost:8000/api/v1/passportimage", {
             method: 'PATCH',
             body: formData1,
         })
@@ -149,11 +158,12 @@ export default function Register() {
         formData2.append("email", email)
         formData2.append("nik", nik)
         formData2.append("image_family", kkImage)
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/familyimage", {
+        await fetch("http://localhost:8000/api/v1/familyimage", {
             method: 'PATCH',
             body: formData2,
         })
         setLoading(false)
+        setRegistered(true);
     }
 
     const onPatch = async(e) => {
@@ -162,7 +172,7 @@ export default function Register() {
         formData.append("email", email)
         formData.append("nik", nik)
         formData.append("image_id", ktpImage)
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/ktpimage", {
+        await fetch("http://localhost:8000/api/v1/ktpimage", {
             method: 'PATCH',
             body: formData,
         })
@@ -174,7 +184,7 @@ export default function Register() {
         formData.append("email", email)
         formData.append("nik", nik)
         formData.append("image_passport", passImage)
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/passportimage", {
+        await fetch("http://localhost:8000/api/v1/passportimage", {
             method: 'PATCH',
             body: formData,
         })
@@ -186,14 +196,14 @@ export default function Register() {
         formData.append("email", email)
         formData.append("nik", nik)
         formData.append("image_passport", kkImage)
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/familyimage", {
+        await fetch("http://localhost:8000/api/v1/familyimage", {
             method: 'PATCH',
             body: formData,
         })
     }
 
     const fetchData = async() => {
-        await axios.get("https://umrohwebsite.herokuapp.com")
+        await axios.get("http://localhost:8000")
     }
 
     React.useEffect(() => {
@@ -202,6 +212,32 @@ export default function Register() {
 
   return (
     <div className='register-page'>
+        <Dialog
+            open={registered}
+            onClose={handleCloseRegistered}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+            sx={{
+                borderRadius: "8px",
+            }}
+        >
+            <DialogTitle id="alert-dialog-title" sx={{ textTransform: "uppercase", fontWeight: "600", color: "rgba(65, 125, 122, 1)" }}>
+            {"Berhasil Mendaftar Akun"}
+            </DialogTitle>
+            <DialogContent className='text-center'>
+                <p>
+                    Anda Berhasil Mendaftarkan akun
+                </p>
+            </DialogContent>
+            <DialogActions>
+            <Button onClick={handleCloseRegistered} fullWidth variant='contained'
+            sx={{
+                fontWeight: "600",
+                borderRadius: "8px",
+            }}
+            >Tutup</Button>
+            </DialogActions>
+        </Dialog>
         <img src={logo} className="logo-hrbs" style={{ width: "5rem", height: "5rem", borderRadius: "50%" }} />
         <div className='register-paper'>
             <div className='column-register left'>

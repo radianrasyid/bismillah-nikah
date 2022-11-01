@@ -291,7 +291,7 @@ export default function TableReferred() {
     const currentUser = useSelector((state) => state.auth)
     
     const fetchData = async(e) => {
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/whoami", {
+        await fetch("http://localhost:8000/api/v1/user/whoami", {
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
             }
@@ -307,7 +307,10 @@ export default function TableReferred() {
         { field: 'id', headerName: 'ID', hide: true },
         { field: 'no', headerName: 'No', hide: false, align: "center" },
         { field: 'stats', headerName: 'Stats', hide: true, align: "center" },
-        { field: 'type', headerName: 'Nama', align: "center"},
+        { field: 'type', headerName: 'Nama', align: "center", flex: 1,},
+        { field: 'city', headerName: 'Kota', align: "center", flex: 1,},
+        { field: 'phone', headerName: 'No Telepon', align: "center", flex: 1,},
+        { field: 'email', headerName: 'Email', align: "center", flex: 1,},
         {
             headerName: "Status", renderCell: (params) => {
                 return(
@@ -354,6 +357,9 @@ export default function TableReferred() {
             no: numb,
             stats: data.status,
             type: data.firstName + " " + data.lastName,
+            city: data.city,
+            phone: data.phoneNumber,
+            email: data.email
         }
     });
 

@@ -22,7 +22,7 @@ export default function RewardsBonuses() {
 
     const fetchData = async(e) => {
         setLoading(true)
-        await fetch("https://umrohwebsite.herokuapp.com/api/v1/detailed/reward", {
+        await fetch("http://localhost:8000/api/v1/detailed/reward", {
             method: "GET",
             mode: 'cors',
             headers: {
@@ -46,7 +46,7 @@ export default function RewardsBonuses() {
             <TabContext value={value}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <TabList onChange={handleChange} aria-label="lab API tabs example">
-                    <Tab label="Rewards & Bonuses" value="1" sx={{
+                    <Tab label="Reward & Komisi" value="1" sx={{
                         backgroundColor: "#FFFFFF",
                         borderTopLeftRadius: "8px",
                         borderTopRightRadius: "8px",
