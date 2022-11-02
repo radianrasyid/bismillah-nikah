@@ -81,7 +81,7 @@ export default function DashboardUser() {
 
     const fetchData = async(e) => {
         setLoading(true)
-        await fetch("http://localhost:8000/api/v1/user/whoami", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/whoami", {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -100,14 +100,14 @@ export default function DashboardUser() {
             })
             setActiveChild(activeMembers)
 
-            await fetch(`http://localhost:8000/api/v1/program/${hasil.user.ProgramId}`)
+            await fetch(`https://umrohwebsite.herokuapp.com/api/v1/program/${hasil.user.ProgramId}`)
             .then(async(res) => {
                 let result = await res.json();
                 setProgram(result.data);
             })
         })
 
-        await fetch(`http://localhost:8000/api/v1/getpin`, {
+        await fetch(`https://umrohwebsite.herokuapp.com/api/v1/getpin`, {
             method: "GET",
             mode: 'cors',
             headers: {
@@ -156,7 +156,7 @@ export default function DashboardUser() {
                 </Alert>
             )
         }else{
-            await fetch("http://localhost:8000/api/v1/transaction", {
+            await fetch("https://umrohwebsite.herokuapp.com/api/v1/transaction", {
             method: "POST",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -171,7 +171,7 @@ export default function DashboardUser() {
         e.preventDefault();
 
         if(agreement === "Saya Menyetujui"){
-            await fetch("http://localhost:8000/api/v1/user/roleup", {
+            await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/roleup", {
                 method: "POST",
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -188,7 +188,7 @@ export default function DashboardUser() {
         e.preventDefault();
 
         if(agreement === "Saya Menyetujui"){
-            await fetch("http://localhost:8000/api/v1/user/reqpin", {
+            await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/reqpin", {
                 method: "POST",
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -208,7 +208,7 @@ export default function DashboardUser() {
         e.preventDefault();
 
         if(agreement === "Pin Sudah Benar"){
-            await fetch("http://localhost:8000/api/v3/user/pin", {
+            await fetch("https://umrohwebsite.herokuapp.com/api/v3/user/pin", {
                 method: "PATCH",
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -285,7 +285,7 @@ export default function DashboardUser() {
                 <Col lg={3} md={6} className={userData.ProgramId == null && userData.currentPayment == 0 ? "text-center" : ""}>
                     <div className='dashboard-user-program-card'>
                         {
-                            userData.ProgramId == null || userData.currentPayment == 0 ? (
+                            userData.ProgramId == null ? (
                                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                     <p style={{ fontWeight: "600", fontSize: "12px", marginTop: "1rem" }}>Anda belum memilih program apapun</p>
                                 </div>

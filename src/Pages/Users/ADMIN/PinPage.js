@@ -57,7 +57,7 @@ export default function PinPage() {
   
   const fetchData = async(e) => {
     setLoading(true)
-    await fetch("http://localhost:8000/api/v1/user/getall", {
+    await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/getall", {
       method: "GET",
       mode: 'cors',
       headers: {
@@ -74,7 +74,7 @@ export default function PinPage() {
       setUser(final);
     })
 
-    await fetch("http://localhost:8000/api/v1/codes", {
+    await fetch("https://umrohwebsite.herokuapp.com/api/v1/codes", {
       method: "GET",
       mode: 'cors',
       headers: {
@@ -86,7 +86,7 @@ export default function PinPage() {
       setCodeList(hasilData);
     })
 
-    await fetch("http://localhost:8000/api/v1/leaders", {
+    await fetch("https://umrohwebsite.herokuapp.com/api/v1/leaders", {
       method: "GET",
       mode: 'cors',
       headers: {
@@ -102,7 +102,7 @@ export default function PinPage() {
 
   const upgradeRole = async(e) => {
     setLoading(true)
-    await fetch("http://localhost:8000/api/v3/user/update/role", {
+    await fetch("https://umrohwebsite.herokuapp.com/api/v3/user/update/role", {
       method: "PATCH",
       mode: 'cors',
       headers: {
@@ -120,7 +120,7 @@ export default function PinPage() {
 
   const createPin = async(e) => {
     if(agreement === "Leader Telah Menyetujui"){
-      await fetch("http://localhost:8000/api/v2/create/pin", {
+      await fetch("https://umrohwebsite.herokuapp.com/api/v2/create/pin", {
       method: "POST",
       mode: 'cors',
       headers: {

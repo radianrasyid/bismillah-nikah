@@ -126,7 +126,7 @@ export default function AdminProfile() {
     const currentUser = useSelector((state) => state.auth);
 
     const fetchData = async(e) => {
-        await fetch("http://localhost:8000/api/v1/user/getall", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/getall", {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`

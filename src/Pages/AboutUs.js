@@ -32,7 +32,7 @@ export default function Homepage() {
    const [programs, setPrograms] = useState([])
 
    const fetchData = async() => {
-      await fetch("http://localhost:8000/api/v1/program")
+      await fetch("https://umrohwebsite.herokuapp.com/api/v1/program")
       .then(async(res) => {
          let hasil = await res.json();
          setPrograms(hasil.data)

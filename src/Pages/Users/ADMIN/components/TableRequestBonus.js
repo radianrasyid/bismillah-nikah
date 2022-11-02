@@ -171,7 +171,7 @@ function CustomToolbar(props) {
     }
 
     const fetchDataUser = async() => {
-        await fetch("http://localhost:8000/api/v1/user/getall", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/getall", {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -199,7 +199,7 @@ function CustomToolbar(props) {
         formData.append("program", program);
         formData.append("user_id", sentBy);
 
-        await fetch("http://localhost:8000/api/v2/create/transaction", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v2/create/transaction", {
             method: "POST",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -365,13 +365,17 @@ export default function TableRequestBonus() {
     const [decision, setDecision] = React.useState("");
     const [idTrans, setIdTrans] = React.useState(null);
 
+    const [reqrew_id, setReqRew_Id] = React.useState(null);
+    const [transfered_to, setTransfered_to] = React.useState(null);
+    const [transfered_at, setTransfered_at] = React.useState(null);
+
     const [openDecision, setOpenDecision] = React.useState(false);
 
     const handleOpenDecision = () => setOpenDecision(true);
     const handleCloseDecision = () => setOpenDecision(false)
 
     const fetchData = async(e) => {
-        await fetch("http://localhost:8000/api/v1/reqrew", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/reqrew", {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -379,13 +383,17 @@ export default function TableRequestBonus() {
         })
         .then(async(res) => {
             let hasil = await res.json();
-            let hasildata = hasil.data;
-            setData(hasildata);
+            if(hasil.status === "FAILED"){
+                return false;
+            }else if(hasil.status === "OK"){
+                let hasildata = hasil.data;
+                setData(hasildata);
+            }
         })
     }
 
     const fetchDataId = async(e) => {
-        await fetch(`http://localhost:8000/api/v1/reqrew/${id}`, {
+        await fetch(`https://umrohwebsite.herokuapp.com/api/v1/reqrew/${id}`, {
             method: "GET",
             mode: 'cors',
             headers: {
@@ -399,7 +407,7 @@ export default function TableRequestBonus() {
     }
 
     const approveReqRew = async(e) => {
-        await fetch("http://localhost:8000/api/v1/approve/reward", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/approve/reward", {
             method: "PATCH",
             mode: 'cors',
             headers: {
@@ -413,7 +421,7 @@ export default function TableRequestBonus() {
     }
 
     const approveReqBonus = async(e) => {
-        await fetch("http://localhost:8000/api/v1/approve/bonus", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/approve/bonus", {
             method: "PATCH",
             mode: 'cors',
             headers: {
@@ -421,7 +429,9 @@ export default function TableRequestBonus() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                reqrew_id: id
+                reqrew_id: reqrew_id,
+                transfered_to: transfered_to,
+                transfered_at: transfered_at,
             })
         })
     }
@@ -435,9 +445,12 @@ export default function TableRequestBonus() {
         { field: 'sentBy', headerName: 'sent', hide: true },
         { field: 'no', headerName: 'No', flex: 0.1, align: "center"},
         { field: 'name', headerName: "Nama", flex: 0.7, align: "center"},
+        { field: 'createdAt', headerName: "Diajukan Tanggal", flex: 0.7, align: "center"},
         { field: 'amount', headerName: "Jumlah", flex: 0.5, align: "center"},
-        { field: 'program', headerName: "Nama Reward & Komisi", align: "center", flex: 0.5},
+        { field: 'program', headerName: "Nama Reward & Komisi", align: "center", flex: 1},
         { field: 'img', headerName: "img", align: "center", hide: true},
+        { field: 'transferedTo', headerName: "Tujuan Pengiriman", align: "center", flex: 1 },
+        { field: 'transferedAt', headerName: "Tanggal Pengiriman", align: "center", flex: 1 },
         { field: 'stats', headerName: "Stats", hide: true},
         { headerName: "Status", renderCell: (params) => {
             if(params.row.stats == 0){
@@ -445,6 +458,7 @@ export default function TableRequestBonus() {
                     <div>
                         <Button variant='outlined' size="small" onMouseEnter={() => {
                             setId(params.row.id)
+                            setReqRew_Id(params.row.id)
                         }} onClick={handleOpenDecision}
                         sx={{
                             fontWeight: "600"
@@ -465,26 +479,19 @@ export default function TableRequestBonus() {
                                     <DialogContent>
                                          <div>
                                          <div className='mb-3'>
-                                            <p className='input-label-text'>Nama Yang Mengajukan</p>
+                                            <p className='input-label-text'>Di Transfer ke rekening:</p>
                                             <FormControl className='no-border' variant='standard' fullWidth>
-                                                <OutlinedInput type='text' placeholder="Jumlah Transaksi" className='input-textfield' />
+                                                <OutlinedInput type='text' placeholder="Jumlah Transaksi" className='input-textfield'
+                                                onChange={(e) => setTransfered_to(e.target.value)}
+                                                />
                                             </FormControl>
                                          </div>
                                          <div className='mb-3'>
-                                            <p className='input-label-text'>Status</p>
+                                            <p className='input-label-text'>Tanggal Transfer:</p>
                                             <FormControl className='no-border' variant='standard' fullWidth>
-                                            <Select
-                                            value={decision}
-                                            onChange={(e) => setDecision(e.target.value)}
-                                            displayEmpty
-                                            inputProps={{ 'aria-label': 'Without label' }}
-                                            >
-                                            <MenuItem value="">
-                                                <em>Pilih</em>
-                                            </MenuItem>
-                                            <MenuItem value={true}>Setuju</MenuItem>
-                                            <MenuItem value={false}>Tolak</MenuItem>
-                                            </Select>
+                                                <OutlinedInput type='date' placeholder="Jumlah Transaksi" className='input-textfield' onChange={(e) => {
+                                                    setTransfered_at(e.target.value)
+                                                }} />
                                             </FormControl>
                                          </div>
                                          </div>
@@ -509,6 +516,18 @@ export default function TableRequestBonus() {
                                             textTransform: "none",
                                             fontWeight: "550"
                                             
+                                        }}
+                                        onMouseEnter={() => {
+                                            console.log("INI ID REQREW", reqrew_id);
+                                            console.log("INI TUJUAN TRANSFER", transfered_to);
+                                            console.log("INI TANGGAL TRANSFER", new Date(transfered_at).toISOString());
+                                        }}
+                                        onClick={() => {
+                                            if(params.row.bonusNumber !== null && params.row.requestNumber == null){
+                                               return approveReqBonus();
+                                            }else if(params.row.requestNumber !== null && params.row.bonusNumber == null){
+                                                return approveReqRew()
+                                            }
                                         }}
                                         >
                                             Setuju
@@ -590,6 +609,13 @@ export default function TableRequestBonus() {
                                             fontWeight: "550"
                                             
                                         }}
+                                        onClick={() => {
+                                            if(params.row.bonusNumber !== null && params.row.requestNumber == null){
+                                               return approveReqBonus();
+                                            }else if(params.row.requestNumber !== null && params.row.bonusNumber == null){
+                                                return approveReqRew()
+                                            }
+                                        }}
                                         >
                                             Setuju
                                         </Button>
@@ -609,10 +635,15 @@ export default function TableRequestBonus() {
         return {
             id: data.id,
             sentBy: data.useridentify.id,
+            bonusNumber: data.bonusNumber,
+            rewardNumber: data.rewardNumber,
             no: numb,
+            createdAt: new Date(data.createdAt),
             name: `${data.useridentify.firstName} ${data.useridentify.lastName}`,
             amount: formatRupiah(data.amount),
             program: data.rewardNumber == null ? data.bonusnumber.bonusName : data.rewardnumber.name,
+            transferedTo: data.transferedTo,
+            transferedAt: data.transferedAt,
             stats: data.status
             
         }

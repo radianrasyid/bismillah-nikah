@@ -291,7 +291,7 @@ export default function TableTransactionUser() {
     const currentUser = useSelector((state) => state.auth)
     
     const fetchData = async(e) => {
-        await fetch("http://localhost:8000/api/v1/mytransaction", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/mytransaction", {
             method: "GET",
             mode: 'cors',
             headers: {

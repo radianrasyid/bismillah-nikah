@@ -24,7 +24,7 @@ export default function RewardTabs() {
     const [data, setData] = React.useState([])
 
     const fetchData = async(e) => {
-        await fetch("http://localhost:8000/api/v1/reward", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/reward", {
             method: "GET",
             mode: "cors",
             headers: {

@@ -12,7 +12,7 @@ export default function Products() {
 
     const fetchData = async(e) => {
       setLoading(true)
-        await fetch("http://localhost:8000/api/v1/program", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/program", {
             method: "GET",
             mode: 'cors',
         }).then(async(res) => {

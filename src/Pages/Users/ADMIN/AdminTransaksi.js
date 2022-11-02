@@ -18,7 +18,7 @@ export default function AdminTransaksi() {
   const [leftOver, setLeftOver] = React.useState([]);
 
   const fetchData = async(e) => {
-    await fetch('http://localhost:8000/api/v1/program', {
+    await fetch('https://umrohwebsite.herokuapp.com/api/v1/program', {
       method: "GET",
       mode: "cors",
       headers: {

@@ -40,13 +40,13 @@ export default function Rewards() {
 
     const fetchData = async(e) => {
         setLoading(true);
-        await fetch("http://localhost:8000/api/v1/program")
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/program")
         .then(async(res) => {
             let hasil = await res.json();
             setProgram(hasil.data);
         })
 
-        await fetch("http://localhost:8000/api/v1/reward", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/reward", {
             method: "GET",
             mode: 'cors',
             headers: {
@@ -58,7 +58,7 @@ export default function Rewards() {
             setReward(hasilData);
         })
 
-        await fetch("http://localhost:8000/api/v1/user/whoami", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/whoami", {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -77,7 +77,7 @@ export default function Rewards() {
             setActiveChild(members)
         })
 
-        await fetch("http://localhost:8000/api/v1/bonus", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/bonus", {
             method: "GET",
             mode: 'cors',
             headers: {
@@ -93,7 +93,7 @@ export default function Rewards() {
 
     const onRewardClaimed = async(id) => {
 
-        await fetch(`http://localhost:8000/api/v2/reward/claim`, {
+        await fetch(`https://umrohwebsite.herokuapp.com/api/v2/reward/claim`, {
             method: "POST",
             mode: 'cors',
             headers: {
@@ -108,7 +108,7 @@ export default function Rewards() {
 
     const onBonusClaimed = async(id) => {
 
-        await fetch(`http://localhost:8000/api/v2/bonus/claim`, {
+        await fetch(`https://umrohwebsite.herokuapp.com/api/v2/bonus/claim`, {
             method: "POST",
             mode: 'cors',
             headers: {

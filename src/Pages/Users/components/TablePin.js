@@ -296,7 +296,7 @@ export default function TablePin() {
     const currentUser = useSelector((state) => state.auth)
     
     const fetchData = async(e) => {
-        await fetch("http://localhost:8000/api/v1/user/whoami", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/whoami", {
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
             }
@@ -306,7 +306,7 @@ export default function TablePin() {
             setData(hasil.user.referrerId);
         })
 
-        await fetch("http://localhost:8000/api/v1/getpin/all", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/getpin/all", {
             mode: 'cors',
             method: "GET",
             headers: {
@@ -320,7 +320,7 @@ export default function TablePin() {
     }
 
     const fetchDataId = async(e) => {
-        await fetch(`http://localhost:8000/api/v1/getpin/${idPin}`, {
+        await fetch(`https://umrohwebsite.herokuapp.com/api/v1/getpin/${idPin}`, {
             method: "GET",
             mode: 'cors',
             headers: {

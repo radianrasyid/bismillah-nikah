@@ -180,7 +180,7 @@ export default function SidebarUser({props, slug}) {
   };
 
   const fetchData = async() => {
-    await fetch("http://localhost:8000/api/v1/user/whoami", {
+    await fetch("https://umrohwebsite.herokuapp.com/api/v1/user/whoami", {
       method: "GET",
       mode: 'cors',
       headers: {

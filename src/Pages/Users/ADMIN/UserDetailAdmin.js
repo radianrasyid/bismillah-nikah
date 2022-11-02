@@ -41,7 +41,7 @@ export default function UserDetailAdmin() {
     }
 
     const fetchData = async(e) => {
-      await fetch(`http://localhost:8000/api/v1/userone/${id}`, {
+      await fetch(`https://umrohwebsite.herokuapp.com/api/v1/userone/${id}`, {
         method: "GET",
         mode: 'cors',
         headers: {

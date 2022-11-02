@@ -112,7 +112,7 @@ export default function Register() {
     const onSubmit = async(e) => {
         e.preventDefault();
         setLoading(true)
-        await fetch("http://localhost:8000/api/v1/user", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/user", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -140,7 +140,7 @@ export default function Register() {
         formData.append("email", email)
         formData.append("nik", nik)
         formData.append("image_id", ktpImage)
-        await fetch("http://localhost:8000/api/v1/ktpimage", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/ktpimage", {
             method: 'PATCH',
             body: formData,
         })
@@ -149,7 +149,7 @@ export default function Register() {
         formData1.append("email", email)
         formData1.append("nik", nik)
         formData1.append("image_passport", passImage)
-        await fetch("http://localhost:8000/api/v1/passportimage", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/passportimage", {
             method: 'PATCH',
             body: formData1,
         })
@@ -158,7 +158,7 @@ export default function Register() {
         formData2.append("email", email)
         formData2.append("nik", nik)
         formData2.append("image_family", kkImage)
-        await fetch("http://localhost:8000/api/v1/familyimage", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/familyimage", {
             method: 'PATCH',
             body: formData2,
         })
@@ -172,7 +172,7 @@ export default function Register() {
         formData.append("email", email)
         formData.append("nik", nik)
         formData.append("image_id", ktpImage)
-        await fetch("http://localhost:8000/api/v1/ktpimage", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/ktpimage", {
             method: 'PATCH',
             body: formData,
         })
@@ -184,7 +184,7 @@ export default function Register() {
         formData.append("email", email)
         formData.append("nik", nik)
         formData.append("image_passport", passImage)
-        await fetch("http://localhost:8000/api/v1/passportimage", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/passportimage", {
             method: 'PATCH',
             body: formData,
         })
@@ -196,14 +196,14 @@ export default function Register() {
         formData.append("email", email)
         formData.append("nik", nik)
         formData.append("image_passport", kkImage)
-        await fetch("http://localhost:8000/api/v1/familyimage", {
+        await fetch("https://umrohwebsite.herokuapp.com/api/v1/familyimage", {
             method: 'PATCH',
             body: formData,
         })
     }
 
     const fetchData = async() => {
-        await axios.get("http://localhost:8000")
+        await axios.get("https://umrohwebsite.herokuapp.com")
     }
 
     React.useEffect(() => {
@@ -396,7 +396,7 @@ export default function Register() {
                                                             <div className='mb-3'>
                                                                 <p className='input-label-text'>NIK</p>
                                                                 <FormControl className='no-border' variant='standard' fullWidth>
-                                                                    <OutlinedInput type='text' placeholder={nik == null ? "XXXXXXXXXXXXXXXXX" : nik} className='input-textfield' onChange={(e) => setNik(e.target.value)} />
+                                                                    <OutlinedInput type='text' placeholder={nik == null ? "XXXXXXXXXXXXXXXXX" : nik} className='input-textfield' onChange={(e) => setNik(e.target.value)} required />
                                                                 </FormControl>
                                                             </div>
                                                         </Col>
@@ -404,7 +404,7 @@ export default function Register() {
                                                             <div className='mb-3'>
                                                                 <p className='input-label-text'>Nomor Kartu Keluarga</p>
                                                                 <FormControl className='no-border' variant='standard' fullWidth>
-                                                                    <OutlinedInput type='text' placeholder={noKK == null ? "XXXXXXXXXXXXXX" : noKK} className='input-textfield' onChange={(e) => setNoKK(e.target.value)} />
+                                                                    <OutlinedInput type='text' placeholder={noKK == null ? "XXXXXXXXXXXXXX" : noKK} className='input-textfield' onChange={(e) => setNoKK(e.target.value)} required />
                                                                 </FormControl>
                                                             </div>
                                                         </Col>
@@ -412,7 +412,7 @@ export default function Register() {
                                                             <div className='mb-3'>
                                                                 <p className='input-label-text'>Nomor Passport</p>
                                                                 <FormControl className='no-border' variant='standard' fullWidth>
-                                                                    <OutlinedInput type='text' placeholder={noPass == null ? "XXXXXXXXXXXXXXXXXXXX" : noPass} className='input-textfield' onChange={(e) => setNoPass(e.target.value)} />
+                                                                    <OutlinedInput type='text' placeholder={noPass == null ? "XXXXXXXXXXXXXXXXXXXX" : noPass} className='input-textfield' onChange={(e) => setNoPass(e.target.value)} required />
                                                                 </FormControl>
                                                             </div>
                                                         </Col>
@@ -422,7 +422,7 @@ export default function Register() {
                                                             <div className='mb-3'>
                                                                 <p className='input-label-text'>KTP</p>
                                                                 <FormControl className='no-border' variant='standard' fullWidth>
-                                                                    <OutlinedInput type='file' placeholder='08XXXXXXXXXXXX' className='input-textfield' onChange={(e) => setKtpImage(e.target.files[0])} />
+                                                                    <OutlinedInput type='file' placeholder='08XXXXXXXXXXXX' className='input-textfield' onChange={(e) => setKtpImage(e.target.files[0])} required />
                                                                 </FormControl>
                                                             </div>
                                                         </Col>
@@ -430,7 +430,7 @@ export default function Register() {
                                                             <div className='mb-3'>
                                                                 <p className='input-label-text'>Kartu Keluarga</p>
                                                                 <FormControl className='no-border' variant='standard' fullWidth>
-                                                                    <OutlinedInput type='file' placeholder='08XXXXXXXXXXXX' className='input-textfield' onChange={(e) => setKkImage(e.target.files[0])} />
+                                                                    <OutlinedInput type='file' placeholder='08XXXXXXXXXXXX' className='input-textfield' onChange={(e) => setKkImage(e.target.files[0])} required />
                                                                 </FormControl>
                                                             </div>
                                                         </Col>
@@ -438,7 +438,7 @@ export default function Register() {
                                                             <div className='mb-3'>
                                                                 <p className='input-label-text'>Passport</p>
                                                                 <FormControl className='no-border' variant='standard' fullWidth>
-                                                                    <OutlinedInput type='file' placeholder='08XXXXXXXXXXXX' className='input-textfield' onChange={(e) => setPassImage(e.target.files[0])} />
+                                                                    <OutlinedInput type='file' placeholder='08XXXXXXXXXXXX' className='input-textfield' onChange={(e) => setPassImage(e.target.files[0])} required />
                                                                 </FormControl>
                                                             </div>
                                                         </Col>
